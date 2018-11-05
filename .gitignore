@@ -48,3 +48,5 @@ _docs
 
 # lock
 yarn.lock
+
+/build/
