@@ -1,5 +1,5 @@
 {
-  "name": "componenttools",
+  "name": "simple-component-react",
   "version": "1.0.0",
   "description": "组件库",
   "main": "webpack.config.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zyd317/componentTools.git"
+    "url": "git+https://github.com/zyd317/simple-component-react.git"
   },
   "keywords": [
     "component"
@@ -20,9 +20,9 @@
   "author": "yidi.zhao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zyd317/componentTools/issues"
+    "url": "https://github.com/zyd317/simple-component-react/issues"
   },
-  "homepage": "https://github.com/zyd317/componentTools#readme",
+  "homepage": "https://github.com/zyd317/simple-component-react#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.24.0",
