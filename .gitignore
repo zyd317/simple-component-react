@@ -29,6 +29,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+build
 
 # Optional npm cache directory
 .npm
@@ -48,5 +49,3 @@ _docs
 
 # lock
 yarn.lock
-
-/build/
