@@ -9,10 +9,17 @@
 npm install componentTools --save
 ```
 
-### Bundle
+### use
 
 ```
-webpack
+    import CompWrapperTool from '../src/index.js';
+    const {Animation, CompWrapper, Toast} = CompWrapperTool;
+    const AnimateToast = Animation(Toast);
+    render(
+        <CompWrapper toastA={AnimateToast} toast={Toast}/>,
+        document.getElementById('app')
+    );
+    window.COMPONENT.open('toast', config)
 ```
 
 ### todos
