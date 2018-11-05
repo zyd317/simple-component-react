@@ -8,8 +8,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        index: path.join(__dirname, './test/index.js'), // index入口
-        lib: path.join(__dirname, './test/lib.js') // 单独打包库
+        index: path.join(__dirname, './test/index.test.js'), // index入口
+        lib: path.join(__dirname, './test/lib.test.js') // 单独打包库
     },
     output: {
         path: path.join(__dirname, 'build'),
