@@ -2,8 +2,8 @@
 ```
     import CooperateComponent from '../CooperateComponent';
     import Calendar from '../Calendar';
-    <CooperateComponent calendar={Calendar} />
-    
+    <CooperateComponent classNa="className" calendar={Calendar} />
+
     打开组件：
         window.COMPONENT.open("calendar", connfig);
     关闭组件:

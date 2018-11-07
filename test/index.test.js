@@ -1,4 +1,4 @@
-import React from '../build/lib.bundle.js';
+import React from 'react';
 import {render} from 'react-dom';
 import CompWrapperTool from '../src/index.js';
 const {Animation, CompWrapper, Toast} = CompWrapperTool;
