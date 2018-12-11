@@ -1,9 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import CompWrapperTool from '../src/index.js';
-const {Animation, CompWrapper, Toast} = CompWrapperTool;
-const AnimateToast = Animation(Toast);
+import {CompWrapper, PopAlertCoo} from '../src/index.js';
 render(
-    <CompWrapper toastA={AnimateToast} toast={Toast}/>,
+    <CompWrapper PopAlertCoo={PopAlertCoo}/>,
     document.getElementById('app')
 );

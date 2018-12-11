@@ -52,7 +52,7 @@ export default class CompWrapper extends Component {
     render() {
         const {state, props} = this;
         const {renderCompName} = state;
-        const {classNa} = props;
+        const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
         return (
             <div className={classNa}>{
