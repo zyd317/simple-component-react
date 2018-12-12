@@ -45,6 +45,16 @@
     }
   }
 
+  &.top{
+    .content{
+      bottom: 48px;
+    }
+    .hover_arrow_icon{
+      top: 18px;
+      transform: rotate(45deg);
+    }
+  }
+
   &:hover{
     .content{
       display: block;
