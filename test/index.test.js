@@ -9,6 +9,6 @@ render(
 );
 
 render(
-    <HoverAlert tips='dfnskjfnjreknfejkrgnrejkgbekgberhjkgberbgejkrb' width={250}/>,
+    <HoverAlert tips='dfnskjfnjreknfejkrgnrejkgbekgberhjkgberbgejkrb' width={150}/>,
     document.getElementById('app1')
 );
