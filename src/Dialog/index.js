@@ -3,7 +3,7 @@
  * modal component only for show
  */
 import React from 'react';
-import './index.less';
+import './index.scss';
 const fn = ()=>{};
 
 export default function DialogCoo(props){
@@ -34,10 +34,15 @@ export default function DialogCoo(props){
             <div className="modal" onClick={state.close}/>
             <div className="dialog">
                 {getTitle(state.title, state.showCloseIcon, state.close)}
-                <div className="dialog-body">{ state.children }</div>
-                <div className="dialog-footer">
-                    { state.buttons.map((item, i) => getButton(item, i)) }
-                </div>
+                {
+                    state.children ? <div className="dialog-body">{state.children}</div> : null
+                }
+                {
+                    state.buttons && state.buttons.length ?
+                    <div className="dialog-footer">
+                        { state.buttons.map((item, i) => getButton(item, i)) }
+                    </div> : null
+                }
             </div>
         </div>
     );
@@ -61,6 +66,6 @@ function getTitle (title, showCloseIcon, close) {
 function getButton (item, key) {
     const { fn, text, ...itemProps } = item;
     return (
-        <div key={key} onClick={fn} {...itemProps}>{text}</div>
+        <div key={key} onClick={fn} {...itemProps} className='button'>{text}</div>
     );
 }

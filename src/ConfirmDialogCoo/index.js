@@ -2,8 +2,8 @@
  * 确认窗口
  */
 import React, { Component } from 'react';
-import DialogCoo from '../DialogCoo/index';
-import './index.less';
+import DialogCoo from '../Dialog/index';
+import './index.scss';
 const confirmDisplayString = {
     deleteConfirm: {
         title: '删除确认',
@@ -73,7 +73,7 @@ class ConfirmDialog extends Component {
         super(props);
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
-        this.state={
+        this.state = {
             hide: true,
             contentKey: 'confirm', // alert
             dialogType: 'deleteConfirm',
@@ -113,7 +113,6 @@ class ConfirmDialog extends Component {
           return (
               <DialogCoo
                   title={this.getContent()}
-                  showCloseIcon={false}
                   customClassName="confirm-dialog-coo"
                   closeCall={this.close}
                   btns={[
@@ -121,10 +120,7 @@ class ConfirmDialog extends Component {
                           type: 'negative',
                           className: '',
                           text: '确定',
-                          fn: (param)=>{
-                              this.close("noTea");
-                              handleSure(param);
-                              },
+                          fn: handleSure,
                       },
                       {
                           type: 'default',
@@ -133,7 +129,7 @@ class ConfirmDialog extends Component {
                           fn: this.close,
                       },
                   ]}
-              />
+              >{null}</DialogCoo>
           );
       }
 
@@ -154,7 +150,7 @@ class ConfirmDialog extends Component {
                       }
                   }}
                   ]}
-          />
+          >{null}</DialogCoo>
       );
   }
 

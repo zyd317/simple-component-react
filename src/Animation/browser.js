@@ -1,5 +1,5 @@
 /**
- * Created by yidi.zhao on 2018/5/11.
+ * Created by yidi.zhao on 2018/11/11.
  */
 let ySniff = {
     browsers: {},

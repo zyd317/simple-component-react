@@ -6,7 +6,11 @@
     right: 0;
     z-index: 99999;
     height: 100%;
-    overflow-y: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     .modal {
         position: fixed;
         top: 0;
@@ -15,19 +19,13 @@
         opacity: 0.5;
         background: #333;
         z-index: 1000;
-        transition: all 0.2s ease-out;
     }
     .dialog {
-        position: relative;
-        width: 500px;
+        text-align: center;
         background: #fff;
-        z-index: 1000;
         border-radius: 5px;
-        box-shadow: 0 0 5px #333;
-        margin: 0 auto 40px;
         overflow: hidden;
-        top: 100px;
-        transition: all 0.2s ease-out;
+        z-index: 1000;
     }
     .dialog-hide {
         .modal {
@@ -48,9 +46,12 @@
         }
     }
     .dialog-header {
-        position: relative;
-        padding: 15px;
-        border-bottom: solid 1px #e8e8e8;
+        height: 80px;
+        text-align: center;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .title {
             font-size: 16px;
         }
@@ -73,14 +74,27 @@
         overflow: auto;
     }
     .dialog-footer {
-        height: 80px;
+        display: flex;
         text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #e8e8e8;
         padding: 20px 0;
-        button {
-            background-color: #f1f1f1;
-            margin-left: 40px;
+        .button {
+            height: 40px;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 10px 30px;
+            border-radius: 4px;
+            margin-right: 40px;
+            box-sizing: border-box;
+            color: rgb(102, 102, 102);
+            background-color: rgb(250, 250, 250);
+            border: 1px solid rgb(217, 217, 217);
             &:first-of-type {
-                margin-left: 0;
+                border: 0;
+                color: #fff;
+                background-color: #ed4040;
             }
         }
     }
