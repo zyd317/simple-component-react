@@ -23,4 +23,4 @@ npm install simple-component-react --save
 ```
 
 ### todos
-[]
+    [ ] autoprefixer add

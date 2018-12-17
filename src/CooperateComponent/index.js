@@ -55,9 +55,11 @@ export default class CompWrapper extends Component {
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
         return (
-            <div className={classNa}>{
-                comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
-            }</div>
+            <div className={classNa}>
+                {
+                    comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
+                }
+            </div>
         )
     }
 }

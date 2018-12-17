@@ -50,10 +50,7 @@ export default BeWrappedComponent => {
         }
 
         _componentRender() {
-            return <BeWrappedComponent
-                {...this.props}
-                ref = {this.storeRef.bind(this)}
-            />
+            return <BeWrappedComponent{...this.props} ref = {this.storeRef.bind(this)}/>
         }
 
         render() {

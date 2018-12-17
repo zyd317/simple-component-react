@@ -9,6 +9,6 @@ render(
 );
 
 render(
-    <HoverAlert tips='dfnskjfnjreknfejkrg' width={150} position='top'/>,
+    <HoverAlert tips='测试一下hover的弹窗' width={150} position='top'/>,
     document.getElementById('app1')
 );
