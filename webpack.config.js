@@ -1,36 +1,41 @@
-const webpack = require('webpack'),
+/**
+ * 一个webpack配置的模板，当前为dev环境
+ * @type {webpack}
+ */
+let webpack = require('webpack'),
     path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    mode: process.env.NODE_ENV || 'production',
-    devtool: 'source-map',
-    entry: './src/index.js',
+    entry: {
+        index: path.join(__dirname, './src/index.js'),
+        indexTest: path.join(__dirname, './test/index.test.js'),
+    },
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].min.js',
-        library: 'ReactToastify',
-        libraryTarget: 'umd',
+        publicPath: '/dist/',
+        library: 'SimpleComponent',
+        libraryTarget: "umd",
     },
     module: {
-        rules: [
+        rules:[
             {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: [{
+                    loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                }]
+            },
+            {
+                test: /\.([s]?css)|(less)$/,
+                use: [{
+                    loader: 'style-loader'
+                },{
+                    loader: 'css-loader'
+                },{
+                    loader: 'sass-loader'
+                }]
             }
         ]
-    },
-    externals: [
-        'react',
-        'react-dom',
-        'prop-types',
-        'react-transition-group',
-        'classnames'
-    ],
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        })
-    ]
+    }
 };

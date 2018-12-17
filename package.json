@@ -20,18 +20,8 @@
     "index.d.ts"
   ],
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "test": "cross-env NODE_ENV=test jest",
-    "test:coverage": "cross-env NODE_ENV=test jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint src/",
-    "lint:fix": "eslint --fix src/",
-    "prettier-all": "prettier --single-quote --write 'src/**/*.js'",
-    "prebuild": "npm run test",
-    "build": "npm run build:es && npm run build:umd && npm run style",
-    "build:es": "npm run clean:es && cross-env NODE_ENV=production babel --ignore=src/__tests__ src -d lib",
-    "build:umd": "npm run clean:umd && cross-env NODE_ENV=production webpack",
-    "clean:es": "rimraf lib/*",
-    "clean:umd": "rimraf dist/*"
+    "start": "webpack -w",
+    "test": "cross-env NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
