@@ -1,11 +1,11 @@
 /**
  * 一个webpack配置的模板，当前为dev环境
- * @type {webpack}
  */
 let webpack = require('webpack'),
     path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry: {
         index: path.join(__dirname, './src/index.js'),
         indexTest: path.join(__dirname, './test/index.test.js'),
@@ -27,7 +27,7 @@ module.exports = {
                 }]
             },
             {
-                test: /\.([s]?css)|(less)$/,
+                test: /\.[s]?css$/,
                 use: [{
                     loader: 'style-loader'
                 },{
@@ -37,5 +37,13 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    // webpack-dev-server,下方配置
+    devServer: {
+        contentBase: "./", // 需要操作的文件目录
+        hot:true // 启用 webpack 的模块热替换特性
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(), // 模块热更新
+    ]
 };

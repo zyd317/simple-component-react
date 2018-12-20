@@ -1,6 +1,10 @@
+/**
+ * 测试一下component组件的展示
+ * 测试一下hoverTips组件的展示
+ */
 import React from 'react';
 import {render} from 'react-dom';
-import {CompWrapper, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} from '../src/index.js';
+const {CompWrapper, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../dist/index.min.js') ;
 const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 render(
@@ -9,6 +13,6 @@ render(
 );
 
 render(
-    <HoverAlert tips='测试一下hover的弹窗' width={150} position='top'/>,
-    document.getElementById('app1')
+    <HoverAlert tips='测试一下hoverTips' width={150} position='top'/>,
+    document.getElementById('hoverTips')
 );
