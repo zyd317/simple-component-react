@@ -17,5 +17,3 @@ render(
     <HoverAlert tips='测试一下hoverTips' width={150} position='top'/>,
     document.getElementById('hoverTips')
 );
-
-window.CompManager = CompManager;
