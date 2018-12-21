@@ -4,23 +4,17 @@
   "description": "组件库",
   "keywords": [
     "react",
-    "notification",
-    "toast",
     "react-component",
-    "react-toastify",
-    "push",
     "alert"
   ],
   "main": "dist/index.min.js",
   "files": [
-    "lib",
     "dist",
     "src",
-    "scss",
-    "index.d.ts"
+    "scss"
   ],
   "scripts": {
-    "start": "webpack -w",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "repository": {

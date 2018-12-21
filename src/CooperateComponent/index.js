@@ -2,6 +2,7 @@
  * Created by yidi.zhao on 2018/5/11.
  */
 import React, {Component} from 'react';
+import {createPortal} from 'react-dom';
 import { createEvent, dispatchEvent } from "./eventUtils";
 
 window.COMPONENT = {
@@ -30,9 +31,19 @@ export default class CompWrapper extends Component {
     constructor(props) {
         super(props);
         let self = this;
+        const component = document.getElementById('COMPONENT');
+        if(component){
+            this.node = component;
+        } else {
+            const doc = window.document;
+            this.node = doc.createElement('div');
+            this.node.setAttribute('id', 'COMPONENT');
+            doc.body.appendChild(this.node);
+        }
         this.state = {
             renderCompName: ''
         };
+
         window.addEventListener('componentchange', (e) => {
             let {action, config, name} = e.detail || {};
             if(name && action && props[name]) {
@@ -54,12 +65,14 @@ export default class CompWrapper extends Component {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        return (
+        debugger
+        return createPortal(
             <div className={classNa}>
                 {
                     comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
                 }
-            </div>
+            </div>,
+            this.node
         )
     }
 }

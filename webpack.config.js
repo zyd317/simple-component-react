@@ -1,8 +1,7 @@
 /**
  * 一个webpack配置的模板，当前为dev环境
  */
-let webpack = require('webpack'),
-    path = require('path');
+let path = require('path');
 
 module.exports = {
     mode: 'production',
@@ -37,13 +36,5 @@ module.exports = {
                 }]
             }
         ]
-    },
-    // webpack-dev-server,下方配置
-    devServer: {
-        contentBase: "./", // 需要操作的文件目录
-        hot:true // 启用 webpack 的模块热替换特性
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(), // 模块热更新
-    ]
+    }
 };

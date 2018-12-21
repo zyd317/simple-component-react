@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {CompWrapper, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../dist/index.min.js') ;
+const {CompWrapper, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
 const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 render(
