@@ -33,6 +33,7 @@
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.3",
     "babel": "^6.23.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^7.0.0",

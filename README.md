@@ -1,5 +1,5 @@
 # simple-component-react
-一个组件的库，使用react，支持组件分离
+·一个组件的库，使用react，支持组件分离
 
 ## Usage
 
@@ -43,5 +43,6 @@ npm install simple-component-react --save
 
 ### todos
 
-- [ ] autoprefixer add
-- [X] 收敛window全局变量
+- [X] 收敛window全局变量，去掉全局变量污染
+- [X] autoprefixer add
+- [X] 将组件渲染到最外层的body子元素下
