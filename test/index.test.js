@@ -4,7 +4,8 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {CompWrapper, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
+const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
+const {CompManager, CompWrapper} = COMPONENT;
 const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 render(
@@ -16,3 +17,5 @@ render(
     <HoverAlert tips='测试一下hoverTips' width={150} position='top'/>,
     document.getElementById('hoverTips')
 );
+
+window.CompManager = CompManager;

@@ -2,20 +2,20 @@
  * Created by yidi.zhao on 2018/5/11.
  */
 import React, {Component} from 'react';
-import {createPortal} from 'react-dom';
+import {createPortal, render} from 'react-dom';
 import { createEvent, dispatchEvent } from "./eventUtils";
 
-window.COMPONENT = {
-    open: function (comp, config) {
+const CompManager = {
+    open: function(comp, config){
         this._action(comp, config, 'open');
     },
-    update: function (comp, config) {
+    update: function(comp, config){
         this._action(comp, config, 'update');
     },
-    close: function (comp) {
+    close: function(comp){
         this._action(comp, {}, 'close');
     },
-    _action: function (comp, config, action) {
+    _action: function(comp, config, action){
         if(comp) {
             let evt = createEvent('componentchange', {
                 name: comp,
@@ -27,7 +27,7 @@ window.COMPONENT = {
     }
 };
 
-export default class CompWrapper extends Component {
+class CompWrapper extends Component {
     constructor(props) {
         super(props);
         let self = this;
@@ -59,13 +59,11 @@ export default class CompWrapper extends Component {
             }
         });
     }
-
     render() {
         const {state, props} = this;
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        debugger
         return createPortal(
             <div className={classNa}>
                 {
@@ -76,3 +74,8 @@ export default class CompWrapper extends Component {
         )
     }
 }
+
+module.exports = {
+    CompManager,
+    CompWrapper
+};
