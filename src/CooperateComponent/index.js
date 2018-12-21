@@ -3,30 +3,6 @@
  */
 import React, {Component} from 'react';
 import {createPortal, render} from 'react-dom';
-import { createEvent, dispatchEvent } from "./eventUtils";
-
-const CompManager = {
-    open: function(comp, config){
-        this._action(comp, config, 'open');
-    },
-    update: function(comp, config){
-        this._action(comp, config, 'update');
-    },
-    close: function(comp){
-        this._action(comp, {}, 'close');
-    },
-    _action: function(comp, config, action){
-        if(comp) {
-            let evt = createEvent('componentchange', {
-                name: comp,
-                action: action,
-                config: config
-            });
-            dispatchEvent(window, evt);
-        }
-    }
-};
-
 class CompWrapper extends Component {
     constructor(props) {
         super(props);
@@ -64,18 +40,17 @@ class CompWrapper extends Component {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        return createPortal(
+        return(
             <div className={classNa}>
                 {
                     comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
                 }
-            </div>,
-            this.node
+            </div>
         )
     }
 }
 
 module.exports = {
-    CompManager,
+    CompManager: require('./ComponentManager'),
     CompWrapper
 };

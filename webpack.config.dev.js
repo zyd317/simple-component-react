@@ -1,8 +1,8 @@
 /**
  * 一个webpack配置的模板，当前为dev环境
  */
-let webpack = require('webpack'),
-    path = require('path');
+let path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     mode: 'development',
@@ -11,9 +11,9 @@ module.exports = {
         indexTest: path.join(__dirname, './test/index.test.js'),
     },
     output: {
-        path: path.join(__dirname, 'devDist'),
+        path: path.join(__dirname, 'dist'),
         filename: '[name].min.js',
-        publicPath: '/devDist/',
+        publicPath: '/dist/',
         library: 'SimpleComponent',
         libraryTarget: "umd",
     },
@@ -34,16 +34,26 @@ module.exports = {
                     loader: 'css-loader'
                 },{
                     loader: 'sass-loader'
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        ident: 'postcss',
+                        plugins: () => [
+                            autoprefixer({
+                                browsers: [
+                                    '>1%',
+                                    'last 4 versions',
+                                    'Firefox ESR',
+                                    'not ie < 9'
+                                ],
+                                flexbox: 'no-2009',
+                                remove: false
+                            })
+                        ]
+                    }
                 }]
             }
         ]
-    },
-    // webpack-dev-server,下方配置
-    devServer: {
-        contentBase: "./", // 需要操作的文件目录
-        hot:true // 启用 webpack 的模块热替换特性
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(), // 模块热更新
-    ]
+    }
 };
