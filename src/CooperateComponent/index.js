@@ -2,7 +2,7 @@
  * Created by yidi.zhao on 2018/5/11.
  */
 import React, {Component} from 'react';
-import {createPortal, render} from 'react-dom';
+import {createPortal} from 'react-dom';
 class CompWrapper extends Component {
     constructor(props) {
         super(props);
@@ -40,12 +40,13 @@ class CompWrapper extends Component {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        return(
+        return createPortal(
             <div className={classNa}>
                 {
                     comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
                 }
-            </div>
+            </div>,
+            this.node
         )
     }
 }
