@@ -42,4 +42,6 @@ npm install simple-component-react --save
 ```
 
 ### todos
-- [] autoprefixer add
+
+- [ ] autoprefixer add
+- [X] 收敛window全局变量
