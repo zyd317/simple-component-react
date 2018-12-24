@@ -18,6 +18,7 @@ render(
     <CompWrapper PopAlertCoo={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate}/>,
     document.getElementById('component')
 );
+
 window.COMPONENT = CompManager;
 // 调用PopAlertCoo组件，提示弹窗
 CompManager.open('PopAlertCoo', {
