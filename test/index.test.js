@@ -10,7 +10,7 @@ const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 
 render(
-    <HoverAlert tips='测试一下hoverTips' width={150} position='top'/>,
+    <HoverAlert tips='定时发表后文章正常审核，审核通过后，在设定的时间放出、推荐给读者' position='top'/>,
     document.getElementById('hoverTips')
 );
 
@@ -21,10 +21,10 @@ render(
 
 window.COMPONENT = CompManager;
 // 调用PopAlertCoo组件，提示弹窗
-CompManager.open('PopAlertCoo', {
-    content: '删除成功', // 内容
-    status: 'warning', // 图案，提示类型。支持warning/success/error
-});
+// CompManager.open('PopAlertCoo', {
+//     content: '删除成功', // 内容
+//     status: 'warning', // 图案，提示类型。支持warning/success/error
+// });
 
 // 调用ConfirmDialogCoo组件，确认弹窗
 // CompManager.open('ConfirmDialogCoo', {

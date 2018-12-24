@@ -1,7 +1,6 @@
 .m_hover_container{
   position: relative;
-  font-size: 13px;
-  margin: 200px;
+  font-size: 12px;
   .icon{
     width: 12px;
     height: 12px;
@@ -14,6 +13,7 @@
     position: relative;
   }
   .content{
+    text-align: center;
     color: #666;
     position: relative;
     z-index: 100;
@@ -29,6 +29,7 @@
       position: relative;
       max-width: 500px;
       word-break: break-word;
+      z-index: 1;
     }
     .hover_arrow_icon{
       position: absolute;
@@ -50,7 +51,7 @@
       bottom: 48px;
     }
     .hover_arrow_icon{
-      top: 18px;
+      top: 17px;
       transform: rotate(45deg);
     }
   }
