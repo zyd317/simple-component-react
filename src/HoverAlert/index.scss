@@ -13,22 +13,21 @@
     position: relative;
   }
   .content{
-    text-align: center;
     color: #666;
-    position: relative;
+    position: absolute;
     z-index: 100;
     background-color: #fff;
     box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     padding: 3px 10px;
     display: none;
-    bottom: -11px;
     left: 2px;
 
     .hover_content_main{
       position: relative;
       max-width: 500px;
       word-break: break-word;
+      white-space: nowrap;
       z-index: 1;
     }
     .hover_arrow_icon{
@@ -38,20 +37,28 @@
       border: 1px solid #e8e8e8;
       border-top-width: 0;
       border-left: 0;
-      transform: rotate(-135deg);
-      top: -7px;
       left: 50%;
       margin-left: -12px;
       background: #fff;
     }
   }
 
-  &.top{
+  &.bottom{
     .content{
-      bottom: 48px;
+      top: 25px;
     }
     .hover_arrow_icon{
-      top: 17px;
+      top: -7px;
+      transform: rotate(-135deg);
+    }
+  }
+
+  &.top{
+    .content{
+      bottom: 25px;
+    }
+    .hover_arrow_icon{
+      bottom: -7px;
       transform: rotate(45deg);
     }
   }

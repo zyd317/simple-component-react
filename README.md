@@ -18,8 +18,20 @@ npm install simple-component-react --save
     const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 
     render(
-        <HoverAlert tips='测试一下hoverTips' width={150} position='top'/>,
-        document.getElementById('hoverTips')
+        <HoverAlert tips='测试一下一行的bottom' position='bottom'/>,
+        document.getElementById('hoverTipsOneBottom')
+    );
+    render(
+        <HoverAlert tips='测试一下多行行的bottom<br />bottom<br />测试一下' position='bottom'/>,
+        document.getElementById('hoverTipsBottom')
+    );
+    render(
+        <HoverAlert tips='top<br />测试一下多行行的top' position='top'/>,
+        document.getElementById('hoverTipsTop')
+    );
+    render(
+        <HoverAlert tips='测试一下一行的top' position='top'/>,
+        document.getElementById('hoverTipsOneTop')
     );
 
     render(
