@@ -3,11 +3,10 @@ import './index.scss';
 /**
  * 都需要传入正确的width，保证剧中
  * top只支持单行展示
- * 默认是bottom，支持多行
- * left todo
+ * 默认是bottom，支持多行<br />换行
  */
 export default function HoverContainer(props) {
-    const {tips, className, position} = props;
+    const {tips, className, position="top"} = props;
     const style = {};
     // 如果是单行的话水平居中
     if(!tips.split('<br />')){
