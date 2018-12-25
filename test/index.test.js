@@ -26,6 +26,23 @@ render(
     document.getElementById('hoverTipsOneTop')
 );
 
+render(
+    <HoverAlert tips='测试一下一行的left' position='left'/>,
+    document.getElementById('hoverTipsOneLeft')
+);
+render(
+    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='left'/>,
+    document.getElementById('hoverTipsLeft')
+);
+render(
+    <HoverAlert tips='测试一下一行的right' position='right'/>,
+    document.getElementById('hoverTipsOneRight')
+);
+render(
+    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='right'/>,
+    document.getElementById('hoverTipsRight')
+);
+
 // render(
 //     <CompWrapper PopAlertCoo={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate}/>,
 //     document.getElementById('component')
