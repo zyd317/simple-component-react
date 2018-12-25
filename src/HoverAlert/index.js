@@ -6,7 +6,7 @@ import './index.scss';
  * 默认是bottom，支持多行<br />换行
  */
 export default function HoverContainer(props) {
-    const {tips, className, position="top"} = props;
+    const {tips, className='', position="top"} = props;
     const style = {};
     // 如果是单行的话水平居中
     if(!tips.split('<br />')){
