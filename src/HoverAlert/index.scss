@@ -1,18 +1,18 @@
 .m_hover_container{
   position: relative;
   font-size: 12px;
-  height: 12px;
   width: 12px;
   display: inline-block;
   .icon{
     width: 12px;
     height: 12px;
+    line-height: 12px;
     box-sizing: content-box;
-    transform: scale(.8);
+    transform: scale(0.8) translateY(-65%);
+    top: 50%;
     border: 1px solid #ffa354;
     font-size: 12px;
     text-align: center;
-    line-height: 12px;
     border-radius: 12px;
     color: #ffa354;
     position: relative;
