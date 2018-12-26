@@ -43,6 +43,13 @@ render(
     document.getElementById('hoverTipsRight')
 );
 
+render(
+    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='right'>
+        <span>测试一下children</span>
+    </HoverAlert>,
+    document.getElementById('hoverTipsRight')
+);
+
 // render(
 //     <CompWrapper PopAlertCoo={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate}/>,
 //     document.getElementById('component')
