@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
+const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert, HoverContainer} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
@@ -48,6 +48,14 @@ render(
         <span>测试一下children</span>
     </HoverAlert>,
     document.getElementById('hoverTipsRight')
+);
+
+render(
+    <HoverContainer position='right' icon={<span><span>修改</span>修改</span>}>
+        <div>测试一下children</div>
+        <div>测试一下children1</div>
+    </HoverContainer>,
+    document.getElementById('hoverContainerRight')
 );
 
 // render(

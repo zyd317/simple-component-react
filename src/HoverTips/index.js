@@ -1,7 +1,6 @@
 import React from 'react';
 import './index.scss';
 /**
- * 都需要传入正确的width，保证剧中
  * top只支持单行展示
  * 默认是bottom，支持多行<br />换行
  */
@@ -13,7 +12,7 @@ export default function HoverContainer(props) {
         style.textAlign = 'center';
     }
     return (
-        <div className={`m_hover_container ${children ? 'init_icon' : ''} ${className} ${position}`}>
+        <div className={`m_hover_container_tips ${children ? 'init_icon' : ''} ${className} ${position}`}>
             {children ? children : <div className='icon'>?</div>}
             <div className='content' style={style}>
                 <div className="hover_content_main" dangerouslySetInnerHTML={{__html: tips}}/>
