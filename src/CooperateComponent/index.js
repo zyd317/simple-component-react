@@ -7,6 +7,7 @@ class CompWrapper extends Component {
     constructor(props) {
         super(props);
         let self = this;
+        this.renderCompRef = {};
         const component = document.getElementById('COMPONENT');
         if(component){
             this.node = component;
@@ -23,13 +24,13 @@ class CompWrapper extends Component {
         window.addEventListener('componentchange', (e) => {
             let {action, config, name} = e.detail || {};
             if(name && action && props[name]) {
-                if(self.refs[name]) {
-                    self.refs[name][action](config);
+                if(this.renderCompRef[name]) {
+                    this.renderCompRef[name][action](config);
                 } else {
                     self.setState({
                         renderCompName: name
                     }, () => {
-                        self.refs[name][action](config);
+                        this.renderCompRef[name][action](config);
                     })
                 }
             }
@@ -43,7 +44,8 @@ class CompWrapper extends Component {
         return createPortal(
             <div className={classNa}>
                 {
-                    comp ? React.createElement(props[renderCompName], {ref: renderCompName}) : ''
+                    comp ? React.createElement(props[renderCompName],
+                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}) : ''
                 }
             </div>,
             this.node

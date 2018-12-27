@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert, HoverContainer} = require('../src') ;
+const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
@@ -36,23 +36,31 @@ render(
     document.getElementById('hoverTipsLeft')
 );
 
-// render(
-//     <CompWrapper PopAlertCoo={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate}/>,
-//     document.getElementById('component')
-// );
-//
-// window.COMPONENT = CompManager;
-// 调用PopAlertCoo组件，提示弹窗
-// CompManager.open('PopAlertCoo', {
-//     content: '删除成功', // 内容
-//     status: 'warning', // 图案，提示类型。支持warning/success/error
-// });
+render(
+    <CompWrapper PopAlertCooAnimate={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate} PopAlertCoo={PopAlertCoo}/>,
+    document.getElementById('component')
+);
 
-// 调用ConfirmDialogCoo组件，确认弹窗
-// CompManager.open('ConfirmDialogCoo', {
-//     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
-//     title: '提示', // 弹窗的内容
-//     content: '确定删除吗', // 弹窗的内容
-//     handleSure: ()=>{}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
-//     handleClose: ()=>{}, // 关闭按钮的函数，会自动调用
-// });
+// 方便测试，绑定到window上
+window.COMPONENT = CompManager;
+
+// 调用PopAlertCoo组件，提示弹窗
+CompManager.open("PopAlertCooAnimate", {
+    content: '有动画的',
+    status: 'error'
+});
+
+// 调用PopAlertCoo组件，提示弹窗
+CompManager.open("PopAlertCoo", {
+    content: '没有动画的',
+    status: 'success'
+});
+
+// // 调用ConfirmDialogCoo组件，确认弹窗
+CompManager.open('ConfirmDialogCoo', {
+    contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
+    title: '提示', // 弹窗的内容
+    content: '确定删除吗', // 弹窗的内容
+    handleSure: ()=>{}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
+    handleClose: ()=>{}, // 关闭按钮的函数，会自动调用
+});

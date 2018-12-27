@@ -37,6 +37,8 @@ export default BeWrappedComponent => {
             } else {
                 this.setState({
                     status: STATUS_EMUN.INIT
+                }, ()=>{
+                    this.ref.close();
                 })
             }
         }

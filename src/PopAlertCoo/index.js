@@ -12,7 +12,7 @@ class PopAlertCoo extends Component {
         this.open = this.open.bind(this);
         const {delayTime} = this.props;
         this.state = {
-            close: fn, // 关闭弹窗的方式。因为本组件不能控制关闭，否则会丢失一些外部包裹的形式
+            close: this.close || fn, // 关闭弹窗的方式。因为本组件不能控制关闭，否则会丢失一些外部包裹的形式
             content: '', // 文案
             status: 'success', // 提示类型,success/warning/error
             delayTime: delayTime,
