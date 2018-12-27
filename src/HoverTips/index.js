@@ -8,14 +8,17 @@ export default function HoverContainer(props) {
         clas += ' text_center';
     }
     return (
-        <div className={`m_hover_container_tips ${className} ${position}`}>
+        <div {...props} className={`m_hover_container_tips ${className} ${position}`}>
             {icon ? icon : <div className='icon'>?</div>}
-            <div className={clas}>
-                <div className="hover_content_main">
-                    {tips || children}
+            {(tips || children) ?
+                <div className={clas}>
+                    <div className="hover_content_main">
+                        {tips || children}
+                    </div>
+                    <div className="hover_arrow_icon" />
                 </div>
-                <div className="hover_arrow_icon" />
-            </div>
+                : null
+            }
         </div>
     );
 }

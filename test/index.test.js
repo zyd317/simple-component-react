@@ -32,10 +32,7 @@ render(
 );
 
 render(
-    <HoverAlert position='left'>
-        <div>左边悬浮框的例子</div>
-        <div>左边悬浮框的例子</div>
-    </HoverAlert>,
+    <HoverAlert position='left' icon={'啥都不写相当于一个普通div'} onClick={()=>{alert('haha')}} />,
     document.getElementById('hoverTipsLeft')
 );
 
