@@ -10,52 +10,33 @@ const PopAlertCooAnimate = Animation(PopAlertCoo);
 const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 
 render(
-    <HoverAlert tips='测试一下一行的bottom' position='bottom'/>,
-    document.getElementById('hoverTipsOneBottom')
-);
-render(
-    <HoverAlert tips='测试一下多行行的bottom<br />bottom<br />测试一下' position='bottom'/>,
-    document.getElementById('hoverTipsBottom')
-);
-render(
-    <HoverAlert tips='top<br />测试一下多行行的top' position='top'/>,
-    document.getElementById('hoverTipsTop')
-);
-render(
-    <HoverAlert tips='测试一下一行的top' position='top'/>,
-    document.getElementById('hoverTipsOneTop')
+    <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
+    document.getElementById('hoverTipsOne')
 );
 
 render(
-    <HoverAlert tips='测试一下一行的left' position='left'/>,
-    document.getElementById('hoverTipsOneLeft')
-);
-render(
-    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='left'/>,
-    document.getElementById('hoverTipsLeft')
-);
-render(
-    <HoverAlert tips='测试一下一行的right' position='right'/>,
-    document.getElementById('hoverTipsOneRight')
-);
-render(
-    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='right'/>,
-    document.getElementById('hoverTipsRight')
-);
-
-render(
-    <HoverAlert tips='发表时间：2017-01-01<br />定时时间：2017-01-01' position='right'>
-        <span>测试一下children</span>
+    <HoverAlert position='right'>
+        <div>使用多行文本</div>
+        <div>不传icon属性，默认为"？"形式的icon</div>
+        <div>position为悬浮框的位置，支持top/bottom/left/right</div>
+        <div>children是悬浮框里的内容，支持html和string；tips属性只支持string。单行文本自动居中</div>
     </HoverAlert>,
-    document.getElementById('hoverTipsRight')
+    document.getElementById('hoverTips')
 );
 
 render(
-    <HoverContainer position='right' icon={<span><span>修改</span>修改</span>}>
-        <div>测试一下children</div>
-        <div>测试一下children1</div>
-    </HoverContainer>,
-    document.getElementById('hoverContainerRight')
+    <HoverAlert position='bottom' icon={<span>修改一下</span>}>
+        <div>icon支持html和string格式</div>
+    </HoverAlert>,
+    document.getElementById('hoverTipsIcon')
+);
+
+render(
+    <HoverAlert position='left'>
+        <div>左边悬浮框的例子</div>
+        <div>左边悬浮框的例子</div>
+    </HoverAlert>,
+    document.getElementById('hoverTipsLeft')
 );
 
 // render(

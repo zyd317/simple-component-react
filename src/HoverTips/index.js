@@ -1,21 +1,19 @@
 import React from 'react';
 import './index.scss';
-/**
- * top只支持单行展示
- * 默认是bottom，支持多行<br />换行
- */
 export default function HoverContainer(props) {
-    const {tips, className='', position="top", children} = props;
-    const style = {};
+    const {tips, className='', position="top", children, icon} = props;
+    let clas = 'content';
     // 如果是单行的话水平居中
-    if(!tips.split('<br />')){
-        style.textAlign = 'center';
+    if(tips && typeof tips === 'string' && !(/<br \/>/.test(tips))){
+        clas += ' text_center';
     }
     return (
-        <div className={`m_hover_container_tips ${children ? 'init_icon' : ''} ${className} ${position}`}>
-            {children ? children : <div className='icon'>?</div>}
-            <div className='content' style={style}>
-                <div className="hover_content_main" dangerouslySetInnerHTML={{__html: tips}}/>
+        <div className={`m_hover_container_tips ${className} ${position}`}>
+            {icon ? icon : <div className='icon'>?</div>}
+            <div className={clas}>
+                <div className="hover_content_main">
+                    {tips || children}
+                </div>
                 <div className="hover_arrow_icon" />
             </div>
         </div>

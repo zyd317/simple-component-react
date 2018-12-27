@@ -18,26 +18,35 @@ npm install simple-component-react --save
     const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 
     render(
-        <HoverAlert tips='测试一下一行的bottom' position='bottom'/>,
-        document.getElementById('hoverTipsOneBottom')
-    );
-    render(
-        <HoverAlert tips='测试一下多行行的bottom<br />bottom<br />测试一下' position='bottom'/>,
-        document.getElementById('hoverTipsBottom')
-    );
-    render(
-        <HoverAlert tips='top<br />测试一下多行行的top' position='top'/>,
-        document.getElementById('hoverTipsTop')
-    );
-    render(
-        <HoverAlert tips='测试一下一行的top' position='top'/>,
-        document.getElementById('hoverTipsOneTop')
+        <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
+        document.getElementById('hoverTipsOne')
     );
 
     render(
-        <CompWrapper PopAlertCoo={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate}/>,
-        document.getElementById('component')
+        <HoverAlert position='right'>
+            <div>使用多行文本</div>
+            <div>不传icon属性，默认为"？"形式的icon</div>
+            <div>position为悬浮框的位置，支持top/bottom/left/right</div>
+            <div>children是悬浮框里的内容，支持html和string；tips属性只支持string。单行文本自动居中</div>
+        </HoverAlert>,
+        document.getElementById('hoverTips')
     );
+
+    render(
+        <HoverAlert position='bottom' icon={<span>修改一下</span>}>
+            <div>icon支持html和string格式</div>
+        </HoverAlert>,
+        document.getElementById('hoverTipsIcon')
+    );
+
+    render(
+        <HoverAlert position='left'>
+            <div>左边悬浮框的例子</div>
+            <div>左边悬浮框的例子</div>
+        </HoverAlert>,
+        document.getElementById('hoverTipsLeft')
+    );
+
     // 调用PopAlertCoo组件，提示弹窗
     CompManager.open('PopAlertCoo', {
         content: '删除成功', // 内容

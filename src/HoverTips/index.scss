@@ -1,5 +1,4 @@
 .m_hover_container_tips{
-  z-index: 9;
   position: relative;
   display: inline-block;
   font-size: 12px;
@@ -18,12 +17,14 @@
     position: relative;
   }
   .content{
+    z-index: 999;
     color: #666;
     position: absolute;
     background-color: #fff;
     box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    padding: 3px 10px;
+    padding: 6px 10px;
+    line-height: 1.2em;
     display: none;
 
     .hover_content_main{
@@ -31,6 +32,7 @@
       max-width: 500px;
       word-break: break-word;
       white-space: nowrap;
+      z-index: 1;
     }
     .hover_arrow_icon{
       position: absolute;
@@ -49,6 +51,9 @@
       right: 12px;
       margin-right: 100%;
       transform: translateY(-50%);
+      &.text_center{
+        text-align: center;
+      }
     }
     .hover_arrow_icon{
       margin-top: -7px;
