@@ -24,8 +24,12 @@
     box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     padding: 6px 10px;
-    line-height: 1.2em;
+    line-height: 1.5em;
     display: none;
+    &.text_center{
+      text-align: center;
+      line-height: 1.2em;
+    }
 
     .hover_content_main{
       position: relative;
@@ -51,9 +55,6 @@
       right: 12px;
       margin-right: 100%;
       transform: translateY(-50%);
-      &.text_center{
-        text-align: center;
-      }
     }
     .hover_arrow_icon{
       margin-top: -7px;
