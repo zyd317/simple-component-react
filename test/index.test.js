@@ -6,8 +6,6 @@ import React from 'react';
 import {render} from 'react-dom';
 const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
-const PopAlertCooAnimate = Animation(PopAlertCoo);
-const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -36,6 +34,9 @@ render(
     document.getElementById('hoverTipsLeft')
 );
 
+
+const PopAlertCooAnimate = Animation(PopAlertCoo);
+const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
 render(
     <CompWrapper PopAlertCooAnimate={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate} PopAlertCoo={PopAlertCoo}/>,
     document.getElementById('component')
@@ -56,11 +57,10 @@ CompManager.open("PopAlertCoo", {
     status: 'success'
 });
 
-// // 调用ConfirmDialogCoo组件，确认弹窗
+// 调用ConfirmDialogCoo组件，确认弹窗
 CompManager.open('ConfirmDialogCoo', {
     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
     title: '提示', // 弹窗的内容
     content: '确定删除吗', // 弹窗的内容
-    handleSure: ()=>{}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
-    handleClose: ()=>{}, // 关闭按钮的函数，会自动调用
+    handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
 });

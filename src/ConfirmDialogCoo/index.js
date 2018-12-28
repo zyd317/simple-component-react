@@ -7,81 +7,51 @@ import './index.scss';
 class ConfirmDialog extends Component {
     constructor (props) {
         super(props);
-        this.close = this.close.bind(this);
         this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+        // 所有使用close函数的地方，都需要先判断一下，父元素是否传有close，如果传递了的话，需要使用父元素的
+        this.initClose = this.props.handleClose || this.close;
         this.state = {
             hide: true,
             contentType: 'confirm', // alert
             title: '',
             content: '',
-            handleSure: this.close,
-            handleClose: this.close,
+            handleSure: this.initClose,
+            handleClose: this.initClose,
         };
     }
 
-  getContent () {
-      const { contentType, title, content } = this.state;
-      if (!contentType) {
-          return null;
-      }
-      return (
-          <div className="content-body">
-              <div>
-                  <span className="alarm-icon" />
-                  <span className="title">{title}</span>
-              </div>
-              <div className="content">{content}</div>
-          </div>
-      );
-  }
-
   render () {
-      const { handleClose, contentType, handleSure, hide } = this.state;
+      const { handleClose, contentType, handleSure, hide, title, content } = this.state;
       if(hide){
           return null;
       }
       if (contentType === 'confirm') {
           return (
               <DialogCoo
-                  title={this.getContent()}
-                  customClassName="confirm-dialog-coo"
-                  closeCall={this.close}
-                  btns={[
-                      {
-                          type: 'negative',
-                          className: '',
-                          text: '确定',
-                          fn: handleSure,
-                      },
-                      {
-                          type: 'default',
-                          className: '',
-                          text: '取消',
-                          fn: this.close,
-                      },
+                  title={title}
+                  close={this.initClose}
+                  buttons={[
+                      {text: '确定', fn: (param)=>{
+                          handleSure(param);
+                          this.initClose();
+                      }}, {text: '取消', fn: this.initClose},
                   ]}
-              >{null}</DialogCoo>
+              >{content}</DialogCoo>
           );
       }
 
       return (
           <DialogCoo
-              title={this.getContent()}
+              title={title}
               showCloseIcon={false}
-              customClassName="confirm-dialog-coo"
-              closeCall={this.close}
-              btns={[{
-                  type: 'negative',
-                  text: '确定',
-                  fn: (param)=>{
-                      if(handleClose){
-                          handleClose(param);
-                      } else {
-                          this.close();
-                      }
-                  }}
-                  ]}
-          >{null}</DialogCoo>
+              close={this.initClose}
+              buttons={[{text: '确定', fn: (param)=>{
+                  handleClose && handleClose(param);
+                  this.initClose();
+              }}
+              ]}
+          >{content}</DialogCoo>
       );
   }
 

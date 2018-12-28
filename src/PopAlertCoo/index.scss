@@ -4,28 +4,20 @@
         max-width: 400px;
         min-height: 160px;
     }
-    .dialog-footer {
-        height: auto;
-    }
-    .dialog-header {
-        border: 0;
-        .close {
-            top: 90%;
-        }
-    }
     .dialog-status {
         padding-top: 90px;
         background-repeat: no-repeat;
         background-size: 60px 60px;
+        text-align: center;
         background-position: center top;
         &.success {
-            background-image: url(https://p3.pstatp.com/origin/149b0002020d7537a2be);
+            background-image: url(//p3.pstatp.com/origin/149b0002020d7537a2be);
         }
         &.warning {
-            background-image: url(https://p3.pstatp.com/origin/149b000202232a65b6cd);
+            background-image: url(//p3.pstatp.com/origin/149b000202232a65b6cd);
         }
         &.error {
-            background-image: url(https://p3.pstatp.com/origin/149a00054b970ddf9e6a);
+            background-image: url(//p3.pstatp.com/origin/149a00054b970ddf9e6a);
         }
     }
 }

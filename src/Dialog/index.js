@@ -38,7 +38,7 @@ export default function DialogCoo(props){
                     state.children ? <div className="dialog-body">{state.children}</div> : null
                 }
                 {
-                    state.buttons && state.buttons.length ?
+                    (state.buttons && state.buttons.length) ?
                     <div className="dialog-footer">
                         { state.buttons.map((item, i) => getButton(item, i)) }
                     </div> : null
@@ -55,9 +55,10 @@ function getTitle (title, showCloseIcon, close) {
     return (
         <div className="dialog-header">
             <div className="title">{title}</div>
-            {showCloseIcon ?
-                <div className="close"><i className="icon" onClick={close}/></div>
-                : null
+            {
+                showCloseIcon ?
+                    <img className="close" onClick={close} src='../src/Dialog/x.svg'/>
+                    : null
             }
         </div>
     );

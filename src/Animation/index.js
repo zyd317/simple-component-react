@@ -14,13 +14,15 @@ export default BeWrappedComponent => {
     class WrapperComponent extends Component {
         constructor(props) {
             super(props);
+            this.close = this.close.bind(this);
+            this.myRef = React.createRef();
             this.state = {
                 status: STATUS_EMUN.INIT // 默认
             }
         }
 
         open(config) {
-            this.ref.open(config);
+            this.myRef.current.open(config);
             let self = this;
             if (this.props.supportAnimate) {
                 setTimeout(function () {
@@ -33,26 +35,25 @@ export default BeWrappedComponent => {
 
         close() {
             if (!this.props.supportAnimate) {
-                this.ref.close();
+                this.myRef.current.close();
             } else {
                 this.setState({
                     status: STATUS_EMUN.INIT
                 }, ()=>{
-                    this.ref.close();
+                    this.myRef.current.close();
                 })
             }
         }
 
         update() {
-            this.ref.update(...arguments);
+            this.myRef.current.update(...arguments);
         }
 
-        storeRef(ref) {
-            this.ref = ref;
-        }
-
+        /**
+         * 传入handleClose，可以关闭当前组件
+         */
         _componentRender() {
-            return <BeWrappedComponent{...this.props} ref = {this.storeRef.bind(this)}/>
+            return <BeWrappedComponent{...this.props} ref={this.myRef} handleClose={this.close}/>
         }
 
         render() {
@@ -60,14 +61,12 @@ export default BeWrappedComponent => {
             if (!supportAnimate) {
                 return this._componentRender();
             } else {
-                let wrapperClass = ['animate-init'],
-                    {status} = this.state;
+                const wrapperClass = ['animate-init'], {status} = this.state;
                 if (STATUS_EMUN.ANIMATING === status) {
-                    wrapperClass.push('animate-start')
+                    wrapperClass.push('animate-start');
                 }
-                wrapperClass = wrapperClass.join(' ');
                 return (
-                    <div className={wrapperClass}>
+                    <div className={wrapperClass.join(' ')}>
                         {this._componentRender()}
                     </div>
                 )

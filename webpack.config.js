@@ -3,7 +3,6 @@
  */
 let path = require('path');
 const autoprefixer = require('autoprefixer');
-
 module.exports = {
     mode: 'production',
     entry: {

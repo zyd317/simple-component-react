@@ -3,6 +3,7 @@
  */
 let path = require('path');
 const autoprefixer = require('autoprefixer');
+let webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -55,5 +56,13 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    devServer: {
+        contentBase: "./",
+        historyApiFallback: true,
+        hot:true
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(), // 模块热更新
+    ]
 };
