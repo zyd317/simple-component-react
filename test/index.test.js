@@ -51,16 +51,16 @@ CompManager.open("PopAlertCooAnimate", {
     status: 'error'
 });
 
-// 调用PopAlertCoo组件，提示弹窗
-CompManager.open("PopAlertCoo", {
-    content: '没有动画的',
-    status: 'success'
-});
-
-// 调用ConfirmDialogCoo组件，确认弹窗
-CompManager.open('ConfirmDialogCoo', {
-    contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
-    title: '提示', // 弹窗的内容
-    content: '确定删除吗', // 弹窗的内容
-    handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
-});
+// // 调用PopAlertCoo组件，提示弹窗
+// CompManager.open("PopAlertCoo", {
+//     content: '没有动画的',
+//     status: 'success'
+// });
+//
+// // 调用ConfirmDialogCoo组件，确认弹窗
+// CompManager.open('ConfirmDialogCoo', {
+//     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
+//     title: '提示', // 弹窗的内容
+//     content: '确定删除吗', // 弹窗的内容
+//     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
+// });
