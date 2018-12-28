@@ -21,22 +21,23 @@
         z-index: 1000;
     }
     .dialog {
-        text-align: center;
         background: #fff;
-        border-radius: 5px;
-        overflow: hidden;
+        border-radius: 4px;
         z-index: 1000;
-        min-width: 20%;
-        max-width: 40%;
-        padding-bottom: 15px;
+        width: 622px;
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
     }
     .dialog-header {
-        padding: 15px 30px;
+        padding: 20px 20px 0 44px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         .title {
-            font-size: 16px;
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &:before{
                 content: "!";
                 display: inline-block;
@@ -61,33 +62,28 @@
         }
     }
     .dialog-body{
-        max-height: 500px;
-        overflow: auto;
-        border-top: 1px solid #e8e8e8;
-        padding: 20px 30px;
+        padding: 27px 44px 0 44px;
         text-align: left;
-        color: #999;
+        color: #333;
+        font-size: 14px;
     }
     .dialog-footer {
         display: flex;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
+        margin: 32px 44px;
+        justify-content: flex-end;
         .button {
-            height: 38px;
             font-size: 12px;
             cursor: pointer;
-            padding: 10px 48px;
-            margin: 0 20px;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: rgb(102, 102, 102);
-            background-color: rgb(250, 250, 250);
-            border: 1px solid rgb(217, 217, 217);
+            padding: 7px 20px;
+            margin: 0 6px;
+            border-radius: 2px;
+            color: #666;
+            border: 1px solid #ddd;
             &:first-of-type {
+                padding: 8px 20px;
                 border: 0;
                 color: #fff;
-                background-color: #ed4040;
+                background-color: #ef4040;
             }
         }
     }
