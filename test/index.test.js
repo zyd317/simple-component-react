@@ -4,7 +4,8 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
+import DialogCoo from "../src/Dialog";
+const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert, Dialog} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 
 render(
@@ -64,3 +65,14 @@ CompManager.open("PopAlertCooAnimate", {
 //     content: '确定删除吗', // 弹窗的内容
 //     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
 // });
+
+
+render(
+    <Dialog
+        title={'举报此评论'}
+        buttons={[
+            {text: '确定', fn: ()=>{}}, {text: '取消', fn: ()=>{}},
+        ]}
+    >弹窗展示的内容</Dialog>,
+    document.getElementById('dialog')
+);
