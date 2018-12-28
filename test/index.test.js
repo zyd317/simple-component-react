@@ -67,12 +67,12 @@ CompManager.open("PopAlertCooAnimate", {
 // });
 
 
-render(
-    <Dialog
-        title={'举报此评论'}
-        buttons={[
-            {text: '确定', fn: ()=>{}}, {text: '取消', fn: ()=>{}},
-        ]}
-    >弹窗展示的内容</Dialog>,
-    document.getElementById('dialog')
-);
+// render(
+//     <Dialog
+//         title={'举报此评论'}
+//         buttons={[
+//             {text: '确定', fn: ()=>{}}, {text: '取消', fn: ()=>{}},
+//         ]}
+//     >弹窗展示的内容</Dialog>,
+//     document.getElementById('dialog')
+// );

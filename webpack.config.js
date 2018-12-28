@@ -4,7 +4,7 @@
 let path = require('path');
 const autoprefixer = require('autoprefixer');
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: {
         index: path.join(__dirname, './src/index.js'),
         indexTest: path.join(__dirname, './test/index.test.js'),
