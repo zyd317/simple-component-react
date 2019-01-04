@@ -14,7 +14,7 @@ class CompWrapper extends Component {
         } else {
             const doc = window.document;
             this.node = doc.createElement('div');
-            this.node.setAttribute('id', 'COMPONENT');
+            this.node.setAttribute('id', '__COMPONENT');
             doc.body.appendChild(this.node);
         }
         this.state = {
@@ -44,8 +44,10 @@ class CompWrapper extends Component {
         return createPortal(
             <div className={classNa}>
                 {
-                    comp ? React.createElement(props[renderCompName],
-                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}) : ''
+                    comp ? React.createElement(
+                        props[renderCompName],
+                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
+                        ) : ''
                 }
             </div>,
             this.node

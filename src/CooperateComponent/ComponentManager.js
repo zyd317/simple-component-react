@@ -16,12 +16,17 @@ module.exports = {
     },
     _action: function(comp, config, action){
         if(comp) {
-            let evt = createEvent('componentchange', {
-                name: comp,
-                action: action,
-                config: config
-            });
-            dispatchEvent(window, evt);
+            // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
+            const component = document.getElementById('COMPONENT');
+            if(component) {
+                dispatchEvent(window, createEvent('componentchange', {
+                    name: comp,
+                    action: action,
+                    config: config
+                }));
+            } else {
+                throw new Error('需要先注册了CompWrapper才能使用ComponentManager。详情查看https://github.com/zyd317/simple-component-react#readme的CompWrapper使用方式');
+            }
         }
     }
 };
