@@ -79,4 +79,5 @@ CompManager.open('ConfirmDialogCoo', {
 - [X] 将组件渲染到最外层的body子元素下
 - [X] 支持alert组件和comfirm组件
 - [X] 支持组件动画
+- [X] 增加错误提示
 - [ ] 增加移动端组件
