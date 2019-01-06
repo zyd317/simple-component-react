@@ -9,23 +9,21 @@ import ConfirmDialog from '../ConfirmDialog';
 import Animation from '../Animation';
 import CompWrapper from './ComWrapper'
 
+// import的时候，判断__COMPONENTV2是否存在，没有的话render组件到页面中。有的话不需要管了
 function insertDom() {
     const com = document.getElementById('__COMPONENTV2');
-    let node = null;
-    if(com){
-        node = com;
-    } else {
+    if(!com){
         const doc = window.document;
-        node = doc.createElement('div');
+        let node = doc.createElement('div');
         node.setAttribute('id', '__COMPONENTV2');
         doc.body.appendChild(node);
+        const PopAlertAnimate = Animation(PopAlert);
+        const ConfirmDialogAnimate = Animation(ConfirmDialog);
+        render(<CompWrapper PopAlert={PopAlert}
+                            ConfirmDialog={ConfirmDialog}
+                            ConfirmDialogAnimate={ConfirmDialogAnimate}
+                            PopAlertAnimate={PopAlertAnimate}/>, node);
     }
-    const PopAlertAnimate = Animation(PopAlert);
-    const ConfirmDialogAnimate = Animation(ConfirmDialog);
-    render(<CompWrapper PopAlert={PopAlert}
-                        ConfirmDialog={ConfirmDialog}
-                        ConfirmDialogAnimate={ConfirmDialogAnimate}
-                        PopAlertAnimate={PopAlertAnimate}/>, node);
 }
 insertDom();
 
