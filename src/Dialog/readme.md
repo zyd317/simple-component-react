@@ -1,20 +1,29 @@
 ###使用
     ```
     初始化组件
-    <Components Dialog={Dialog}/>
+    import Dialog from '../Dialog/index';
     ```
 ###配置
 ```
-config = {
-    prefixCls: prefixCls || 'pgc-dialog', // dialog的wrapperClass
-    title: title === undefined ? '删除确认' : title, // dialog的title
-    showCloseIcon: showCloseIcon === undefined ? true : showCloseIcon, // 是否展示dialog的关闭按钮
-    btns: btns || [ // dialog按钮内容
-        { type: 'negative', className: '', text: '确认', fn: this.close},
-        {type: 'default', className: '', text: '取消', fn: this.close}],
-    customClassName: customClassName || '',
-    children: children || '确认删除此评论？删除后不可恢复' // 文案
-};
+// this.initClose = this.props.handleClose || this.close
+<Dialog
+  title='这里是dialog的title'
+  showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
+  close={this.initClose} // 关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
+  customClassName='my-class'
+  buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
+      {
+        text: '确定',
+        fn: (param)=>{
+          handleSure(param); // 这种情况是先调用确定按钮的操作，再调用父元素的关闭方法
+          this.initClose();
+          }
+      }, {
+         text: '取消',
+         fn: this.initClose
+      }
+  ]}
+>这里是dialog的内容。如提示语句，输入框等</Dialog>
 
 // 显示
 COMPONENT.open('Dialog', config);

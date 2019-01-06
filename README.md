@@ -12,7 +12,7 @@ npm install simple-component-react --save
 ### use
 
 ```
-const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert} = require('../src') ;
+const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 
 render(
@@ -78,6 +78,27 @@ CooperateComponentV2.open("PopAlertAnimate", {
     content: '有动画的',
     status: 'error'
 });
+
+
+// this.initClose = this.props.handleClose || this.close
+<Dialog
+  title='这里是dialog的title'
+  showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
+  close={this.initClose} // 点击dialog的时候会调用。关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
+  customClassName='my-class'
+  buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
+      {
+        text: '确定',
+        fn: (param)=>{
+          handleSure(param); // 这种情况是先调用确定按钮的操作，再调用父元素的关闭方法
+          this.initClose();
+          }
+      }, {
+         text: '取消',
+         fn: this.initClose
+      }
+  ]}
+>这里是dialog的内容。如提示语句，输入框等</Dialog>
 ```
 
 ### todos
