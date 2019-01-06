@@ -4,8 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import DialogCoo from "../src/Dialog";
-const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert, Dialog} = require('../src') ;
+const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 
 render(
@@ -36,30 +35,36 @@ render(
 );
 
 
-const PopAlertCooAnimate = Animation(PopAlertCoo);
-const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
-render(
-    <CompWrapper PopAlertCooAnimate={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate} PopAlertCoo={PopAlertCoo}/>,
-    document.getElementById('component')
-);
+// const PopAlertAnimate = Animation(PopAlert);
+// const ConfirmDialogAnimate = Animation(ConfirmDialog);
+// render(
+//     <CompWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
+//     document.getElementById('component')
+// );
 
 // 方便测试，绑定到window上
-window.COMPONENT = CompManager;
+// window.COMPONENT = CompManager;
 
-// 调用PopAlertCoo组件，提示弹窗
-CompManager.open("PopAlertCooAnimate", {
+// // 调用PopAlert组件，提示弹窗
+// CompManager.open("PopAlertAnimate", {
+//     content: '有动画的',
+//     status: 'error'
+// });
+
+CooperateComponentV2.open("PopAlertAnimate", {
     content: '有动画的',
-    status: 'error'
+    status: 'error',
+    delayTime: 10000
 });
 
-// // 调用PopAlertCoo组件，提示弹窗
-// CompManager.open("PopAlertCoo", {
+// // 调用PopAlert组件，提示弹窗
+// CompManager.open("PopAlert", {
 //     content: '没有动画的',
 //     status: 'success'
 // });
 //
-// // 调用ConfirmDialogCoo组件，确认弹窗
-// CompManager.open('ConfirmDialogCoo', {
+// // 调用ConfirmDialog组件，确认弹窗
+// CompManager.open('ConfirmDialog', {
 //     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
 //     title: '提示', // 弹窗的内容
 //     content: '确定删除吗', // 弹窗的内容

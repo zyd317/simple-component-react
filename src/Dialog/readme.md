@@ -1,7 +1,7 @@
 ###使用
     ```
     初始化组件
-    <Components DialogCoo={DialogCoo}/>
+    <Components Dialog={Dialog}/>
     ```
 ###配置
 ```
@@ -17,9 +17,9 @@ config = {
 };
 
 // 显示
-COMPONENT.open('DialogCoo', config);
+COMPONENT.open('Dialog', config);
 
 // 隐藏
-COMPONENT.close('DialogCoo');
+COMPONENT.close('Dialog');
 
 ```

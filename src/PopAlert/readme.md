@@ -1,7 +1,7 @@
 ###使用
     ```
     初始化组件
-    <Components PopAlertCoo={PopAlertCoo}/>
+    <Components PopAlert={PopAlert}/>
     ```
 ###配置
 config = {
@@ -10,9 +10,9 @@ config = {
 };
 
 // 显示
-COMPONENT.open('PopAlertCoo', config);
+COMPONENT.open('PopAlert', config);
 
 // 隐藏
-COMPONENT.close('PopAlertCoo');
+COMPONENT.close('PopAlert');
 
 ```

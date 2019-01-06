@@ -17,7 +17,7 @@ module.exports = {
     _action: function(comp, config, action){
         if(comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            const component = document.getElementById('COMPONENT');
+            const component = document.getElementById('__COMPONENT');
             if(component) {
                 dispatchEvent(window, createEvent('componentchange', {
                     name: comp,

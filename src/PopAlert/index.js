@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import Dialog from '../Dialog';
 import './index.scss';
 const fn = ()=>{};
-class PopAlertCoo extends Component {
+class PopAlert extends Component {
     constructor(props){
         super(props);
         this.close = this.close.bind(this);
@@ -66,4 +66,4 @@ class PopAlertCoo extends Component {
     }
 }
 
-export default PopAlertCoo;
+export default PopAlert;

@@ -2,7 +2,7 @@
  * 确认窗口
  */
 import React, { Component } from 'react';
-import DialogCoo from '../Dialog/index';
+import Dialog from '../Dialog/index';
 import './index.scss';
 class ConfirmDialog extends Component {
     constructor (props) {
@@ -28,7 +28,7 @@ class ConfirmDialog extends Component {
       }
       if (contentType === 'confirm') {
           return (
-              <DialogCoo
+              <Dialog
                   title={title}
                   close={this.initClose}
                   buttons={[
@@ -37,12 +37,12 @@ class ConfirmDialog extends Component {
                           this.initClose();
                       }}, {text: '取消', fn: this.initClose},
                   ]}
-              >{content}</DialogCoo>
+              >{content}</Dialog>
           );
       }
 
       return (
-          <DialogCoo
+          <Dialog
               title={title}
               showCloseIcon={false}
               close={this.initClose}
@@ -51,7 +51,7 @@ class ConfirmDialog extends Component {
                   this.initClose();
               }}
               ]}
-          >{content}</DialogCoo>
+          >{content}</Dialog>
       );
   }
 

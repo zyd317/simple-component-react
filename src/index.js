@@ -1,15 +1,17 @@
 const COMPONENT = require('./CooperateComponent');
 import Animation from './Animation';
-import PopAlertCoo from './PopAlertCoo';
-import ConfirmDialogCoo from './ConfirmDialogCoo';
+import PopAlert from './PopAlert';
+import ConfirmDialog from './ConfirmDialog';
 import HoverAlert from './HoverTips';
 import Dialog from './Dialog';
+import CooperateComponentV2 from './CooperateComponentV2';
 
 export {
     COMPONENT,
     Animation,
-    ConfirmDialogCoo,
-    PopAlertCoo,
+    ConfirmDialog,
+    PopAlert,
     HoverAlert,
-    Dialog
+    Dialog,
+    CooperateComponentV2
 }

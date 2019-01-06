@@ -1,7 +1,7 @@
 ###使用
     ```
     初始化组件
-    <Components ConfirmDialogCoo={ConfirmDialogCoo}/>
+    <Components ConfirmDialog={ConfirmDialog}/>
     ```
 ###配置
 config = {
@@ -13,7 +13,7 @@ config = {
 };
 
 // 显示
-COMPONENT.open('ConfirmDialogCoo', config);
+COMPONENT.open('ConfirmDialog', config);
 
 // 隐藏
-COMPONENT.close('ConfirmDialogCoo');
+COMPONENT.close('ConfirmDialog');

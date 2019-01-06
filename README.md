@@ -12,7 +12,7 @@ npm install simple-component-react --save
 ### use
 
 ```
-const {COMPONENT, PopAlertCoo, ConfirmDialogCoo, Animation, HoverAlert} = require('../src') ;
+const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert} = require('../src') ;
 const {CompManager, CompWrapper} = COMPONENT;
 
 render(
@@ -44,31 +44,39 @@ render(
 
 
 // 有动画的组件，需要使用Animation包裹一下。不需要动画的就直接当作props即可
-const PopAlertCooAnimate = Animation(PopAlertCoo);
-const ConfirmDialogCooAnimate = Animation(ConfirmDialogCoo);
+const PopAlertAnimate = Animation(PopAlert);
+const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
-    <CompWrapper PopAlertCooAnimate={PopAlertCooAnimate} ConfirmDialogCoo={ConfirmDialogCooAnimate} PopAlertCoo={PopAlertCoo}/>,
+    <CompWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
     document.getElementById('component')
 );
 
-// 调用PopAlertCoo组件，提示弹窗
-CompManager.open("PopAlertCooAnimate", {
+// 调用PopAlert组件，提示弹窗
+CompManager.open("PopAlertAnimate", {
     content: '有动画的',
     status: 'error'
 });
 
-// 调用PopAlertCoo组件，提示弹窗
-CompManager.open("PopAlertCoo", {
+// 调用PopAlert组件，提示弹窗
+CompManager.open("PopAlert", {
     content: '没有动画的',
     status: 'success'
 });
 
-// 调用ConfirmDialogCoo组件，确认弹窗
-CompManager.open('ConfirmDialogCoo', {
+// 调用ConfirmDialog组件，确认弹窗
+CompManager.open('ConfirmDialog', {
     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
     title: '提示', // 弹窗的内容
     content: '确定删除吗', // 弹窗的内容
     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
+});
+
+// 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
+// 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
+// 目前只支持
+CooperateComponentV2.open("PopAlertAnimate", {
+    content: '有动画的',
+    status: 'error'
 });
 ```
 
@@ -80,4 +88,5 @@ CompManager.open('ConfirmDialogCoo', {
 - [X] 支持alert组件和comfirm组件
 - [X] 支持组件动画
 - [X] 增加错误提示
+- [X] 支持直接调用组件，如v2
 - [ ] 增加移动端组件

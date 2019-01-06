@@ -6,7 +6,7 @@ import React from 'react';
 import './index.scss';
 const fn = ()=>{};
 
-export default function DialogCoo(props){
+export default function Dialog(props){
     const {title, showCloseIcon, buttons, customClassName, children, close } = props;
     const state = {
         title: title === undefined ? '删除确认' : title,
