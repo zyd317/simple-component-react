@@ -53,8 +53,7 @@ window.COMPONENT = CompManager;
 
 CooperateComponentV2.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
-    status: 'error',
-    delayTime: 10000
+    status: 'error'
 });
 
 // // 调用PopAlert组件，提示弹窗
