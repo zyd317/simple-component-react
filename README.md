@@ -169,9 +169,9 @@ export default DialogDemo;
 ### todos
 
 - [X] 收敛window全局变量，去掉全局变量污染
-- [X] autoprefixer add
+- [X] autoPrefix add
 - [X] 将组件渲染到最外层的body子元素下
-- [X] 支持alert组件和comfirm组件
+- [X] 支持alert组件和confirm组件
 - [X] 支持组件动画
 - [X] 增加错误提示
 - [X] 支持直接调用组件，如v2
