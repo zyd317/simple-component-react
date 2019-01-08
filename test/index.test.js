@@ -45,11 +45,11 @@ render(
 // 方便测试，绑定到window上
 window.COMPONENT = CompManager;
 
-// // 调用PopAlert组件，提示弹窗
-CompManager.open("PopAlertAnimate", {
-    content: '有动画的-自定义组件',
-    status: 'error'
-});
+// // // 调用PopAlert组件，提示弹窗
+// CompManager.open("PopAlertAnimate", {
+//     content: '有动画的-自定义组件',
+//     status: 'error'
+// });
 
 CooperateComponentV2.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
