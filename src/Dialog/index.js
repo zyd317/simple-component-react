@@ -8,39 +8,37 @@ const fn = ()=>{};
 
 export default function Dialog(props){
     const {title, showCloseIcon, buttons, customClassName, children, close } = props;
-    const state = {
-        title: title === undefined ? '删除确认' : title,
-        showCloseIcon: showCloseIcon === undefined ? true : showCloseIcon,
-        close: close || fn,
-        buttons: buttons === undefined ? [
+    const newTitle = title === undefined ? '删除确认' : title;
+    const newShowCloseIcon = showCloseIcon === undefined ? true : showCloseIcon;
+    const newClose = close || fn;
+    const newButtons = buttons === undefined ? [
             {
                 type: 'negative',
                 className: '',
                 text: '确认',
-                fn: close || fn,
+                fn: newClose,
             },
             {
                 type: 'default',
                 className: '',
                 text: '取消',
-                fn: close || fn,
+                fn: newClose,
             },
-        ] : buttons,
-        customClassName: customClassName || '',
-        children: children === undefined ? '确认删除此评论？删除后不可恢复' : children,
-    };
+        ] : buttons;
+    const newCustomClassName = customClassName || '';
+    const newChildren = children === undefined ? '确认删除此评论？删除后不可恢复' : children;
     return (
-        <div className={`__simple_dialog_coo ${state.customClassName}`}>
-            <div className="modal" onClick={state.close}/>
+        <div className={`__simple_dialog_coo ${newCustomClassName}`}>
+            <div className="modal" onClick={newClose}/>
             <div className="dialog">
-                {getTitle(state.title, state.showCloseIcon, state.close)}
+                {getTitle(newTitle, newShowCloseIcon, newClose)}
                 {
-                    state.children ? <div className="dialog-body">{state.children}</div> : null
+                    newChildren ? <div className="dialog-body">{newChildren}</div> : null
                 }
                 {
-                    (state.buttons && state.buttons.length) ?
+                    (newButtons && newButtons.length) ?
                     <div className="dialog-footer">
-                        { state.buttons.map((item, i) => getButton(item, i)) }
+                        { newButtons.map((item, i) => getButton(item, i)) }
                     </div> : null
                 }
             </div>

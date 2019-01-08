@@ -30,12 +30,10 @@ class ConfirmDialog extends Component {
           return (
               <Dialog
                   title={title}
-                  close={this.initClose}
+                  close={handleClose}
                   buttons={[
-                      {text: '确定', fn: (param)=>{
-                          handleSure(param);
-                          this.initClose();
-                      }}, {text: '取消', fn: this.initClose},
+                      {text: '确定', fn: handleSure},
+                      {text: '取消', fn: this.handleClose},
                   ]}
               >{content}</Dialog>
           );
@@ -45,17 +43,27 @@ class ConfirmDialog extends Component {
           <Dialog
               title={title}
               showCloseIcon={false}
-              close={this.initClose}
-              buttons={[{text: '确定', fn: (param)=>{
-                  handleClose && handleClose(param);
-                  this.initClose();
-              }}
-              ]}
+              close={handleClose}
+              buttons={[{text: '确定', fn: handleClose}]}
           >{content}</Dialog>
       );
   }
 
     open(config){
+        // 如果配置中传递了关闭的方法则需要先调用关闭方法，在调用元素关闭
+        const {handleClose, handleSure} = config;
+        if(handleClose){
+            config.handleClose = ()=>{
+                handleClose();
+                this.initClose();
+            }
+        }
+        if(handleSure){
+            config.handleSure = ()=>{
+                handleSure();
+                this.initClose();
+            }
+        }
         this.setState({
             ...config,
             hide: false

@@ -45,38 +45,7 @@ render(
 // 方便测试，绑定到window上
 window.COMPONENT = CompManager;
 
-// // // 调用PopAlert组件，提示弹窗
-// CompManager.open("PopAlertAnimate", {
-//     content: '有动画的-自定义组件',
-//     status: 'error'
-// });
-
 CooperateComponentV2.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
     status: 'error'
 });
-
-// // 调用PopAlert组件，提示弹窗
-// CompManager.open("PopAlert", {
-//     content: '没有动画的',
-//     status: 'success'
-// });
-//
-// // 调用ConfirmDialog组件，确认弹窗
-// CompManager.open('ConfirmDialog', {
-//     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
-//     title: '提示', // 弹窗的内容
-//     content: '确定删除吗', // 弹窗的内容
-//     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
-// });
-
-
-// render(
-//     <Dialog
-//         title={'举报此评论'}
-//         buttons={[
-//             {text: '确定', fn: ()=>{}}, {text: '取消', fn: ()=>{}},
-//         ]}
-//     >弹窗展示的内容</Dialog>,
-//     document.getElementById('dialog')
-// );

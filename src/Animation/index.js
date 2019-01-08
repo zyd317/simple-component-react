@@ -16,6 +16,7 @@ export default BeWrappedComponent => {
             super(props);
             this.close = this.close.bind(this);
             this.myRef = React.createRef();
+            this.initClose = this.props.handleClose || this.close;
             this.state = {
                 status: STATUS_EMUN.INIT // 默认
             }
@@ -53,7 +54,7 @@ export default BeWrappedComponent => {
          * 传入handleClose，可以关闭当前组件
          */
         _componentRender() {
-            return <BeWrappedComponent{...this.props} ref={this.myRef} handleClose={this.close}/>
+            return <BeWrappedComponent{...this.props} ref={this.myRef} handleClose={this.initClose}/>
         }
 
         render() {

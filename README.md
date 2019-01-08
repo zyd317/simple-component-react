@@ -56,8 +56,9 @@ const {CooperateComponentV2} = require('simple-component-react');
 // 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
 // 目前只支持
 CooperateComponentV2.open("PopAlertAnimate", {
-    content: '有动画的',
-    status: 'error'
+    content: '有动画的，不需要设置自动隐藏',
+    status: 'error',
+    noHide: true
 });
 ```
 
@@ -77,13 +78,14 @@ render(
 
 // 调用PopAlert组件，提示弹窗
 CompManager.open("PopAlertAnimate", {
-    content: '有动画的',
-    status: 'error'
+    content: '有动画的，需要设置自动隐藏时间',
+    status: 'error',
+    delayTime: 2500 // 默认值，默认隐藏时间
 });
 
 // 调用PopAlert组件，提示弹窗
 CompManager.open("PopAlert", {
-    content: '没有动画的',
+    content: '没有动画的，不使用Animate包裹即可',
     status: 'success'
 });
 
@@ -92,33 +94,76 @@ CompManager.open('ConfirmDialog', {
     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
     title: '提示', // 弹窗的内容
     content: '确定删除吗', // 弹窗的内容
+    handleClose: ()=>{alert("dsfd")}, // 默认有，关闭当前组件。也可以传入自定义函数，调用之后会自定关闭当前组件。
     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
 });
 ```
 
 > 需要使用dialog组件，调用方式如下
+> 也可以参照《[ConfirmDialog](https://github.com/zyd317/simple-component-react/blob/master/src/ConfirmDialog/index.js)》组件，是一个完整的例子
 ```
+import React, { Component } from 'react';
 const {Dialog} = require('simple-component-react');
-<Dialog
-  title='这里是dialog的title'
-  showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
-  close={this.initClose} // 点击dialog的时候会调用。关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
-  customClassName='my-class'
-  buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
-      {
-        text: '确定',
-        fn: (param)=>{
-          handleSure(param); // 这种情况是先调用确定按钮的操作，再调用父元素的关闭方法
-          this.initClose();
-          }
-      }, {
-         text: '取消',
-         fn: this.initClose
-      }
-  ]}
->
-    这里是dialog的内容。如提示语句，输入框等
-</Dialog>
+const fn = ()=>{};
+class DialogDemo extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            hide: true,
+            text: ''
+        };
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+        this.initClose = this.props.handleClose  || this.close; // 如果可能需要动画的话，需要使用handleClose，每个地方调用close的时候，都调用父元素的关闭，再由父元素去调用关闭当前dialog的方法
+        this.confirmValidDialog = this.confirmValidDialog.bind(this);
+    }
+
+    /**
+     * 检测手机号
+     */
+    confirmValidDialog(){
+        this.initClose();
+        window.open('https://sso.toutiao.com/auth_index/?service=https://mp.toutiao.com/pc_auth_confirm/', '_blank');
+    }
+
+    render () {
+        if(this.state.hide){
+            return null;
+        }
+        return (
+            <Dialog
+              title='这里是dialog的title'
+              showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
+              close={this.initClose} // 点击dialog的时候会调用。关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
+              customClassName='my-class'
+              buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
+                  {
+                    text: '确定',
+                    fn: this.confirmValidDialog
+                  }, {
+                     text: '取消',
+                     fn: this.initClose
+                  }
+              ]}
+            >
+                这里是dialog的内容。如提示语句，输入框等
+            </Dialog>
+        );
+    }
+
+    open(config){
+        this.setState({
+            ...config,
+            hide: false
+        })
+    };
+    close(){
+        this.setState({
+            hide: true
+        })
+    };
+}
+export default DialogDemo;
 ```
 
 ### todos
