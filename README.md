@@ -11,7 +11,7 @@ npm install simple-component-react --save
 
 ### use
 
->HoverAlert组件调用方式如下
+> HoverAlert组件调用方式如下
 
 ![HoverAlert组件样式](/HoverTips.png)
 
@@ -46,7 +46,7 @@ render(
 );
 ```
 
->只需要系统组件，不需要自定义的时候，可以直接调用如下方式
+> 只需要系统组件，不需要自定义的时候，可以直接调用如下方式
 
 ![popAlert](/popAlert.png)
 ![confirm](/confirm.png)
@@ -61,10 +61,10 @@ CooperateComponentV2.open("PopAlertAnimate", {
 });
 ```
 
->Animation：负责动画的高阶组件，调用组件的时候，会自动传递 __handleClose__ 作为子元素的props，可以关闭这个动画蒙层。
->所以在所有的close方法中，都需要使用 __this.initClose = handleClose || this.close || fn;__
->同时也需要this.open = this.open.bind(this); __避免父元素调用this.ref.close的时候被重新调用到子元素上__
->需要自定义组件的时候，如下方式
+> Animation：负责动画的高阶组件，调用组件的时候，会自动传递 __handleClose__ 作为子元素的props，可以关闭这个动画蒙层。
+> 所以在所有的close方法中，都需要使用 __this.initClose = handleClose || this.close || fn;__
+> 同时也需要this.open = this.open.bind(this); __避免父元素调用this.ref.close的时候被重新调用到子元素上__
+> 需要自定义组件的时候，如下方式
 ```
 const {COMPONENT, PopAlert, ConfirmDialog, Animation} = require('simple-component-react');
 const {CompManager, CompWrapper} = COMPONENT;
@@ -96,7 +96,7 @@ CompManager.open('ConfirmDialog', {
 });
 ```
 
->需要使用dialog组件，调用方式如下
+> 需要使用dialog组件，调用方式如下
 ```
 const {Dialog} = require('simple-component-react');
 <Dialog
