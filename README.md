@@ -46,7 +46,10 @@ render(
 );
 ```
 
->只需要自定义组件，不需要自定义的时候，可以直接调用如下方式
+>只需要系统组件，不需要自定义的时候，可以直接调用如下方式
+
+![popAlert](/popAlert.png)
+![confirm](/confirm.png)
 ```
 const {CooperateComponentV2} = require('simple-component-react');
 // 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
@@ -58,12 +61,9 @@ CooperateComponentV2.open("PopAlertAnimate", {
 });
 ```
 
->Animation：负责动画的高阶组件，调用组件的时候，会自动传递*handleClose*作为子元素的props，可以关闭这个动画蒙层。
-
->所以在所有的close方法中，都需要使用*this.initClose = handleClose || this.close || fn;*
-
->同时也需要this.open = this.open.bind(this);*避免父元素调用this.ref.close的时候被重新调用到子元素上*
-
+>Animation：负责动画的高阶组件，调用组件的时候，会自动传递__handleClose__作为子元素的props，可以关闭这个动画蒙层。
+>所以在所有的close方法中，都需要使用__this.initClose = handleClose || this.close || fn;__
+>同时也需要this.open = this.open.bind(this);__避免父元素调用this.ref.close的时候被重新调用到子元素上__
 >需要自定义组件的时候，如下方式
 ```
 const {COMPONENT, PopAlert, ConfirmDialog, Animation} = require('simple-component-react');
