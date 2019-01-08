@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} = require('../src') ;
+import {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} from '../src' ;
 const {CompManager, CompWrapper} = COMPONENT;
 
 render(

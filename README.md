@@ -16,7 +16,7 @@ npm install simple-component-react --save
 ![HoverAlert组件样式](/HoverTips.png)
 
 ```
-const {HoverAlert} = require('simple-component-react');
+import {HoverAlert} from 'simple-component-react';
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -51,7 +51,7 @@ render(
 ![popAlert](/popAlert.png)
 ![confirm](/confirm.png)
 ```
-const {CooperateComponentV2} = require('simple-component-react');
+import {CooperateComponentV2} from 'simple-component-react';
 // 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
 // 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
 // 目前只支持
@@ -67,7 +67,7 @@ CooperateComponentV2.open("PopAlertAnimate", {
 > 同时也需要this.open = this.open.bind(this); __避免父元素调用this.ref.close的时候被重新调用到子元素上__
 > 需要自定义组件的时候，如下方式
 ```
-const {COMPONENT, PopAlert, ConfirmDialog, Animation} = require('simple-component-react');
+import {COMPONENT, PopAlert, ConfirmDialog, Animation} from 'simple-component-react';
 const {CompManager, CompWrapper} = COMPONENT;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
@@ -103,7 +103,7 @@ CompManager.open('ConfirmDialog', {
 > 也可以参照《[ConfirmDialog](https://github.com/zyd317/simple-component-react/blob/master/src/ConfirmDialog/index.js)》组件，是一个完整的例子
 ```
 import React, { Component } from 'react';
-const {Dialog} = require('simple-component-react');
+import {Dialog} from 'simple-component-react';
 const fn = ()=>{};
 class DialogDemo extends Component {
     constructor (props) {

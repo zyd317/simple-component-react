@@ -14,8 +14,6 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: '[name].min.js',
         publicPath: '/dist/',
-        library: 'SimpleComponent',
-        libraryTarget: "umd",
     },
     module: {
         rules:[
