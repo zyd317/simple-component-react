@@ -11,9 +11,9 @@ npm install simple-component-react --save
 
 ### use
 
+>HoverAlert组件调用方式如下
 ```
-const {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog} = require('../src') ;
-const {CompManager, CompWrapper} = COMPONENT;
+const {HoverAlert} = require('simple-component-react');
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -41,9 +41,27 @@ render(
     <HoverAlert position='left' icon={'啥都不写相当于一个普通div'} onClick={()=>{alert('haha')}} />,
     document.getElementById('hoverTipsLeft')
 );
+```
 
+>只需要自定义组件，不需要自定义的时候，可以直接调用如下方式
+```
+const {CooperateComponentV2} = require('simple-component-react');
+// 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
+// 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
+// 目前只支持
+CooperateComponentV2.open("PopAlertAnimate", {
+    content: '有动画的',
+    status: 'error'
+});
+```
 
-// 有动画的组件，需要使用Animation包裹一下。不需要动画的就直接当作props即可
+>需要自定义组件的时候，如下方式
+>Animation：负责动画的高阶组件，调用组件的时候，会自动传递*handleClose*作为子元素的props，可以关闭这个动画蒙层。
+>所以在所有的close方法中，都需要使用*this.initClose = handleClose || this.close || fn;*
+>同时也需要this.open = this.open.bind(this);*避免父元素调用this.ref.close的时候被重新调用到子元素上*
+```
+const {COMPONENT, PopAlert, ConfirmDialog, Animation} = require('simple-component-react');
+const {CompManager, CompWrapper} = COMPONENT;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
@@ -70,17 +88,11 @@ CompManager.open('ConfirmDialog', {
     content: '确定删除吗', // 弹窗的内容
     handleSure: ()=>{alert("dsfd")}, // 处理点击确认按钮的函数，会自动关闭当前dialog，并执行handleSure
 });
+```
 
-// 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
-// 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
-// 目前只支持
-CooperateComponentV2.open("PopAlertAnimate", {
-    content: '有动画的',
-    status: 'error'
-});
-
-
-// this.initClose = this.props.handleClose || this.close
+>需要使用dialog组件，调用方式如下
+```
+const {Dialog} = require('simple-component-react');
 <Dialog
   title='这里是dialog的title'
   showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
@@ -98,7 +110,9 @@ CooperateComponentV2.open("PopAlertAnimate", {
          fn: this.initClose
       }
   ]}
->这里是dialog的内容。如提示语句，输入框等</Dialog>
+>
+    这里是dialog的内容。如提示语句，输入框等
+</Dialog>
 ```
 
 ### todos
