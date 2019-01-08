@@ -33,7 +33,7 @@ class ConfirmDialog extends Component {
                   close={handleClose}
                   buttons={[
                       {text: '确定', fn: handleSure},
-                      {text: '取消', fn: this.handleClose},
+                      {text: '取消', fn: handleClose},
                   ]}
               >{content}</Dialog>
           );
