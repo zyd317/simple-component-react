@@ -13,8 +13,10 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'lib'),
-        filename: '[name].min.js',
-        publicPath: '/lib/'
+        filename: '[name].js',
+        publicPath: '/lib/',
+        library: 'SimpleComponent',
+        libraryTarget: "umd",
     },
     module: {
         rules:[

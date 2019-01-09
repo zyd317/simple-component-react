@@ -165,6 +165,12 @@ class DialogDemo extends Component {
 }
 export default DialogDemo;
 ```
+>
+> 需要按需加载的时候应该使用下面的调用方式
+>
+```
+import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
+```
 
 ### todos
 
@@ -175,4 +181,5 @@ export default DialogDemo;
 - [X] 支持组件动画
 - [X] 增加错误提示
 - [X] 支持直接调用组件，如v2
-- [ ] 增加移动端组件( *组件按需加载，实现起来太麻烦。移动端的组件，新开一个组件库来盛放* )
+- [X] 实现按需加载
+- [ ] 增加移动端组件

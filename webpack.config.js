@@ -7,13 +7,16 @@ module.exports = {
     mode: 'production',
     entry: {
         index: path.join(__dirname, './src/index.js'),
+        usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
         indexTest: path.join(__dirname, './test/index.test.js'),
         indexTest2: path.join(__dirname, './test/index.test2.js'),
     },
     output: {
         path: path.join(__dirname, 'lib'),
-        filename: '[name].min.js',
+        filename: '[name].js',
         publicPath: '/lib/',
+        library: 'SimpleComponent',
+        libraryTarget: "umd",
     },
     module: {
         rules:[
