@@ -1,7 +1,7 @@
 /**
  * 打包的每个分类常用组件，可以按需加载
  */
-const COMPONENT = require('./CooperateComponent');
+import COMPONENT from './CooperateComponent';
 import Animation from './Animation';
 import PopAlert from './PopAlert';
 import ConfirmDialog from './ConfirmDialog';
