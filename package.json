@@ -1,15 +1,15 @@
 {
   "name": "simple-component-react",
-  "version": "4.3.11",
+  "version": "4.3.12",
   "description": "组件库",
   "keywords": [
     "react",
     "react-component",
     "alert"
   ],
-  "main": "dist/index.min.js",
+  "main": "lib/index.min.js",
   "files": [
-    "dist",
+    "lib",
     "src",
     "scss"
   ],

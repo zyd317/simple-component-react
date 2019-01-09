@@ -12,11 +12,9 @@ module.exports = {
         indexTest: path.join(__dirname, './test/index.test.js'),
     },
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'lib'),
         filename: '[name].min.js',
-        publicPath: '/dist/',
-        library: 'SimpleComponent',
-        libraryTarget: "umd",
+        publicPath: '/lib/'
     },
     module: {
         rules:[

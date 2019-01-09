@@ -11,9 +11,9 @@ module.exports = {
         indexTest2: path.join(__dirname, './test/index.test2.js'),
     },
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'lib'),
         filename: '[name].min.js',
-        publicPath: '/dist/',
+        publicPath: '/lib/',
     },
     module: {
         rules:[
