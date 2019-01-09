@@ -1,6 +1,5 @@
 import {createEvent, dispatchEvent} from "./eventUtils";
-
-module.exports = {
+const CompManager = {
     open: function(comp, config){
         // 如果没有传入关闭方式的话，默认传入this.close
         if(!config.close){
@@ -30,3 +29,4 @@ module.exports = {
         }
     }
 };
+export default CompManager;

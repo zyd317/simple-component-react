@@ -4,8 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {COMPONENT, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} from '../src' ;
-const {CompManager, CompWrapper} = COMPONENT;
+import {CompManager, CompWrapper, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} from '../src' ;
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,

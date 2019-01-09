@@ -55,7 +55,5 @@ class CompWrapper extends Component {
     }
 }
 
-module.exports = {
-    CompManager: require('./ComponentManager'),
-    CompWrapper
-};
+import CompManager from './ComponentManager';
+export {CompManager, CompWrapper};

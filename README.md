@@ -67,8 +67,7 @@ CooperateComponentV2.open("PopAlertAnimate", {
 > 同时也需要this.open = this.open.bind(this); __避免父元素调用this.ref.close的时候被重新调用到子元素上__
 > 需要自定义组件的时候，如下方式
 ```
-import {COMPONENT, PopAlert, ConfirmDialog, Animation} from 'simple-component-react';
-const {CompManager, CompWrapper} = COMPONENT;
+import {CompManager, CompWrapper, PopAlert, ConfirmDialog, Animation} from 'simple-component-react';
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(

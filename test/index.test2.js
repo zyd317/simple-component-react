@@ -4,5 +4,5 @@
  * 当你只需要popAlert和confirmDialog两个组件的时候，可以直接调用CooperateComponentV2
  */
 import React from 'react';
-const {CooperateComponentV2} = require('../src') ;
+import {CooperateComponentV2} from '../src';
 window.COMPONENTV2 = CooperateComponentV2;
