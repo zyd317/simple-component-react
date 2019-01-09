@@ -1,6 +1,6 @@
 {
   "name": "simple-component-react",
-  "version": "4.3.12",
+  "version": "4.3.13",
   "description": "组件库",
   "keywords": [
     "react",
@@ -29,10 +29,7 @@
     "url": "https://github.com/zyd317/simple-component-react/issues"
   },
   "homepage": "https://github.com/zyd317/componentTools#readme",
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "prop-types": "^15.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.4.3",
     "postcss-loader": "^2.0.10",
@@ -59,9 +56,5 @@
     "webpack-dev-middleware": "^1.12.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-hot-middleware": "^2.21.0"
-  },
-  "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-dom": ">=15.0.0"
   }
 }
