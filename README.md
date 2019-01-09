@@ -183,3 +183,4 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 - [X] 支持直接调用组件，如v2
 - [X] 实现按需加载
 - [ ] 增加移动端组件
+- [ ] 增加支持typeScript
