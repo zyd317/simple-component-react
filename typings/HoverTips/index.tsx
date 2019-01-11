@@ -1,11 +1,12 @@
 import React, {ReactElement} from 'react';
 import './index.scss';
 interface props {
-    tips: string;
-    className: string;
-    position: 'top' | 'bottom' | 'left' | 'right',
-    children: ReactElement<any>,
-    icon: ReactElement<any>
+    tips?: string;
+    className?: string;
+    position?: 'top' | 'bottom' | 'left' | 'right';
+    children?: ReactElement<any>;
+    icon?: ReactElement<any> | string;
+    [key: string]: any
 }
 export default function HoverContainer(props: props) {
     const {tips, className='', position="top", children, icon} = props;

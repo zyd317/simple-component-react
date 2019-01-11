@@ -14,7 +14,8 @@
     "scss"
   ],
   "scripts": {
-    "dev": "webpack -w --config ./awebpack.config.js",
+    "dev": "webpack -w --config ./webpack.config.dev.js",
+    "devTs": "webpack -w --config ./webpack.config.ts.js",
     "start": "webpack -w",
     "config": "webpack ",
     "test": "cross-env NODE_ENV=test jest"

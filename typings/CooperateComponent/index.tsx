@@ -10,7 +10,7 @@ interface state {
     renderCompName: string;
 }
 class CompWrapper extends Component<Props & {className: string}, state> {
-    private renderCompRef: Props = object;
+    private renderCompRef: Props = Object;
     private readonly node: HTMLElement;
     public constructor(props: any) {
         super(props);
@@ -66,6 +66,4 @@ class CompWrapper extends Component<Props & {className: string}, state> {
         )
     }
 }
-import ComponentManager from './ComponentManager';
-import {object} from "prop-types";
-export default {ComponentManager, CompWrapper};
+export default CompWrapper;
