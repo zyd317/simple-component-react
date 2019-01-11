@@ -1,0 +1,22 @@
+.__pop_alert_coo {
+    .dialog {
+        width: 300px;
+        min-height: 160px;
+    }
+    .dialog-status {
+        padding-top: 90px;
+        background-repeat: no-repeat;
+        background-size: 60px 60px;
+        text-align: center;
+        background-position: center top;
+        &.success {
+            background-image: url(//p3.pstatp.com/origin/149b0002020d7537a2be);
+        }
+        &.warning {
+            background-image: url(//p3.pstatp.com/origin/149b000202232a65b6cd);
+        }
+        &.error {
+            background-image: url(//p3.pstatp.com/origin/149a00054b970ddf9e6a);
+        }
+    }
+}

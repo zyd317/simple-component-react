@@ -41,6 +41,9 @@ class CompWrapper extends Component {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
+        if(!this.node){
+            return null;
+        }
         return createPortal(
             <div className={classNa}>
                 {
