@@ -110,4 +110,4 @@ export default (BeWrappedComponent: any) => {
         supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true
     };
     return WrapperComponent;
-};
+}
