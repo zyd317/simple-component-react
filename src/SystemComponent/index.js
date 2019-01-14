@@ -9,7 +9,7 @@ import ConfirmDialog from '../ConfirmDialog';
 import Animation from '../Animation';
 import ComponentWrapper from './ComponentWrapper'
 
-// import的时候，判断__COMPONENTV2是否存在，没有的话render组件到页面中。有的话不需要管了
+// import的时候，判断__SYSTEM_COMPONENT是否存在，没有的话render组件到页面中。有的话不需要管了
 function insertDom() {
     const com = document.getElementById('__SYSTEM_COMPONENT');
     if(!com){
