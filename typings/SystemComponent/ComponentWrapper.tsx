@@ -15,11 +15,11 @@ export default class CompWrapper extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         let self = this;
-        this.node = document.getElementById('__COMPONENTV2');
+        this.node = document.getElementById('__SYSTEM_COMPONENT');
         this.state = {
             renderCompName: ''
         };
-        window.addEventListener('SystemComponentChange', (e:any) => {
+        window.addEventListener('systemcomponentchange', (e:any) => {
             let {action='', config={}, name=''} = e.detail || {};
             if(props[name]) {
                 if(this.renderCompRef[name]) {

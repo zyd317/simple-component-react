@@ -1,5 +1,5 @@
 import React from 'react';
-import {CompManager, CompWrapper, Animation, ConfirmDialog, PopAlert, HoverAlert, Dialog, CooperateComponentV2} from '../index';
+import {SystemComponent, Animation, ConfirmDialog, PopAlert, HoverAlert, Dialog, CustomComponent} from '../index';
 import {render} from "react-dom";
 
 render(
@@ -24,20 +24,20 @@ render(
     document.getElementById('hoverTipsLeftNormal')
 );
 
-
+const {ComponentWrapper, ComponentManager} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
-    <CompWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
+    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
     document.getElementById('component')
 );
 
 // 方便测试，绑定到window上
-window.CooperateComponentV2 = CooperateComponentV2;
+window.ComponentManager = ComponentManager;
 // @ts-ignore
-window.CompManager = CompManager;
+window.CustomComponent = CustomComponent;
 
-CooperateComponentV2.open("PopAlertAnimate", {
+SystemComponent.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
     status: 'error'
 });

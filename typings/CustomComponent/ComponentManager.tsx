@@ -1,4 +1,4 @@
-import {createEvent, dispatchEvent} from "./eventUtils";
+import {createEvent, dispatchEvent} from "../utils/eventUtils";
 
 interface config {
     close?: Function,
@@ -21,9 +21,9 @@ export default {
     _action: function(comp:string, config: config, action: 'open' | 'close' | 'update'){
         if(comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            const component = document.getElementById('__COMPONENT');
+            const component = document.getElementById('__CUSTOM_COMPONENT');
             if(component) {
-                dispatchEvent(window, createEvent('componentchange', {
+                dispatchEvent(window, createEvent('customcomponentchange', {
                     name: comp,
                     action: action,
                     config: config

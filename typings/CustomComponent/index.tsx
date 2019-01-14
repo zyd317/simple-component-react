@@ -1,34 +1,35 @@
 /**
  * Created by yidi.zhao on 2018/5/11.
  */
-import React, {Component, createElement, ReactNode} from 'react';
+import React, {Component, createElement} from 'react';
 import {createPortal} from 'react-dom';
+import ComponentManager from './ComponentManager';
 interface Props {
     [key: string]: any;
 }
 interface state {
     renderCompName: string;
 }
-class CompWrapper extends Component<Props & {classNa?: string}, state> {
+class ComponentWrapper extends Component<Props & {classNa?: string}, state> {
     private renderCompRef: Props = {};
     private readonly node: HTMLElement;
     public constructor(props: any) {
         super(props);
         let self = this;
-        const component = document.getElementById('COMPONENT');
+        const component = document.getElementById('__CUSTOM_COMPONENT');
         if(component){
             this.node = component;
         } else {
             const doc = window.document;
             this.node = doc.createElement('div');
-            this.node.setAttribute('id', '__COMPONENT');
+            this.node.setAttribute('id', '__CUSTOM_COMPONENT');
             doc.body.appendChild(this.node);
         }
         this.state = {
             renderCompName: ''
         };
 
-        window.addEventListener('componentchange', (e => {
+        window.addEventListener('customcomponentchange', (e => {
             // @ts-ignore
             const {detail} = e;
             let {action, config, name} = detail;
@@ -57,4 +58,4 @@ class CompWrapper extends Component<Props & {classNa?: string}, state> {
         return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
     }
 }
-export default CompWrapper;
+export {ComponentManager, ComponentWrapper};

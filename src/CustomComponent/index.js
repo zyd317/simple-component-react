@@ -21,7 +21,7 @@ class ComponentWrapper extends Component {
             renderCompName: ''
         };
 
-        window.addEventListener('componentchange', (e) => {
+        window.addEventListener('customcomponentchange', (e) => {
             let {action, config, name} = e.detail || {};
             if(name && action && props[name]) {
                 if(this.renderCompRef[name]) {

@@ -1,1 +1,1 @@
-export {CompManager, CompWrapper, Animation, ConfirmDialog, PopAlert, HoverAlert, Dialog, CooperateComponentV2} from './usualComponentWeb';
+export {CustomComponent, Animation, ConfirmDialog, PopAlert, HoverAlert, Dialog, SystemComponent} from './usualComponentWeb';

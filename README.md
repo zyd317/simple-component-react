@@ -52,7 +52,7 @@ render(
 ![confirm](/confirm.png)
 ```
 import {SystemComponent} from 'simple-component-react';
-// 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
+// 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用SystemComponent
 // 会自动执行render(<ComponentWrapper PopAlert={PopAlert}/>, dom);
 // 目前只支持
 SystemComponent.open("PopAlertAnimate", {
