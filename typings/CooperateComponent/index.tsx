@@ -54,7 +54,7 @@ class CompWrapper extends Component<Props & {classNa?: string}, state> {
             return null;
         }
         const renderComp = createElement(comp, {ref: (ref)=>(this.renderCompRef[renderCompName] = ref)});
-        return createPortal(<div className={classNa}>{comp ? '' : renderComp}</div>, this.node)
+        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
     }
 }
 export default CompWrapper;
