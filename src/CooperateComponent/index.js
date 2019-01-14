@@ -44,17 +44,8 @@ class CompWrapper extends Component {
         if(!this.node){
             return null;
         }
-        return createPortal(
-            <div className={classNa}>
-                {
-                    comp ? React.createElement(
-                        props[renderCompName],
-                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
-                        ) : ''
-                }
-            </div>,
-            this.node
-        )
+        const renderComp = React.createElement(props[renderCompName], {ref: (ref) => (this.renderCompRef[renderCompName] = ref)});
+        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
     }
 }
 

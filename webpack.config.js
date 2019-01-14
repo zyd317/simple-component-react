@@ -12,6 +12,7 @@ module.exports = {
         indexTest2: path.join(__dirname, './test/index.test2.js'),
         usualComponentWebTs: path.join(__dirname, './typings/usualComponentWeb.tsx'),
         indexTs: path.join(__dirname, './typings/index.tsx'),
+        indexTestTs: path.join(__dirname, './typings/testTs/index.tsx'),
     },
     output: {
         path: path.join(__dirname, 'lib'),
@@ -19,6 +20,10 @@ module.exports = {
         publicPath: '/lib/',
         library: 'SimpleComponent',
         libraryTarget: "umd",
+    },
+    resolve: {
+        // 首先寻找模块中的 .ts(x) 文件, 然后是 .js 文件
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
     module: {
         rules:[
@@ -29,6 +34,7 @@ module.exports = {
                     loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 }]
             },
+            { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'], include: path.resolve('typings') },
             {
                 test: /\.[s]?css$/,
                 use: [{

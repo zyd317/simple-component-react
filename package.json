@@ -15,7 +15,6 @@
   ],
   "scripts": {
     "dev": "webpack -w --config ./webpack.config.dev.js",
-    "devTs": "webpack -w --config ./webpack.config.ts.js",
     "start": "webpack -w",
     "test": "cross-env NODE_ENV=test jest"
   },

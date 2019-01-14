@@ -8,10 +8,10 @@ import ConfirmDialog from './ConfirmDialog/index';
 import HoverAlert from './HoverTips/index';
 import Dialog from './Dialog/index';
 import CooperateComponentV2 from './CooperateComponentV2/index';
-import ComponentManager from "./CooperateComponent/ComponentManager";
+import CompManager from "./CooperateComponent/ComponentManager";
 
 export {
-    ComponentManager,
+    CompManager,
     CompWrapper,
     Animation,
     ConfirmDialog,
