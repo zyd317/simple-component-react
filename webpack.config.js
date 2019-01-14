@@ -10,8 +10,6 @@ module.exports = {
         usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
         indexTest: path.join(__dirname, './test/index.test.js'),
         indexTest2: path.join(__dirname, './test/index.test2.js'),
-        usualComponentWebTs: path.join(__dirname, './typings/usualComponentWeb.tsx'),
-        indexTs: path.join(__dirname, './typings/index.tsx'),
         indexTestTs: path.join(__dirname, './typings/testTs/index.tsx'),
     },
     output: {

@@ -13,6 +13,7 @@
     "src",
     "scss"
   ],
+  "typings": "typings/index.tsx",
   "scripts": {
     "dev": "webpack -w --config ./webpack.config.dev.js",
     "start": "webpack -w",
