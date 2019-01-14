@@ -2,7 +2,7 @@
  * @author yidi.zhao
  * modal component only for show
  */
-import React, {ReactElement} from 'react';
+import React, {ReactNode} from 'react';
 import './index.scss';
 const fns = ()=>{};
 interface props {
@@ -10,7 +10,7 @@ interface props {
     showCloseIcon?: boolean;
     buttons: buttonItem[];
     customClassName?: string;
-    children?: ReactElement<any> | string;
+    children?: ReactNode;
     close: any;
 }
 interface buttonItem {

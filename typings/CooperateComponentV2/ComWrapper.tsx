@@ -10,7 +10,7 @@ interface State {
     renderCompName: string;
 }
 export default class CompWrapper extends Component<Props, State> {
-    private renderCompRef : any;
+    private renderCompRef : Props = {};
     private readonly node : Element | HTMLElement | null;
     constructor(props: Props) {
         super(props);
@@ -19,7 +19,6 @@ export default class CompWrapper extends Component<Props, State> {
         this.state = {
             renderCompName: ''
         };
-
         window.addEventListener('componentchangeV2', (e:any) => {
             let {action='', config={}, name=''} = e.detail || {};
             if(props[name]) {

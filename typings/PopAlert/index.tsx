@@ -56,9 +56,9 @@ class PopAlert extends Component<props, state> {
         const propsKeys = Object.keys(nextProps);
         const stateKeys = Object.keys(nextState);
         // @ts-ignore
-        return !!(propsKeys.find((item:any) => (nextProps[item[0]] !== this.props[item[0]]))) ||
+        return !!(propsKeys.find((item:any) => (nextProps[item] !== this.props[item]))) ||
             // @ts-ignore
-            !!(stateKeys.find((item:any) => (nextState[item[0]] !== this.state[item[0]])));
+            !!(stateKeys.find((item:any) => (nextState[item] !== this.state[item])));
     }
 
     render() {

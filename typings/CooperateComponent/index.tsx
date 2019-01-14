@@ -1,7 +1,7 @@
 /**
  * Created by yidi.zhao on 2018/5/11.
  */
-import React, {Component} from 'react';
+import React, {Component, createElement, ReactNode} from 'react';
 import {createPortal} from 'react-dom';
 interface Props {
     [key: string]: any;
@@ -9,8 +9,8 @@ interface Props {
 interface state {
     renderCompName: string;
 }
-class CompWrapper extends Component<Props & {className?: string}, state> {
-    private renderCompRef: Props = Object;
+class CompWrapper extends Component<Props & {classNa?: string}, state> {
+    private renderCompRef: Props = {};
     private readonly node: HTMLElement;
     public constructor(props: any) {
         super(props);
@@ -48,22 +48,13 @@ class CompWrapper extends Component<Props & {className?: string}, state> {
     render() {
         const {state, props} = this;
         const {renderCompName} = state;
-        const {classNa} = props;
+        const {classNa = ''} = props;
         const comp = renderCompName && props[renderCompName];
-        if(!this.node){
+        if(!this.node || !renderCompName){
             return null;
         }
-        return createPortal(
-            <div className={classNa}>
-                {
-                    !comp ? React.createElement(
-                        props[renderCompName],
-                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
-                        ) : ''
-                }
-            </div>,
-            this.node
-        )
+        const renderComp = createElement(comp, {ref: (ref)=>(this.renderCompRef[renderCompName] = ref)});
+        return createPortal(<div className={classNa}>{comp ? '' : renderComp}</div>, this.node)
     }
 }
 export default CompWrapper;

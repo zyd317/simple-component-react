@@ -3,12 +3,6 @@ import {ComponentManager, CompWrapper, Animation, ConfirmDialog, PopAlert, Hover
 import {render} from "react-dom";
 
 render(
-    <HoverAlert position='left' icon='啥都不写相当于一个普通div' onClick={()=>{alert('haha')}} />,
-    document.getElementById('hoverTipsLeft')
-);
-
-
-render(
     <HoverAlert position='right'>
         <div>使用多行文本</div>
         <div>不传icon属性，默认为"？"形式的icon</div>

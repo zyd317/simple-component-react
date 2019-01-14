@@ -1,12 +1,12 @@
-import React, {ReactElement} from 'react';
+import React, {ReactNode} from 'react';
 import './index.scss';
 interface props {
     tips?: string;
     className?: string;
     position?: 'top' | 'bottom' | 'left' | 'right';
-    children?: ReactElement<any> | JSX.Element[];
-    icon?: ReactElement<any> | string;
-    [key: string]: any
+    children?: ReactNode;
+    icon?: ReactNode;
+    [key: string]: any; // 其他的props，为了表现成一个正常的div
 }
 export default function HoverContainer(props: props) {
     const {tips, className='', position="top", children, icon} = props;
