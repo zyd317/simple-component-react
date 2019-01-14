@@ -9,7 +9,7 @@ interface Props {
 interface state {
     renderCompName: string;
 }
-class CompWrapper extends Component<Props & {className: string}, state> {
+class CompWrapper extends Component<Props & {className?: string}, state> {
     private renderCompRef: Props = Object;
     private readonly node: HTMLElement;
     public constructor(props: any) {

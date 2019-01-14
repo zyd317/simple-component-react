@@ -4,7 +4,7 @@ interface props {
     tips?: string;
     className?: string;
     position?: 'top' | 'bottom' | 'left' | 'right';
-    children?: ReactElement<any>;
+    children?: ReactElement<any> | JSX.Element[];
     icon?: ReactElement<any> | string;
     [key: string]: any
 }
