@@ -19,7 +19,7 @@ export default class CompWrapper extends Component<Props, State> {
         this.state = {
             renderCompName: ''
         };
-        window.addEventListener('componentchangeV2', (e:any) => {
+        window.addEventListener('SystemComponentChange', (e:any) => {
             let {action='', config={}, name=''} = e.detail || {};
             if(props[name]) {
                 if(this.renderCompRef[name]) {

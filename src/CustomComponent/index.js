@@ -3,17 +3,25 @@
  */
 import React, {Component} from 'react';
 import {createPortal} from 'react-dom';
-export default class CompWrapper extends Component {
+class ComponentWrapper extends Component {
     constructor(props) {
         super(props);
         let self = this;
         this.renderCompRef = {};
-        this.node = document.getElementById('__COMPONENTV2');
+        const component = document.getElementById('__CUSTOM_COMPONENT');
+        if(component){
+            this.node = component;
+        } else {
+            const doc = window.document;
+            this.node = doc.createElement('div');
+            this.node.setAttribute('id', '__CUSTOM_COMPONENT');
+            doc.body.appendChild(this.node);
+        }
         this.state = {
             renderCompName: ''
         };
 
-        window.addEventListener('componentchangeV2', (e) => {
+        window.addEventListener('componentchange', (e) => {
             let {action, config, name} = e.detail || {};
             if(name && action && props[name]) {
                 if(this.renderCompRef[name]) {
@@ -36,16 +44,10 @@ export default class CompWrapper extends Component {
         if(!this.node){
             return null;
         }
-        return createPortal(
-            <div className={classNa}>
-                {
-                    comp ? React.createElement(
-                        props[renderCompName],
-                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
-                    ) : ''
-                }
-            </div>,
-            this.node
-        )
+        const renderComp = React.createElement(props[renderCompName], {ref: (ref) => (this.renderCompRef[renderCompName] = ref)});
+        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
     }
 }
+
+import ComponentManager from './ComponentManager';
+export {ComponentManager, ComponentWrapper};

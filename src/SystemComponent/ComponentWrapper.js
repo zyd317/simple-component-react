@@ -3,25 +3,17 @@
  */
 import React, {Component} from 'react';
 import {createPortal} from 'react-dom';
-class CompWrapper extends Component {
+export default class ComponentWrapper extends Component {
     constructor(props) {
         super(props);
         let self = this;
         this.renderCompRef = {};
-        const component = document.getElementById('COMPONENT');
-        if(component){
-            this.node = component;
-        } else {
-            const doc = window.document;
-            this.node = doc.createElement('div');
-            this.node.setAttribute('id', '__COMPONENT');
-            doc.body.appendChild(this.node);
-        }
+        this.node = document.getElementById('__SYSTEM_COMPONENT');
         this.state = {
             renderCompName: ''
         };
 
-        window.addEventListener('componentchange', (e) => {
+        window.addEventListener('SystemComponentChange', (e) => {
             let {action, config, name} = e.detail || {};
             if(name && action && props[name]) {
                 if(this.renderCompRef[name]) {
@@ -44,10 +36,16 @@ class CompWrapper extends Component {
         if(!this.node){
             return null;
         }
-        const renderComp = React.createElement(props[renderCompName], {ref: (ref) => (this.renderCompRef[renderCompName] = ref)});
-        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
+        return createPortal(
+            <div className={classNa}>
+                {
+                    comp ? React.createElement(
+                        props[renderCompName],
+                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
+                    ) : ''
+                }
+            </div>,
+            this.node
+        )
     }
 }
-
-import CompManager from './ComponentManager';
-export {CompManager, CompWrapper};

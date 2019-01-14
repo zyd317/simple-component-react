@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {CompManager, CompWrapper, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, CooperateComponentV2} from '../src' ;
+import {CustomComponent, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, SystemComponent} from '../src' ;
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -33,18 +33,18 @@ render(
     document.getElementById('hoverTipsLeft')
 );
 
-
+const {ComponentManager, ComponentWrapper} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
-    <CompWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
+    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
     document.getElementById('component')
 );
 
 // 方便测试，绑定到window上
-window.COMPONENT = CompManager;
+window.ComponentManager = ComponentManager;
 
-CooperateComponentV2.open("PopAlertAnimate", {
+SystemComponent.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
     status: 'error'
 });

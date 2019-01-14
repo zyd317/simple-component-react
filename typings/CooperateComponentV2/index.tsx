@@ -47,7 +47,7 @@ export default {
     _action: function(comp:string, config:config, action:'open' | 'update' | 'close'){
         if(comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            dispatchEvent(window, createEvent('componentchangeV2', {
+            dispatchEvent(window, createEvent('SystemComponentChange', {
                 name: comp,
                 action: action,
                 config: config

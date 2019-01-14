@@ -29,7 +29,7 @@ export default {
                     config: config
                 }));
             } else {
-                throw new Error('需要先注册了CompWrapper才能使用ComponentManager。详情查看https://github.com/zyd317/simple-component-react#readme的CompWrapper使用方式');
+                throw new Error('需要先注册了ComponentWrapper才能使用ComponentManager。详情查看https://github.com/zyd317/simple-component-react#readme的CompWrapper使用方式');
             }
         }
     }

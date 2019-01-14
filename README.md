@@ -51,11 +51,11 @@ render(
 ![popAlert](/popAlert.png)
 ![confirm](/confirm.png)
 ```
-import {CooperateComponentV2} from 'simple-component-react';
+import {SystemComponent} from 'simple-component-react';
 // 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用perateComponentV2
-// 会自动执行render(<CompWrapper PopAlert={PopAlert}/>, dom);
+// 会自动执行render(<ComponentWrapper PopAlert={PopAlert}/>, dom);
 // 目前只支持
-CooperateComponentV2.open("PopAlertAnimate", {
+SystemComponent.open("PopAlertAnimate", {
     content: '有动画的，不需要设置自动隐藏',
     status: 'error',
     noHide: true
@@ -67,29 +67,30 @@ CooperateComponentV2.open("PopAlertAnimate", {
 > 同时也需要this.open = this.open.bind(this); __避免父元素调用this.ref.close的时候被重新调用到子元素上__
 > 需要自定义组件的时候，如下方式
 ```
-import {CompManager, CompWrapper, PopAlert, ConfirmDialog, Animation} from 'simple-component-react';
+import {CustomComponent, PopAlert, ConfirmDialog, Animation} from 'simple-component-react';
+const {ComponentManager, ComponentWrapper} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
-    <CompWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
+    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
     document.getElementById('component')
 );
 
 // 调用PopAlert组件，提示弹窗
-CompManager.open("PopAlertAnimate", {
+ComponentManager.open("PopAlertAnimate", {
     content: '有动画的，需要设置自动隐藏时间',
     status: 'error',
     delayTime: 2500 // 默认值，默认隐藏时间
 });
 
 // 调用PopAlert组件，提示弹窗
-CompManager.open("PopAlert", {
+ComponentManager.open("PopAlert", {
     content: '没有动画的，不使用Animate包裹即可',
     status: 'success'
 });
 
 // 调用ConfirmDialog组件，确认弹窗
-CompManager.open('ConfirmDialog', {
+ComponentManager.open('ConfirmDialog', {
     contentType: 'confirm', // 【confirm/alert】confirm会有两个确认按钮，alert只有一个按钮，表示一种提示
     title: '提示', // 弹窗的内容
     content: '确定删除吗', // 弹窗的内容
