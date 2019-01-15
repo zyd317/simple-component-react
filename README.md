@@ -123,7 +123,7 @@ class DialogDemo extends Component {
      */
     confirmValidDialog(){
         this.initClose();
-        window.open('https://sso.toutiao.com/auth_index/?service=https://mp.toutiao.com/pc_auth_confirm/', '_blank');
+        window.open('https://github.com/zyd317/simple-component-react/blob/master/src/ConfirmDialog/index.js', '_blank');
     }
 
     render () {

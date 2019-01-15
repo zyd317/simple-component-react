@@ -2,7 +2,7 @@
  * Created by yidi.zhao on 2018/11/11.
  */
 import React, {Component, ReactNode, RefObject} from 'react';
-import Browser from './browser';
+import Browser from '../utils/browser';
 import './index.scss';
 
 const STATUS_EMUN = {
