@@ -54,7 +54,6 @@ render(
 import {SystemComponent} from 'simple-component-react';
 // 如果没有dom或者不想要render到页面上，是一个组件内部调用的话。可以调用SystemComponent
 // 会自动执行render(<ComponentWrapper PopAlert={PopAlert}/>, dom);
-// 目前只支持
 SystemComponent.open("PopAlertAnimate", {
     content: '有动画的，不需要设置自动隐藏',
     status: 'error',
@@ -118,9 +117,6 @@ class DialogDemo extends Component {
         this.confirmValidDialog = this.confirmValidDialog.bind(this);
     }
 
-    /**
-     * 检测手机号
-     */
     confirmValidDialog(){
         this.initClose();
         window.open('https://github.com/zyd317/simple-component-react/blob/master/src/ConfirmDialog/index.js', '_blank');
