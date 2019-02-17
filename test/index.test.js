@@ -46,5 +46,6 @@ window.ComponentManager = ComponentManager;
 
 SystemComponent.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
-    status: 'error'
+    status: 'error',
+    noHide: true
 });

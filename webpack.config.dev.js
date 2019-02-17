@@ -3,20 +3,24 @@
  */
 let path = require('path');
 const autoprefixer = require('autoprefixer');
-let webpack = require('webpack');
-
 module.exports = {
     mode: 'development',
     entry: {
         index: path.join(__dirname, './src/index.js'),
+        usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
         indexTest: path.join(__dirname, './test/index.test.js'),
+        indexTest2: path.join(__dirname, './test/index.test2.js'),
     },
     output: {
-        path: path.join(__dirname, 'lib'),
+        path: path.join(__dirname, 'dist'),
         filename: '[name].js',
-        publicPath: '/lib/',
+        publicPath: '/dist/',
         library: 'SimpleComponent',
         libraryTarget: "umd",
+    },
+    resolve: {
+        // 首先寻找模块中的 .ts(x) 文件, 然后是 .js 文件
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
     module: {
         rules:[
@@ -27,16 +31,16 @@ module.exports = {
                     loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 }]
             },
+            { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'], include: path.resolve('typings') },
             {
                 test: /\.[s]?css$/,
                 use: [{
                     loader: 'style-loader'
-                },{
+                }, {
                     loader: 'css-loader'
-                },{
+                }, {
                     loader: 'sass-loader'
-                },
-                {
+                }, {
                     loader: 'postcss-loader',
                     options: {
                         ident: 'postcss',
@@ -46,23 +50,19 @@ module.exports = {
                                     '>1%',
                                     'last 4 versions',
                                     'Firefox ESR',
-                                    'not ie < 9'
+                                    'not ie < 9', // React doesn't support IE8 anyway
                                 ],
                                 flexbox: 'no-2009',
-                                remove: false
-                            })
-                        ]
-                    }
+                                remove: false,
+                            }),
+                        ],
+                    },
                 }]
             }
         ]
     },
     devServer: {
-        contentBase: "./",
-        historyApiFallback: true,
-        hot:true
+        host: '127.0.0.1',
+        port:8088
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(), // 模块热更新
-    ]
 };
