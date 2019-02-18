@@ -16,6 +16,7 @@
   "typings": "typings/index.tsx",
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
+    "build": "webpack --config ./webpack.config.dev.js",
     "start": "webpack -w",
     "test": "cross-env NODE_ENV=test jest"
   },

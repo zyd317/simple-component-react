@@ -41,3 +41,12 @@ SystemComponent.open("PopAlertAnimate", {
     content: '有动画的-默认组件',
     status: 'error'
 });
+
+// function getLength(something: string | number): number {
+//     if((something as string).length){
+//         return (something as string).length;
+//     }
+//     return (something as number);
+// }
+// console.log(getLength("但我认为我"));
+// console.log(getLength(21443242));
