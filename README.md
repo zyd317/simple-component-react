@@ -168,6 +168,21 @@ export default DialogDemo;
 import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 ```
 
+>
+> 移动端部分组件
+>
+```
+import {ConfirmDialogTouch} from 'simple-component-react/lib/ConfirmDialogTouch';
+import ConfirmDialogTouch from 'simple-component-react/lib/usualComponentWeb';
+const {ComponentManager, ComponentWrapper} = CustomComponent;
+window.ComponentManager.open('ConfirmDialogTouch', {
+    title: '登录失败',
+    content: '您的设备无法查询到对应的微信登录账号请尝试使用其他方式进行登录',
+	btnText: '我知道了',
+    handleSure: ()=>{alert("dsfd")},
+})
+```
+
 ### todos
 
 - [X] 收敛window全局变量，去掉全局变量污染
@@ -179,4 +194,4 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 - [X] 支持直接调用组件，如v2
 - [X] 实现按需加载
 - [ ] 增加支持typeScript
-- [ ] 增加移动端组件
+- [X] 增加移动端组件

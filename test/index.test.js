@@ -5,6 +5,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {CustomComponent, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, SystemComponent} from '../src' ;
+import ConfirmDialogTouch from '../src/ConfirmDialogTouch' ;
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -37,9 +38,14 @@ const {ComponentManager, ComponentWrapper} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(
-    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert}/>,
+    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert} ConfirmDialogTouch={ConfirmDialogTouch}/>,
     document.getElementById('component')
 );
+//
+// render(
+//     <ComponentWrapper />,
+//     document.getElementById('ConfirmDialogTouch')
+// );
 
 // 方便测试，绑定到window上
 window.ComponentManager = ComponentManager;
