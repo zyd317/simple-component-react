@@ -1,6 +1,3 @@
-html{
-    font-size: 100px;
-}
 .__simple_dialog_coo_touch {
     position: fixed;
     top: 0;
@@ -49,5 +46,7 @@ html{
         text-align: center;
         line-height: .43rem;
         border-top: 1px solid #e8e8e8;
+        background-color: transparent;
+        width: 100%;
     }
 }
