@@ -5,7 +5,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {CustomComponent, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, SystemComponent} from '../src' ;
-import ConfirmDialogTouch from '../src/ConfirmDialogTouch' ;
+import {SystemComponentTouch} from '../src/usualComponentTouch' ;
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
@@ -34,24 +34,27 @@ render(
     document.getElementById('hoverTipsLeft')
 );
 
-const {ComponentManager, ComponentWrapper} = CustomComponent;
-const PopAlertAnimate = Animation(PopAlert);
-const ConfirmDialogAnimate = Animation(ConfirmDialog);
-render(
-    <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert} ConfirmDialogTouch={ConfirmDialogTouch}/>,
-    document.getElementById('component')
-);
-//
+// const {ComponentManager, ComponentWrapper} = CustomComponent;
+// const PopAlertAnimate = Animation(PopAlert);
+// const ConfirmDialogAnimate = Animation(ConfirmDialog);
 // render(
-//     <ComponentWrapper />,
-//     document.getElementById('ConfirmDialogTouch')
+//     <ComponentWrapper PopAlertAnimate={PopAlertAnimate} ConfirmDialog={ConfirmDialogAnimate} PopAlert={PopAlert} ConfirmDialogTouch={ConfirmDialogTouch}/>,
+//     document.getElementById('component')
 // );
 
-// 方便测试，绑定到window上
-window.ComponentManager = ComponentManager;
-
-SystemComponent.open("PopAlertAnimate", {
-    content: '有动画的-默认组件',
-    status: 'error',
-    noHide: true
+SystemComponentTouch.open('ConfirmDialogTouch', {
+    title: '登录失败',
+    content: '您的设备无法查询到对应的微信登录账号请尝试使用其他方式进行登录',
+    btnText: '我知道了',
+    handleSure: ()=>{alert("dsfd")},
 });
+
+
+// 方便测试，绑定到window上
+// window.ComponentManager = ComponentManager;
+//
+// SystemComponent.open("PopAlertAnimate", {
+//     content: '有动画的-默认组件',
+//     status: 'error',
+//     noHide: true
+// });

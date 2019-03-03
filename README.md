@@ -172,10 +172,8 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 > 移动端部分组件
 >
 ```
-import {ConfirmDialogTouch} from 'simple-component-react/lib/ConfirmDialogTouch';
-import ConfirmDialogTouch from 'simple-component-react/lib/usualComponentWeb';
-const {ComponentManager, ComponentWrapper} = CustomComponent;
-window.ComponentManager.open('ConfirmDialogTouch', {
+import {SystemComponentTouch} from 'simple-component-react/lib/usualComponentTouch';
+SystemComponentTouch.open('ConfirmDialogTouch', {
     title: '登录失败',
     content: '您的设备无法查询到对应的微信登录账号请尝试使用其他方式进行登录',
 	btnText: '我知道了',
