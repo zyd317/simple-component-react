@@ -192,5 +192,5 @@ SystemComponentTouch.open('ConfirmDialogTouch', {
 - [X] 增加错误提示
 - [X] 支持直接调用组件，如v2
 - [X] 实现按需加载
-- [ ] 增加支持typeScript
+- [X] 增加支持typeScript
 - [X] 增加移动端组件
