@@ -7,10 +7,14 @@ import ComponentManager from './ComponentManager';
 interface Props {
     [key: string]: any;
 }
-interface state {
-    renderCompName: string;
-}
-class ComponentWrapper extends Component<Props & {classNa?: string}, state> {
+const initState = {
+    renderCompName: ''
+};
+type State = Readonly<typeof initState>
+
+class ComponentWrapper extends Component<Props & {classNa?: string}, State> {
+    readonly state: State = initState;
+
     private renderCompRef: Props = {};
     private readonly node: HTMLElement;
     public constructor(props: any) {
@@ -25,9 +29,6 @@ class ComponentWrapper extends Component<Props & {classNa?: string}, state> {
             this.node.setAttribute('id', '__CUSTOM_COMPONENT');
             doc.body.appendChild(this.node);
         }
-        this.state = {
-            renderCompName: ''
-        };
 
         window.addEventListener('customcomponentchange', (e => {
             // @ts-ignore
@@ -51,11 +52,11 @@ class ComponentWrapper extends Component<Props & {classNa?: string}, state> {
         const {renderCompName} = state;
         const {classNa = ''} = props;
         const comp = renderCompName && props[renderCompName];
-        if(!this.node || !renderCompName){
+        if(!this.node || !comp){
             return null;
         }
-        const renderComp = createElement(comp, {ref: (ref)=>(this.renderCompRef[renderCompName] = ref)});
-        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
+        const renderComp = createElement(comp, {ref: ref => this.renderCompRef[renderCompName] = ref});
+        return createPortal(<div className={classNa}>{renderComp}</div>, this.node)
     }
 }
 export {ComponentManager, ComponentWrapper};

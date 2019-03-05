@@ -6,7 +6,9 @@ import ConfirmDialogTouch from './ConfirmDialogTouch';
 import DialogTouch from './DialogTouch';
 import Animation from './Animation';
 import SystemComponentTouch from './SystemComponentTouch';
+import HoverAlert from './HoverTips';
 export {
+    HoverAlert,
     CustomComponent,
     Animation,
     DialogTouch,

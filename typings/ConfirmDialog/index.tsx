@@ -61,7 +61,7 @@ class ConfirmDialog extends Component<props, state> {
       );
   }
 
-    open(config:state){
+    open(config: state){
         // 如果配置中传递了关闭的方法则需要先调用关闭方法，在调用元素关闭
         const {handleClose, handleSure} = config;
         if(handleClose){

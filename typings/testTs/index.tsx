@@ -33,7 +33,7 @@ render(
 );
 
 // 方便测试，绑定到window上
-window.ComponentManager = ComponentManager;
+// window.ComponentManager = ComponentManager;
 // @ts-ignore
 window.CustomComponent = CustomComponent;
 

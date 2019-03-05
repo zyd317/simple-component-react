@@ -1,7 +1,7 @@
 /**
  * Created by yidi.zhao on 2018/11/11.
  */
-import React, {Component, ReactNode, RefObject} from 'react';
+import React, {Component, RefObject} from 'react';
 import Browser from '../utils/browser';
 import './index.scss';
 
@@ -9,36 +9,32 @@ const STATUS_EMUN = {
     INIT: 'init',
     ANIMATING: 'animating'
 };
-interface BeWrappedComponent{ 
-    ref: RefObject<{ open: Function; close: Function; update?: Function; }>; 
-    handleClose: Function; 
-    children?: ReactNode; 
-    supportAnimate?: boolean | undefined; 
-}
+const initState = {
+    status: STATUS_EMUN.INIT
+};
+type State = Readonly<typeof initState>
+
 interface props {
     handleClose?: Function;
     supportAnimate?: boolean
 }
-interface state {
-    status: string;
-}
-export default (BeWrappedComponent: any) => {
-    class WrapperComponent extends Component<props, state> {
+export default Animation;
+function Animation (BeWrappedComponentAnimation: any): any{
+    class WrapperComponentAnimation extends Component<props, State> {
+        readonly state: State = initState;
+
+        static defaultProps: { supportAnimate: boolean };
         private readonly myRef: RefObject<{
             open: Function;
             close: Function;
             update: Function;
         }>;
         private readonly initClose: Function;
-        static defaultProps: { supportAnimate: boolean };
         constructor(props:props) {
             super(props);
             this.close = this.close.bind(this);
             this.myRef = React.createRef();
             this.initClose = this.props.handleClose || this.close;
-            this.state = {
-                status: STATUS_EMUN.INIT // 默认
-            }
         }
 
         open(config:any) {
@@ -85,7 +81,7 @@ export default (BeWrappedComponent: any) => {
          * 传入handleClose，可以关闭当前组件
          */
         _componentRender() {
-            return <BeWrappedComponent{...this.props} ref={this.myRef} handleClose={this.initClose}/>
+            return <BeWrappedComponentAnimation{...this.props} ref={this.myRef} handleClose={this.initClose}/>
         }
 
         render() {
@@ -106,8 +102,8 @@ export default (BeWrappedComponent: any) => {
         }
     }
 
-    WrapperComponent.defaultProps = {
+    WrapperComponentAnimation.defaultProps = {
         supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true
     };
-    return WrapperComponent;
+    return WrapperComponentAnimation;
 }

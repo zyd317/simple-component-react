@@ -169,16 +169,17 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 ```
 
 >
-> 移动端部分组件
+> 移动端部分组件-但是需要支持rem
 >
+![ConfirmDialogTouch](/ConfirmDialogTouch.png)
 ```
 import {SystemComponentTouch} from 'simple-component-react/lib/usualComponentTouch';
 SystemComponentTouch.open('ConfirmDialogTouch', {
-    title: '登录失败',
-    content: '您的设备无法查询到对应的微信登录账号请尝试使用其他方式进行登录',
-	btnText: '我知道了',
+    title: '失败提示',
+    content: '失败了哦，请检查一下数据～',
+    btnText: '我知道了',
     handleSure: ()=>{alert("dsfd")},
-})
+});
 ```
 
 ### todos

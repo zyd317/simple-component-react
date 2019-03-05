@@ -9,7 +9,7 @@ interface props {
     [key: string]: any; // 其他的props，为了表现成一个正常的div
 }
 export default function HoverContainer(props: props) {
-    const {tips, className='', position="top", children, icon} = props;
+    const {tips, className = '', position = "top", children, icon} = props;
     let clas = 'content';
     // 如果是单行的话水平居中
     if(tips && typeof tips === 'string' && !(/<br \/>/.test(tips))){

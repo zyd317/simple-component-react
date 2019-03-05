@@ -39,16 +39,16 @@ export default class CompWrapper extends Component<Props, State> {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        if(!this.node){
+        if(!this.node || !comp){
             return null;
         }
         return createPortal(
             <div className={classNa}>
                 {
-                    comp ? React.createElement(
-                        props[renderCompName],
-                        {ref: (ref) => (this.renderCompRef[renderCompName] = ref)}
-                    ) : ''
+                    React.createElement(
+                        comp,
+                        {ref: ref => this.renderCompRef[renderCompName] = ref}
+                    )
                 }
             </div>,
             this.node

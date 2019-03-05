@@ -18,33 +18,36 @@ interface buttonItem {
     text: string;
 }
 export default function Dialog(props: props){
-    const {title, showCloseIcon, buttons, customClassName, children, close } = props;
-    const newTitle = title === undefined ? '删除确认' : title;
-    const newShowCloseIcon = showCloseIcon === undefined ? true : showCloseIcon;
-    const newClose = close || fns;
-    const newButtons = buttons === undefined ? [
+    // 默认参数，只有undefined会走默认参数
+    const {
+        title = '删除确认',
+        showCloseIcon = true,
+        buttons,
+        customClassName = '',
+        children = '确认删除此评论？删除后不可恢复',
+        close = fns
+    } = props;
+    const newButtons = buttons || [
             {
                 type: 'negative',
                 className: '',
                 text: '确认',
-                fn: newClose,
+                fn: close,
             },
             {
                 type: 'default',
                 className: '',
                 text: '取消',
-                fn: newClose,
+                fn: close,
             },
-        ] : buttons;
-    const newCustomClassName = customClassName || '';
-    const newChildren = children === undefined ? '确认删除此评论？删除后不可恢复' : children;
+        ];
     return (
-        <div className={`__simple_dialog_coo ${newCustomClassName}`}>
-            <div className="modal" onClick={newClose}/>
+        <div className={`__simple_dialog_coo ${customClassName}`}>
+            <div className="modal" onClick={close}/>
             <div className="dialog">
-                {getTitle(newTitle, newShowCloseIcon, newClose)}
+                {getTitle(title, showCloseIcon, close)}
                 {
-                    newChildren ? <div className="dialog-body">{newChildren}</div> : null
+                    children ? <div className="dialog-body">{children}</div> : null
                 }
                 {
                     (newButtons && newButtons.length) ?
@@ -57,11 +60,11 @@ export default function Dialog(props: props){
     );
 }
 
-function renderBtn(newButtons: buttonItem[]):JSX.Element[] {
+function renderBtn(newButtons: buttonItem[]): ReactNode[] {
     return newButtons.map((item, i) => getButton(item, i));
 }
 
-function getTitle (title:string, showCloseIcon:boolean, close:()=>{}) {
+function getTitle (title: string, showCloseIcon: boolean, close: ()=>{}): ReactNode {
     if(!title){
         return null;
     }
@@ -77,8 +80,8 @@ function getTitle (title:string, showCloseIcon:boolean, close:()=>{}) {
     );
 }
 
-function getButton (item:buttonItem, key:number) {
-    const { fn=fns, text='', ...itemProps } = item || {};
+function getButton (item:buttonItem, key:number): ReactNode {
+    const { fn = fns, text = '', ...itemProps } = item || {};
     return (
         <div key={key} onClick={fn} {...itemProps} className='button'>{text}</div>
     );

@@ -1,7 +1,7 @@
 /**
  * Created by yidi.zhao on 2018/5/11.
  */
-import React, {Component} from 'react';
+import React, {Component, createElement} from 'react';
 import {createPortal} from 'react-dom';
 class ComponentWrapper extends Component {
     constructor(props) {
@@ -41,11 +41,14 @@ class ComponentWrapper extends Component {
         const {renderCompName} = state;
         const {classNa=''} = props;
         const comp = renderCompName && props[renderCompName];
-        if(!this.node){
+        if(!this.node || !comp){
             return null;
         }
-        const renderComp = React.createElement(props[renderCompName], {ref: (ref) => (this.renderCompRef[renderCompName] = ref)});
-        return createPortal(<div className={classNa}>{!comp ? '' : renderComp}</div>, this.node)
+        const renderComp = createElement(
+            comp,
+            {ref: ref => this.renderCompRef[renderCompName] = ref}
+        );
+        return createPortal(<div className={classNa}>{renderComp}</div>, this.node)
     }
 }
 
