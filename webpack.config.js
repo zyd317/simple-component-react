@@ -18,8 +18,7 @@ module.exports = {
         libraryTarget: "umd",
     },
     resolve: {
-        // 首先寻找模块中的 .ts(x) 文件, 然后是 .js 文件
-        extensions: [".ts", ".tsx", ".js", ".jsx"]
+        extensions: [".js", ".jsx"]
     },
     module: {
         rules:[
@@ -30,7 +29,6 @@ module.exports = {
                     loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 }]
             },
-            { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'], include: path.resolve('typings') },
             {
                 test: /\.[s]?css$/,
                 use: [{
