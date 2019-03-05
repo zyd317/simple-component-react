@@ -50,3 +50,9 @@ _docs
 yarn.lock
 
 /dist/
+
+
+# ts
+/ts-build/
+/typings/
+tsconfig.json

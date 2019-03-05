@@ -28,22 +28,21 @@ interface config {
     close?: Function,
     [key: string]: any
 }
-type comp = Readonly<typeof string>
 export default {
-    open: function(comp: comp, config: config){
+    open: function(comp: string, config: config){
         // 如果没有传入关闭方式的话，默认传入this.close
         if(!config.close){
             config.close = this.close.bind(this, comp);
         }
         this._action(comp, config, 'open');
     },
-    update: function(comp: comp, config: config){
+    update: function(comp: string, config: config){
         this._action(comp, config, 'update');
     },
-    close: function(comp: comp){
+    close: function(comp: string){
         this._action(comp, {}, 'close');
     },
-    _action: function(comp: comp, config: config, action: 'open' | 'update' | 'close'){
+    _action: function(comp: string, config: config, action: 'open' | 'update' | 'close'){
         if(comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
             dispatchEvent(window, createEvent('systemcomponentchangetouch', {
