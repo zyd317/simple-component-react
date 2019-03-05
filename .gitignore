@@ -56,3 +56,4 @@ yarn.lock
 /ts-build/
 /typings/
 tsconfig.json
+package.json.ts.bak
