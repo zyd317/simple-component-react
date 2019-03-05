@@ -9,9 +9,6 @@ module.exports = {
         index: path.join(__dirname, './src/index.js'),
         usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
         usualComponentTouch: path.join(__dirname, './src/usualComponentTouch.js'),
-        indexTest: path.join(__dirname, './test/index.test.js'),
-        indexTest2: path.join(__dirname, './test/index.test2.js'),
-        indexTestTouch: path.join(__dirname, './test/index.test.touch.js'),
     },
     output: {
         path: path.join(__dirname, 'lib'),
