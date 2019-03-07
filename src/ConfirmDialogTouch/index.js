@@ -17,11 +17,12 @@ class ConfirmDialog extends Component {
             content: '',
             btnText: '',
             handleSure: this.close,
+            handleClose: this.initClose,
         };
     }
 
   render () {
-      const {hide, title, content, handleSure, btnText } = this.state;
+      const {hide, title, content, handleSure, btnText, handleClose } = this.state;
       if(hide){
           return null;
       }
@@ -30,14 +31,20 @@ class ConfirmDialog extends Component {
               title={title}
               btnText={btnText}
               handleSure={handleSure}
-              handleClose={this.initClose}
+              handleClose={handleClose}
           >{content}</DialogTouch>
       );
   }
 
     open(config){
         // 如果配置中传递了关闭的方法则需要先调用关闭方法，在调用元素关闭
-        const {handleSure} = config;
+        const {handleClose, handleSure} = config;
+        if(handleClose){
+            config.handleClose = ()=>{
+                handleClose();
+                this.initClose();
+            }
+        }
         if(handleSure){
             config.handleSure = ()=>{
                 handleSure();
