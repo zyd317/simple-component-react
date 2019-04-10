@@ -71,9 +71,7 @@ module.exports = (env, argv) => {
                 }
             ]
         },
-        plugins: [
-            new BundleAnalyzerPlugin()
-        ]
+        plugins: argv.env === 'analyzer' ? [new BundleAnalyzerPlugin()] : []
     };
 
     const isProdMode = argv.mode !== 'production';
