@@ -1,7 +1,7 @@
 /**
  * 一个webpack配置的模板，当前为dev环境
  */
-let path = require('path');
+const path = require('path');
 const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = (env, argv) => {
@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
             filename: '[name].js',
             publicPath: '/lib/',
             library: 'SimpleComponent',
-            libraryTarget: "umd",
+            libraryTarget: 'umd',
         },
         resolve: {
             extensions: [".js", ".jsx"]
@@ -74,8 +74,8 @@ module.exports = (env, argv) => {
         plugins: argv.env === 'analyzer' ? [new BundleAnalyzerPlugin()] : []
     };
 
-    const isProdMode = argv.mode !== 'production';
-    if(isProdMode){
+    const isDevMode = argv.mode !== 'production';
+    if(isDevMode){
         commonConfig.entry = {
             index: path.join(__dirname, './src/index.js'),
             usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
