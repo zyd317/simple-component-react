@@ -14,7 +14,7 @@
     "scss"
   ],
   "scripts": {
-    "dev": "webpack -w  --mode development",
+    "dev": "webpack-dev-server --mode development",
     "publish": "webpack --mode production",
     "analyzer": "webpack --mode production --env analyzer"
   },
