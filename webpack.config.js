@@ -22,15 +22,18 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: [".js", ".jsx"]
         },
-        optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    vendor: {
-                        test: /[\\/]node_modules[\\/](react-dom|react|addStyles|style-loader|scheduler)[\\/]/,
-                        name: 'vendor',
-                        chunks: 'all'
-                    }
-                }
+        externals: {
+            "react": {
+                root: 'React',
+                commonjs2: 'react',
+                commonjs: 'react',
+                amd: 'react'
+            },
+            "react-dom": {
+                root: 'react-dom',
+                commonjs2: 'react-dom',
+                commonjs: 'react-dom',
+                amd: 'react-dom'
             }
         },
         module: {
@@ -84,13 +87,8 @@ module.exports = (env, argv) => {
             indexTest2: path.join(__dirname, './test/index.test2.js'),
             indexTestTouch: path.join(__dirname, './test/index.test.touch.js'),
         };
-        commonConfig.output = {
-            path: path.join(__dirname, 'dist'),
-            filename: '[name].js',
-            publicPath: '/dist/',
-            library: 'SimpleComponent',
-            libraryTarget: "umd",
-        };
+        commonConfig.output.path =  path.join(__dirname, 'dist');
+        commonConfig.output.publicPath =  '/dist/';
         commonConfig.devServer = {
             host: '127.0.0.1',
             port:8088

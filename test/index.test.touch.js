@@ -2,7 +2,7 @@
  * 测试一下移动端组件的展示
  */
 import React from 'react';
-import {SystemComponentTouch, HoverAlert} from '../src/usualComponentTouch' ;
+import {SystemComponentTouch, HoverAlert} from '../src' ;
 import {render} from "react-dom";
 // SystemComponentTouch.open('ConfirmDialogTouch', {
 //     title: '失败提示',
