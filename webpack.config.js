@@ -15,26 +15,19 @@ module.exports = (env, argv) => {
         output: {
             path: path.join(__dirname, 'lib'),
             filename: '[name].js',
-            publicPath: '/lib/',
             library: 'SimpleComponent',
-            libraryTarget: 'umd',
+            libraryTarget: 'commonjs',
         },
         resolve: {
             extensions: [".js", ".jsx"]
         },
         externals: {
-            "react": {
-                root: 'React',
-                commonjs2: 'react',
+            react: {
                 commonjs: 'react',
-                amd: 'react'
             },
-            "react-dom": {
-                root: 'react-dom',
-                commonjs2: 'react-dom',
+            'react-dom': {
                 commonjs: 'react-dom',
-                amd: 'react-dom'
-            }
+            },
         },
         module: {
             rules: [
