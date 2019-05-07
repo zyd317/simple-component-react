@@ -15,7 +15,6 @@ module.exports = (env, argv) => {
         output: {
             path: path.join(__dirname, 'lib'),
             filename: '[name].js',
-            library: 'SimpleComponent',
             libraryTarget: 'commonjs',
         },
         resolve: {
