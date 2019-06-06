@@ -4,11 +4,21 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {CustomComponent, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, SystemComponent} from '../src';
+import {CustomComponent, PopAlert, ConfirmDialog, Animation, HoverAlert, Dialog, SystemComponent, Select} from '../src';
 
 render(
     <HoverAlert tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
     document.getElementById('hoverTipsOne')
+);
+
+const list = {
+    'dsnjhbjgbhefbgsd': 'dsnjkfngjrkgnrewj',
+    '1': 'sfmdsjkfnjkrgnjk'
+};
+
+render(
+    <Select options={list} onChange={(value)=>console.log(value)} value={'1'} position='top' placeholder='smanfkbhgjs' disable={true}/>,
+    document.getElementById('Select')
 );
 
 render(
@@ -22,7 +32,7 @@ render(
 );
 
 render(
-    <HoverAlert position='bottom' icon={<span>修改一下</span>}>
+    <HoverAlert position='bottom'>
         <div>icon支持html和string格式</div>
     </HoverAlert>,
     document.getElementById('hoverTipsIcon')
@@ -31,6 +41,12 @@ render(
 render(
     <HoverAlert position='left' icon={'啥都不写相当于一个普通div'} onClick={()=>{alert('haha')}} />,
     document.getElementById('hoverTipsLeft')
+);
+render(
+    <HoverAlert position='right'>
+        <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
+    </HoverAlert>,
+    document.getElementById('hoverTipsRight')
 );
 
 const {ComponentManager, ComponentWrapper} = CustomComponent;

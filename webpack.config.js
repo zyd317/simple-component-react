@@ -15,13 +15,14 @@ module.exports = (env, argv) => {
         output: {
             path: path.join(__dirname, 'lib'),
             filename: '[name].js',
+            publicPath: '/lib/',
             libraryTarget: 'commonjs',
         },
         resolve: {
-            extensions: [".js", ".jsx"]
+            extensions: [".js", ".jsx", ".scss"]
         },
         externals: {
-            react: {
+            'react': {
                 commonjs: 'react',
             },
             'react-dom': {
@@ -36,6 +37,12 @@ module.exports = (env, argv) => {
                     use: [{
                         loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'
                     }]
+                },
+                {
+                    test: /\.(png|jpg|svg|gif)$/,
+                    use: {
+                        loader: 'url-loader',
+                    },
                 },
                 {
                     test: /\.[s]?css$/,
@@ -71,6 +78,7 @@ module.exports = (env, argv) => {
 
     const isDevMode = argv.mode !== 'production';
     if(isDevMode){
+        commonConfig.externals = {};
         commonConfig.entry = {
             index: path.join(__dirname, './src/index.js'),
             usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
@@ -79,8 +87,12 @@ module.exports = (env, argv) => {
             indexTest2: path.join(__dirname, './test/index.test2.js'),
             indexTestTouch: path.join(__dirname, './test/index.test.touch.js'),
         };
-        commonConfig.output.path =  path.join(__dirname, 'dist');
-        commonConfig.output.publicPath =  '/dist/';
+        commonConfig.output = {
+            path: path.join(__dirname, 'dist'),
+            filename: '[name].js',
+            publicPath: '/dist/',
+            libraryTarget: 'umd',
+        };
         commonConfig.devServer = {
             host: '127.0.0.1',
             port:8088

@@ -9,7 +9,7 @@ export default function HoverContainer(props) {
     }
     return (
         <div {...props} className={`m_hover_container_tips ${className} ${position}`}>
-            {icon ? icon : <div className='icon'>?</div>}
+            {icon ? icon : <div className={`icon ${(tips || children) ? 'active' : ''}`}/>}
             {(tips || children) ?
                 <div className={clas}>
                     <div className="hover_content_main">

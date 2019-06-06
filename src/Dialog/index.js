@@ -55,7 +55,7 @@ function getTitle (title, showCloseIcon, close) {
             <div className="title">{title}</div>
             {
                 showCloseIcon ?
-                    <img className="close" onClick={close} src='data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlLz48L2RlZnM+PHBhdGggZD0iTTU2MS4xNyA1MDkuMDZsMjk2Ljg1Ny0yOTUuMzJjMTQuMDM3LTEzLjk2OCAxNC4xMDgtMzYuNi4xNC01MC42MzgtMTMuOTk4LTE0LjA2OC0zNi41OTItMTQuMTA4LTUwLjYyOS0uMTRMNTEwLjYwNSA0NTguMzE0IDIxNi4yNTYgMTYzLjA3Yy0xMy45MzMtMTMuOTY3LTM2LjU5Ny0xNC4wMzctNTAuNjM1LS4wNzItMTQuMDA0IDEzLjk2Ni0xNC4wMzcgMzYuNjMyLS4wNyA1MC42N2wyOTQuMjc3IDI5NS4xNzQtMjk2LjcxNCAyOTUuMTRjLTE0LjAzOSAxMy45NjgtMTQuMTEgMzYuNTk3LS4xNDMgNTAuNjM4YTM1LjcyMiAzNS43MjIgMCAwIDAgMjUuMzg1IDEwLjU2YzkuMTMgMCAxOC4yNjctMy40NyAyNS4yNS0xMC40MmwyOTYuNzg3LTI5NS4yMTJMODA3LjQzIDg1Ny40ODNjNi45ODMgNy4wMjIgMTYuMTUzIDEwLjUzIDI1LjM1MyAxMC41M2EzNS43MyAzNS43MyAwIDAgMCAyNS4yODItMTAuNDZjMTMuOTk5LTEzLjk2NiAxNC4wMzctMzYuNTkyLjA3Mi01MC42M0w1NjEuMTcgNTA5LjA2em0wIDAiLz48L3N2Zz4='/>
+                    <img className="close" onClick={close} src='./x.svg'/>
                     : null
             }
         </div>

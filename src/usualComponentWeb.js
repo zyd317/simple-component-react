@@ -8,7 +8,9 @@ import ConfirmDialog from './ConfirmDialog';
 import HoverAlert from './HoverTips';
 import Dialog from './Dialog';
 import SystemComponent from './SystemComponent';
+import Select from './Select';
 export {
+    Select,
     CustomComponent,
     Animation,
     ConfirmDialog,
