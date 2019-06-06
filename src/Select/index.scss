@@ -22,7 +22,7 @@
       white-space: nowrap;
     }
     .icon{
-      background: url("/src/static/icon_dropdown.svg");
+      background: url("//sf3-ttcdn-tos.pstatp.com/obj/ttfe/MP_SOURCE/icon_dropdown.svg");
       width: 8px;
       height: 4px;
       &.bottom{
@@ -76,7 +76,7 @@
   &.able:hover{
       border-color: #5990f2;
       .icon {
-        background: url("../static/icon_dropdown_blue.svg");
+        background: url("//sf3-ttcdn-tos.pstatp.com/obj/ttfe/MP_SOURCE/icon_dropdown_blue.svg");
       }
   }
 
