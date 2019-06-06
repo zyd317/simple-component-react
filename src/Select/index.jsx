@@ -17,7 +17,7 @@ export default class Select extends Component{
             <div className={`m_select_container ${className} ${disabled ? 'disable' : 'able'}`}>
                 <div className='m_select_input' onClick={this.showOptions}>
                     {value ? <div className='value'>{options[value]}</div> : <div className='tips value'>{placeholder}</div>}
-                    <div className={`icon ${show ? 'rotate' : ''} ${position}`} />
+                    <div className={`icon ${show ? 'rotate' : ''}`} />
                 </div>
                 {show ?
                     arr.length ?
