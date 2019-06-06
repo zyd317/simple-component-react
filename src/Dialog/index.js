@@ -55,7 +55,7 @@ function getTitle (title, showCloseIcon, close) {
             <div className="title">{title}</div>
             {
                 showCloseIcon ?
-                    <img className="close" onClick={close} src='./x.svg'/>
+                    <img className="close" onClick={close} src='../static/x.svg'/>
                     : null
             }
         </div>
