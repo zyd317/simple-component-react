@@ -161,6 +161,24 @@ class DialogDemo extends Component {
 }
 export default DialogDemo;
 ```
+
+> 需要使用Select组件，调用方式如下
+![ConfirmDialogTouch](/Select.png)
+```
+import {Select} from 'simple-component-react';
+render(
+    <Select 
+    options={list} // list->{key: value}
+    onChange={(key)=>console.log(key)} // key: list[key]
+    value={'1'}  // 默认key
+    position='top'  // 框的位置，top/bottom
+    placeholder='smanfkbhgjs'  // placeholder
+    disable={true}/>, // 是否不可编辑
+    document.getElementById('Select')
+);
+```
+
+
 >
 > 需要按需加载的时候应该使用下面的调用方式
 >
