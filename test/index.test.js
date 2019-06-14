@@ -12,12 +12,12 @@ render(
 );
 
 const list = {
-    'dsnjhbjgbhefbgsd': 'dsnjkfngjrkgnrewj',
-    '1': 'sfmdsjkfnjkrgnjk'
+    'id': 'label',
+    'id2': 'label2'
 };
 
 render(
-    <Select options={list} onChange={(value)=>console.log(value)} value={'1'} position='top' placeholder='smanfkbhgjs' disable={true}/>,
+    <Select options={list} onChange={(value)=>console.log(value)} value={'id2'} position='top' placeholder='label' disable={true}/>,
     document.getElementById('Select')
 );
 
