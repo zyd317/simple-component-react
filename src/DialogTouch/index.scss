@@ -18,7 +18,7 @@
         left: 0;
         right: 0;
         width: 100%;
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0, 0, 0, .54);
         z-index: 1000;
     }
     .dialog {
@@ -39,14 +39,15 @@
         margin-top: .22rem;
     }
     .dialog-body{
-        padding: .16rem .17rem 0 .19rem;
+        padding: .28rem .19rem 0 .19rem;
         text-align: center;
-        color: #000;
-        font-size: .13rem;
+        color: #030303;
+        font-size: .17rem;
+        line-height: .24rem;
     }
     .m-btn {
         height: .43rem;
-        margin-top: .2rem;
+        margin-top: .18rem;
         color: #007aff;
         font-size: .17rem;
         text-align: center;
