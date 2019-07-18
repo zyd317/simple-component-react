@@ -4,15 +4,16 @@
 import React from 'react';
 import {SystemComponentTouch, HoverAlert} from '../src' ;
 import {render} from "react-dom";
-// SystemComponentTouch.open('ConfirmDialogTouch', {
-//     title: '失败提示',
-//     content: '失败了哦，请检查一下数据～',
-//     btnText: '我知道了',
-//     handleSure: ()=>{alert("dsfd")},
-// });
 
 render(
-    <div> <HoverAlert/> 请输入正确的昵称</div>,
+    <div onClick={()=>{
+        SystemComponentTouch.open('ConfirmDialogTouch', {
+            title: '失败提示',
+            content: '失败了哦，请检查一下数据～',
+            btnText: '我知道了',
+            handleSure: ()=>{alert("dsfd")},
+        });
+    }}> <HoverAlert/> 请输入正确的昵称ConfirmDialogTouch</div>,
     document.getElementById('hoverTipsOneTouch')
 );
 window.SystemComponentTouch = SystemComponentTouch;

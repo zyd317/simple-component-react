@@ -211,3 +211,4 @@ SystemComponentTouch.open('ConfirmDialogTouch', {
 - [X] 支持直接调用组件，如v2
 - [X] 实现按需加载
 - [X] 增加移动端组件
+- [ ] 增加types
