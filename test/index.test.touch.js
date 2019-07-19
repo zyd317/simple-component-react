@@ -8,9 +8,10 @@ import {render} from "react-dom";
 render(
     <div onClick={()=>{
         SystemComponentTouch.open('ConfirmDialogTouch', {
-            title: '失败提示',
+            title: '',
             content: '失败了哦，请检查一下数据～',
-            btnText: '我知道了',
+            btnTextCancel: '',
+            btnTextSure: '我知道了',
             handleSure: ()=>{alert("dsfd")},
         });
     }}> <HoverAlert/> 请输入正确的昵称ConfirmDialogTouch</div>,

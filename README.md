@@ -190,12 +190,14 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 > 移动端部分组件-但是需要支持rem
 >
 ![ConfirmDialogTouch](/ConfirmDialogTouch.png)
+![ConfirmDialogTouchNoTitle](/ConfirmDialogTouchNoTitle.png)
 ```
 import {SystemComponentTouch} from 'simple-component-react/lib/usualComponentTouch';
 SystemComponentTouch.open('ConfirmDialogTouch', {
-    title: '失败提示',
+    title: '失败提示', // 可以不设置title
     content: '失败了哦，请检查一下数据～',
-    btnText: '我知道了',
+    btnTextCancel: '取消',
+    btnTextSure: '我知道了',
     handleSure: ()=>{alert("dsfd")},
 });
 ```

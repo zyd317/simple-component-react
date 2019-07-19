@@ -22,14 +22,15 @@ class ConfirmDialog extends Component {
     }
 
   render () {
-      const {hide, title, content, handleSure, btnText, handleClose } = this.state;
+      const {hide, title, content, handleSure, btnTextCancel, btnTextSure, handleClose } = this.state;
       if(hide){
           return null;
       }
       return (
           <DialogTouch
               title={title}
-              btnText={btnText}
+              btnTextCancel={btnTextCancel}
+              btnTextSure={btnTextSure}
               handleSure={handleSure}
               handleClose={handleClose}
           >{content}</DialogTouch>

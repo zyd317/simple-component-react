@@ -7,7 +7,7 @@ import './index.scss';
 const fn = ()=>{};
 
 export default function Dialog(props){
-    const {title, customClassName, children, handleSure, handleClose, btnText } = props;
+    const {title, customClassName, children, handleSure, handleClose, btnTextCancel, btnTextSure } = props;
     const newTitle = title === undefined ? '我知道了' : title;
     const newHandleSure = handleSure || fn;
     const newHandleClose = handleClose || fn;
@@ -21,7 +21,10 @@ export default function Dialog(props){
                 {
                     newChildren ? <div className="dialog-body">{newChildren}</div> : null
                 }
-                <div onClick={newHandleSure} className='m-btn'>{btnText}</div>
+                <div className='m-btn'>
+                    {btnTextCancel ? <div onClick={newHandleClose} className='cancel'>{btnTextCancel}</div> : null}
+                    {btnTextSure ? <div onClick={newHandleSure} className='sure'>{btnTextSure}</div> : null}
+                </div>
             </div>
         </div>
     );
