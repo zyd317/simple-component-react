@@ -8,6 +8,7 @@
     "alert"
   ],
   "main": "lib/index.js",
+  "typings": "index.d.ts",
   "files": [
     "lib",
     "src",

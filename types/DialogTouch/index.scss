@@ -1,0 +1,66 @@
+.__simple_dialog_coo_touch {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, .54);
+        z-index: 1000;
+    }
+    .dialog {
+        background: #fff;
+        border-radius: .12rem;
+        z-index: 1000;
+        width: 2.8rem;
+        top: 39%;
+        margin-left: -1.35rem;
+        left: 50%;
+        position: fixed;
+    }
+    .dialog-header {
+        font-size: .19rem;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+        margin-top: .22rem;
+    }
+    .dialog-body{
+        padding: .28rem .19rem 0 .19rem;
+        text-align: center;
+        color: #030303;
+        font-size: .17rem;
+        line-height: .24rem;
+    }
+    .m-btn {
+        height: .43rem;
+        margin-top: .18rem;
+        color: #007aff;
+        font-size: .17rem;
+        text-align: center;
+        line-height: .43rem;
+        border-top: 1px solid #e8e8e8;
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        .cancel{
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .cancel, .sure{
+            flex: 1;
+        }
+    }
+}

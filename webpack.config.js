@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
             libraryTarget: 'commonjs',
         },
         resolve: {
-            extensions: [".js", ".jsx", ".scss"]
+            extensions: [".js", ".jsx", ".scss", ".ts", "tsx"]
         },
         externals: {
             'react': {
@@ -32,7 +32,7 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.js[x]?$/,
+                    test: /\.(j|t)sx?$/,
                     exclude: /node_modules/,
                     use: [{
                         loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'

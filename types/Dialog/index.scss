@@ -1,0 +1,92 @@
+.__simple_dialog_coo {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        z-index: 1000;
+    }
+    .dialog {
+        background: #fff;
+        border-radius: 4px;
+        z-index: 1000;
+        width: 500px;
+        max-width: 90%;
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    }
+    .dialog-header {
+        padding: 20px 20px 0 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:before{
+                content: "!";
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                border: 2px solid;
+                border-radius: 22px;
+                line-height: 22px;
+                text-align: center;
+                color: #f00;
+                font-weight: bolder;
+                font-size: 20px;
+                box-sizing: border-box;
+                margin-right: 12px;
+            }
+        }
+        .close {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            padding: 10px;
+        }
+    }
+    .dialog-body{
+        padding: 27px 44px 0 44px;
+        text-align: left;
+        color: #333;
+        font-size: 14px;
+    }
+    .dialog-footer {
+        display: flex;
+        margin: 32px 44px;
+        justify-content: flex-end;
+        .button {
+            font-size: 12px;
+            cursor: pointer;
+            padding: 7px 20px;
+            margin: 0 6px;
+            border-radius: 2px;
+            color: #666;
+            border: 1px solid #ddd;
+            &:first-of-type {
+                padding: 8px 20px;
+                border: 0;
+                color: #fff;
+                background-color: #ef4040;
+            }
+        }
+    }
+}
