@@ -29,7 +29,10 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
                                 <li
                                     key={key}
                                     onClick={() => {this.onChange(key); }}
-                                    className="m_select_option_item">{options[key]}</li>,
+                                    className="m_select_option_item"
+                                >
+                                    {options[key]}
+                                </li>,
                             )}
                         </ul> : <div className={`m_select_option ${position} no_result`}>暂无选择...</div>
                      : null

@@ -19,9 +19,9 @@ function insertDom () {
         const ConfirmDialogTouchAnimate = Animation(ConfirmDialogTouch);
         render(
             <ComponentWrapper
-            ConfirmDialogTouch={ConfirmDialogTouch}
-            ConfirmDialogTouchAnimate={ConfirmDialogTouchAnimate}/>
-            , node);
+                ConfirmDialogTouch={ConfirmDialogTouch}
+                ConfirmDialogTouchAnimate={ConfirmDialogTouchAnimate}
+            />, node);
     }
 }
 insertDom();

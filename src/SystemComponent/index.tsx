@@ -20,10 +20,12 @@ function insertDom () {
         const PopAlertAnimate = Animation(PopAlert);
         const ConfirmDialogAnimate = Animation(ConfirmDialog);
         render(
-            <ComponentWrapper PopAlert={PopAlert}
-                            ConfirmDialog={ConfirmDialog}
-                            ConfirmDialogAnimate={ConfirmDialogAnimate}
-                            PopAlertAnimate={PopAlertAnimate}/>
+            <ComponentWrapper
+                PopAlert={PopAlert}
+                ConfirmDialog={ConfirmDialog}
+                ConfirmDialogAnimate={ConfirmDialogAnimate}
+                PopAlertAnimate={PopAlertAnimate}
+            />
             , node);
     }
 }

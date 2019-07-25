@@ -24,8 +24,9 @@ render(
         value={'id2'}
         position="top"
         placeholder="label"
-        disabled={true}/>,
-    document.getElementById('Select'),
+        disabled={true}
+    />
+    , document.getElementById('Select'),
 );
 
 render(
@@ -34,26 +35,26 @@ render(
         <div>不传icon属性，默认为"？"形式的icon</div>
         <div>position为悬浮框的位置，支持top/bottom/left/right</div>
         <div>children是悬浮框里的内容，支持html和string；tips属性只支持string。单行文本自动居中</div>
-    </HoverAlert>,
-    document.getElementById('hoverTips'),
+    </HoverAlert>
+    , document.getElementById('hoverTips'),
 );
 
 render(
     <HoverAlert position="bottom">
         <div>icon支持html和string格式</div>
-    </HoverAlert>,
-    document.getElementById('hoverTipsIcon'),
+    </HoverAlert>
+    , document.getElementById('hoverTipsIcon'),
 );
 
 render(
-    <HoverAlert position="left" icon={'啥都不写相当于一个普通div'} onClick={() => {alert('haha'); }} />,
-    document.getElementById('hoverTipsLeft'),
+    <HoverAlert position="left" icon={'啥都不写相当于一个普通div'} onClick={() => {alert('haha'); }} />
+    , document.getElementById('hoverTipsLeft'),
 );
 render(
     <HoverAlert position="right">
         <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
-    </HoverAlert>,
-    document.getElementById('hoverTipsRight'),
+    </HoverAlert>
+    , document.getElementById('hoverTipsRight'),
 );
 
 const {ComponentManager, ComponentWrapper} = CustomComponent;
@@ -64,8 +65,8 @@ render(
         PopAlertAnimate={PopAlertAnimate}
         ConfirmDialog={ConfirmDialogAnimate}
         PopAlert={PopAlert}
-       />,
-    document.getElementById('component'),
+    />
+    , document.getElementById('component'),
 );
 
 // 方便测试，绑定到window上

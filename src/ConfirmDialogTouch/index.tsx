@@ -33,7 +33,10 @@ class ConfirmDialog
               btnTextCancel={btnTextCancel}
               btnTextSure={btnTextSure}
               handleSure={handleSure}
-              handleClose={handleClose}>{content}</DialogTouch>
+              handleClose={handleClose}
+          >
+              {content}
+          </DialogTouch>
       );
   }
 

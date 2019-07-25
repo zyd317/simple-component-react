@@ -40,7 +40,6 @@
         "no-namespace": false,
         "jsx-wrap-multiline": false,
         "eofline": false,
-        "jsx-self-close": false,
         "jsx-boolean-value": false,
         "one-variable-per-declaration": false, // 不允许在同一声明语句中使用多个变量定义
         "no-unused-expression": false,
