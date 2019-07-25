@@ -19,7 +19,11 @@ module.exports = (env, argv) => {
             libraryTarget: 'commonjs',
         },
         resolve: {
-            extensions: [".js", ".jsx", ".scss", ".ts", "tsx"]
+            extensions: [".js", ".jsx", ".scss", ".ts", ".tsx"],
+            alias: {
+                utils: path.resolve(__dirname, './src/utils'),
+                static: path.resolve(__dirname, './src/static')
+            }
         },
         externals: {
             'react': {
@@ -32,7 +36,7 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.(j|t)sx?$/,
+                    test: /\.[jt]sx?$/,
                     exclude: /node_modules/,
                     use: [{
                         loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'

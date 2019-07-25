@@ -18,9 +18,9 @@ class ComponentWrapper
         this.state = {
             renderCompName: '',
         };
-        window.addEventListener('systemcomponentchangetouch', e => {
-            const {action, config, name} = (e as any).detail || {} as SimpleComponentReact.ComponentWrapperEventDetail;
-            if (name && action && (props as any)[name]) {
+        window.addEventListener('systemcomponentchangetouch', (e: any) => {
+            const {action, config, name} = e.detail;
+            if (name && action && props[name]) {
                 if (this.renderCompRef[name]) {
                     this.renderCompRef[name][action](config);
                 } else {
@@ -46,7 +46,7 @@ class ComponentWrapper
                 {
                     createElement(
                         comp,
-                        {ref: ref => this.renderCompRef[renderCompName] = ref},
+                        {ref: (ref: React.RefObject<Element>) => this.renderCompRef[renderCompName] = ref},
                     )
                 }
             </div>,

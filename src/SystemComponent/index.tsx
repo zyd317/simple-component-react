@@ -56,4 +56,4 @@ const SystemComponent = {
         }
     },
 };
-export default SystemComponent;
+export default {SystemComponent, Animation, ConfirmDialog, PopAlert};

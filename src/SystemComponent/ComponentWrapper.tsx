@@ -19,8 +19,8 @@ export default class ComponentWrapper
             renderCompName: '',
         };
 
-        window.addEventListener('systemcomponentchange', e => {
-            const {action, config, name} = (e as any).detail || {} as SimpleComponentReact.ComponentWrapperEventDetail;
+        window.addEventListener('systemcomponentchange', (e: any) => {
+            const {action, config, name} = e.detail;
             if (name && action && (props as any)[name]) {
                 if (this.renderCompRef[name]) {
                     this.renderCompRef[name][action](config);
@@ -47,7 +47,7 @@ export default class ComponentWrapper
                 {
                     createElement(
                         comp,
-                        {ref: ref => this.renderCompRef[renderCompName] = ref},
+                        {ref: (ref: React.RefObject<Element>) => this.renderCompRef[renderCompName] = ref},
                     )
                 }
             </div>,

@@ -5,7 +5,7 @@ export function createEvent (name: string, data: any) {
     let event;
     const createEvent = document.createEvent
         ? (name: string, data: any) => {
-            event = document.createEvent('HTMLEvents') as any;
+            event = document.createEvent('HTMLEvents');
             event.initEvent(name, true, true);
             (event as any).detail = data;
             return event;

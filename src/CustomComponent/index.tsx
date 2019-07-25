@@ -24,9 +24,9 @@ class ComponentWrapper
             doc.body.appendChild(this.node);
         }
 
-        window.addEventListener('customcomponentchange', e => {
-            const {action, config, name} = (e as any).detail || {} as SimpleComponentReact.ComponentWrapperEventDetail;
-            if (name && action && (props as any)[name]) {
+        window.addEventListener('customcomponentchange', (e: any) => {
+            const {action, config, name} = e.detail;
+            if (name && action && props[name]) {
                 if (this.renderCompRef[name]) {
                     this.renderCompRef[name][action](config);
                 } else {
@@ -43,7 +43,7 @@ class ComponentWrapper
         const {state, props} = this;
         const {renderCompName} = state;
         const {classNa= ''} = props;
-        const comp = renderCompName && (props as any)[renderCompName];
+        const comp = renderCompName && props[renderCompName];
         if (!this.node || !comp) {
             return null;
         }
@@ -56,4 +56,4 @@ class ComponentWrapper
 }
 
 import ComponentManager from './ComponentManager';
-export {ComponentManager, ComponentWrapper};
+export default {ComponentManager, ComponentWrapper};
