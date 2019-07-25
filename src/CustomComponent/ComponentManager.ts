@@ -21,12 +21,12 @@ const ComponentManager = {
                 dispatchEvent((window as any), createEvent('customcomponentchange', {
                     name: comp,
                     action,
-                    config
+                    config,
                 }));
             } else {
                 throw new Error('需要先注册了ComponentWrapper才能使用ComponentManager。详情查看https://github.com/zyd317/simple-component-react#readme的ComponentWrapper使用方式');
             }
         }
-    }
+    },
 };
 export default ComponentManager;

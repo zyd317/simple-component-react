@@ -2,7 +2,8 @@
  * Created by yidi.zhao on 2018/5/11.
  */
 export function createEvent (name: string, data: any) {
-    let event, createEvent = document.createEvent
+    let event;
+    const createEvent = document.createEvent
         ? (name: string, data: any) => {
             event = document.createEvent('HTMLEvents') as any;
             event.initEvent(name, true, true);

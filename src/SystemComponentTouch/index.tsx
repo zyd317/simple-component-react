@@ -44,9 +44,9 @@ const SystemComponentTouch = {
             dispatchEvent((window as any), createEvent('systemcomponentchangetouch', {
                 name: comp,
                 action,
-                config
+                config,
             }));
         }
-    }
+    },
 };
 export default SystemComponentTouch;

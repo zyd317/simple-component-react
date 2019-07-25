@@ -39,7 +39,7 @@ export default function Dialog (props: SimpleComponentReact.DialogProps) {
                     (newButtons && newButtons.length) ?
                     <div className="dialog-footer">
                         {newButtons.map(
-                            (item: SimpleComponentReact.ButtonItem, i: number) => getButton(item, i)
+                            (item: SimpleComponentReact.ButtonItem, i: number) => getButton(item, i),
                         )}
                     </div> : null
                 }

@@ -11,10 +11,7 @@
             "single",
             "jsx-double"
         ],
-        "trailing-comma": [
-            true,
-            "never"
-        ],
+        "trailing-comma":[true, {"multiline": "always", "singleline": "never"}],
         "object-literal-sort-keys": false,
         "interface-name": false,
         "space-before-function-paren": [
@@ -45,7 +42,9 @@
     "rulesDirectory": [],
     "linterOptions": {
         "exclude": [
-            "node_modules/**"
+            "node_modules/**",
+            "dist/*",
+            "lib/*"
         ]
     }
 }

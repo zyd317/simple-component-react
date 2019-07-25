@@ -18,5 +18,5 @@ export {
     PopAlert,
     HoverAlert,
     Dialog,
-    SystemComponent
+    SystemComponent,
 };

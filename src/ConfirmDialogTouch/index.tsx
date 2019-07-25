@@ -55,13 +55,13 @@ class ConfirmDialog
         }
         this.setState({
             ...config,
-            hide: false
+            hide: false,
         });
     }
 
     public close() {
         this.setState({
-            hide: true
+            hide: true,
         });
     }
 }

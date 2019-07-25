@@ -8,7 +8,7 @@ export default class ComponentWrapper
     public renderCompRef: any;
     public node: HTMLElement | null;
     public state = {
-        renderCompName: ''
+        renderCompName: '',
     };
     constructor(props: SimpleComponentReact.ComponentWrapperProps) {
         super(props);
@@ -16,7 +16,7 @@ export default class ComponentWrapper
         this.renderCompRef = {};
         this.node = document.getElementById('__SYSTEM_COMPONENT');
         this.state = {
-            renderCompName: ''
+            renderCompName: '',
         };
 
         window.addEventListener('systemcomponentchange', e => {
@@ -26,7 +26,7 @@ export default class ComponentWrapper
                     this.renderCompRef[name][action](config);
                 } else {
                     self.setState({
-                        renderCompName: name
+                        renderCompName: name,
                     }, () => {
                         this.renderCompRef[name][action](config);
                     });
@@ -47,11 +47,11 @@ export default class ComponentWrapper
                 {
                     createElement(
                         comp,
-                        {ref: ref => this.renderCompRef[renderCompName] = ref}
+                        {ref: ref => this.renderCompRef[renderCompName] = ref},
                     )
                 }
             </div>,
-            this.node
+            this.node,
         );
     }
 }

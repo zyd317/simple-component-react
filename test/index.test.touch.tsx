@@ -15,6 +15,6 @@ render(
             handleSure: () => {alert('dsfd'); },
         });
     }}> <HoverAlert/> 请输入正确的昵称ConfirmDialogTouch</div>,
-    document.getElementById('hoverTipsOneTouch')
+    document.getElementById('hoverTipsOneTouch'),
 );
 window.SystemComponentTouch = SystemComponentTouch;

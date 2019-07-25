@@ -20,16 +20,16 @@ interface ySniffType {
 }
 const ySniff = {
     browsers: {},
-    info: {}
+    info: {},
 } as ySniffType; // 结果
 
-let ua = navigator.userAgent,
+const ua = navigator.userAgent,
     platform = navigator.platform,
     android = ua.match(/(Android);?[\s\/]+([\d.]+)?/), // 匹配 android
     ipad = ua.match(/(iPad).*OS\s([\d_]+)/), // 匹配 ipad
     ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/), // 匹配 ipod
-    iphone = ua.match(/(iPhone\sOS)\s([\d_]+)/), // 匹配 iphone
-    webApp = ua.indexOf('Safari') === -1; // 匹配 桌面 webApp
+    iphone = ua.match(/(iPhone\sOS)\s([\d_]+)/); // 匹配 iphone
+let webApp = ua.indexOf('Safari') === -1; // 匹配 桌面 webApp
 
 const browsers = {
     wechat: ua.match(/(MicroMessenger)\/([\d\.]+)/), // 匹配 weChat
@@ -37,7 +37,7 @@ const browsers = {
     qq: ua.match(/(MQQBrowser)\/([\d\.]+)/), // 匹配 QQ 浏览器
     weibo: ua.match(/(weibo__)([\d\.]+)/), // 匹配 微博
     uc: ua.match(/(UCBrower)\/([\d\.]+)/), // 匹配 uc
-    opera: ua.match(/(Opera)\/([\d\.]+)/) // 匹配 opera
+    opera: ua.match(/(Opera)\/([\d\.]+)/), // 匹配 opera
 };
 
 // 系统

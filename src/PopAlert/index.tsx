@@ -21,7 +21,7 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
             status: 'success', // 提示类型,success/warning/error
             delayTime: delayTime || 2500,
             noHide,
-            hide: true
+            hide: true,
         };
     }
 
@@ -44,7 +44,7 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
 
     public shouldComponentUpdate(
         nextProps: SimpleComponentReact.PopAlertProps,
-        nextState: SimpleComponentReact.PopAlertState
+        nextState: SimpleComponentReact.PopAlertState,
     ) {
         const propsObj = (Object as any).entries(nextProps);
         const stateObj = (Object as any).entries(nextState);
@@ -75,13 +75,13 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
     public open(config: SimpleComponentReact.PopAlertState) {
         this.setState({
             ...config,
-            hide: false
+            hide: false,
         });
     }
 
     public close() {
         this.setState({
-            hide: true
+            hide: true,
         });
     }
 }

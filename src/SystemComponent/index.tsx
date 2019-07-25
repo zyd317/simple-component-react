@@ -47,9 +47,9 @@ const SystemComponent = {
             dispatchEvent((window as any), createEvent('systemcomponentchange', {
                 name: comp,
                 action,
-                config
+                config,
             }));
         }
-    }
+    },
 };
 export default SystemComponent;

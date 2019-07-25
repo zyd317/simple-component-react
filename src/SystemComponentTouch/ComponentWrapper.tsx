@@ -8,7 +8,7 @@ class ComponentWrapper
     public renderCompRef: any;
     public node: HTMLElement | null;
     public state = {
-        renderCompName: ''
+        renderCompName: '',
     };
     constructor(props: SimpleComponentReact.ComponentWrapperProps) {
         super(props);
@@ -16,7 +16,7 @@ class ComponentWrapper
         this.renderCompRef = {};
         this.node = document.getElementById('__SYSTEM_COMPONENT_TOUCH');
         this.state = {
-            renderCompName: ''
+            renderCompName: '',
         };
         window.addEventListener('systemcomponentchangetouch', e => {
             const {action, config, name} = (e as any).detail || {} as SimpleComponentReact.ComponentWrapperEventDetail;
@@ -25,7 +25,7 @@ class ComponentWrapper
                     this.renderCompRef[name][action](config);
                 } else {
                     self.setState({
-                        renderCompName: name
+                        renderCompName: name,
                     }, () => {
                         this.renderCompRef[name][action](config);
                     });
@@ -46,11 +46,11 @@ class ComponentWrapper
                 {
                     createElement(
                         comp,
-                        {ref: ref => this.renderCompRef[renderCompName] = ref}
+                        {ref: ref => this.renderCompRef[renderCompName] = ref},
                     )
                 }
             </div>,
-            this.node
+            this.node,
         );
     }
 }

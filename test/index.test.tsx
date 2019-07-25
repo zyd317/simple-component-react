@@ -8,17 +8,17 @@ import {Animation, ConfirmDialog, CustomComponent, Dialog, HoverAlert, PopAlert,
 
 render(
     <HoverAlert tips="使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right" position="top"/>,
-    document.getElementById('hoverTipsOne')
+    document.getElementById('hoverTipsOne'),
 );
 
 const list = {
     id: 'label',
-    id2: 'label2'
+    id2: 'label2',
 };
 
 render(
     <Select options={list} onChange={value => console.log(value)} value={'id2'} position="top" placeholder="label" disabled={true}/>,
-    document.getElementById('Select')
+    document.getElementById('Select'),
 );
 
 render(
@@ -28,25 +28,25 @@ render(
         <div>position为悬浮框的位置，支持top/bottom/left/right</div>
         <div>children是悬浮框里的内容，支持html和string；tips属性只支持string。单行文本自动居中</div>
     </HoverAlert>,
-    document.getElementById('hoverTips')
+    document.getElementById('hoverTips'),
 );
 
 render(
     <HoverAlert position="bottom">
         <div>icon支持html和string格式</div>
     </HoverAlert>,
-    document.getElementById('hoverTipsIcon')
+    document.getElementById('hoverTipsIcon'),
 );
 
 render(
     <HoverAlert position="left" icon={'啥都不写相当于一个普通div'} onClick={() => {alert('haha'); }} />,
-    document.getElementById('hoverTipsLeft')
+    document.getElementById('hoverTipsLeft'),
 );
 render(
     <HoverAlert position="right">
         <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
     </HoverAlert>,
-    document.getElementById('hoverTipsRight')
+    document.getElementById('hoverTipsRight'),
 );
 
 const {ComponentManager, ComponentWrapper} = CustomComponent;
@@ -58,7 +58,7 @@ render(
         ConfirmDialog={ConfirmDialogAnimate}
         PopAlert={PopAlert}
        />,
-    document.getElementById('component')
+    document.getElementById('component'),
 );
 
 // 方便测试，绑定到window上
@@ -67,5 +67,5 @@ window.ComponentManager = ComponentManager;
 SystemComponent.open('PopAlertAnimate', {
     content: '有动画的-默认组件',
     status: 'error',
-    noHide: true
+    noHide: true,
 });

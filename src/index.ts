@@ -6,11 +6,11 @@ export {
     HoverAlert,
     Dialog,
     SystemComponent,
-    Select
+    Select,
 } from './usualComponentWeb';
 
 export {
     DialogTouch,
     ConfirmDialogTouch,
-    SystemComponentTouch
+    SystemComponentTouch,
 } from './usualComponentTouch';

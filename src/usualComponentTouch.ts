@@ -14,5 +14,5 @@ export {
     Animation,
     DialogTouch,
     ConfirmDialogTouch,
-    SystemComponentTouch
+    SystemComponentTouch,
 };

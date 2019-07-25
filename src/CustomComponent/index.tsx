@@ -8,7 +8,7 @@ class ComponentWrapper
     public renderCompRef: any;
     public node: HTMLElement | null;
     public state = {
-        renderCompName: ''
+        renderCompName: '',
     };
     constructor(props: SimpleComponentReact.ComponentWrapperProps) {
         super(props);
@@ -31,7 +31,7 @@ class ComponentWrapper
                     this.renderCompRef[name][action](config);
                 } else {
                     self.setState({
-                        renderCompName: name
+                        renderCompName: name,
                     }, () => {
                         this.renderCompRef[name][action](config);
                     });
@@ -49,7 +49,7 @@ class ComponentWrapper
         }
         const renderComp = createElement(
             comp,
-            {ref: ref => this.renderCompRef[renderCompName] = ref}
+            {ref: ref => this.renderCompRef[renderCompName] = ref},
         );
         return createPortal(<div className={classNa}>{renderComp}</div>, this.node);
     }

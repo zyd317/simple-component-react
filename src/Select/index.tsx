@@ -4,7 +4,7 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
     constructor(props: SimpleComponentReact.SelectProps) {
         super(props);
         this.state = {
-            showOption: false
+            showOption: false,
         };
     }
 
@@ -40,7 +40,7 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
 
     public showOptions = () => {
         this.setState({
-            showOption: !this.state.showOption
+            showOption: !this.state.showOption,
         });
     }
 }

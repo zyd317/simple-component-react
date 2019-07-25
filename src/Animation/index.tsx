@@ -7,7 +7,7 @@ import './index.scss';
 
 const STATUS_EMUN = {
     INIT: 'init',
-    ANIMATING: 'animating'
+    ANIMATING: 'animating',
 };
 function BeWrappedComponent (props: any):
     (SimpleComponentReact.BeWrappedComponentType | any) {
@@ -21,7 +21,7 @@ function BeWrappedComponent (props: any):
             this.myRef = React.createRef();
             this.initClose = this.props.handleClose || this.close;
             this.state = {
-                status: STATUS_EMUN.INIT // 默认
+                status: STATUS_EMUN.INIT, // 默认
             };
         }
 
@@ -31,7 +31,7 @@ function BeWrappedComponent (props: any):
             if (this.props.supportAnimate) {
                 setTimeout(function () {
                     self.setState({
-                        status: STATUS_EMUN.ANIMATING
+                        status: STATUS_EMUN.ANIMATING,
                     });
                 }, 50);
             }
@@ -42,7 +42,7 @@ function BeWrappedComponent (props: any):
                 this.myRef.current.close();
             } else {
                 this.setState({
-                    status: STATUS_EMUN.INIT
+                    status: STATUS_EMUN.INIT,
                 }, () => {
                     this.myRef.current.close();
                 });
@@ -79,7 +79,7 @@ function BeWrappedComponent (props: any):
     }
 
     (WrapperComponent as any).defaultProps = {
-        supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true
+        supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true,
     };
     return WrapperComponent;
 }
