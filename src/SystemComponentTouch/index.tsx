@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
+import {createEvent, dispatchEvent} from 'utils/eventUtils';
 import Animation from '../Animation';
 import ConfirmDialogTouch from '../ConfirmDialogTouch';
-import {createEvent, dispatchEvent} from 'utils/eventUtils';
 import ComponentWrapper from './ComponentWrapper';
 
 // import的时候，判断__SYSTEM_COMPONENT_TOUCH是否存在，没有的话render组件到页面中。有的话不需要管了
@@ -24,7 +24,7 @@ function insertDom () {
 }
 insertDom();
 
-export default {
+const SystemComponentTouch = {
     open(comp: string, config: any) {
         // 如果没有传入关闭方式的话，默认传入this.close
         if (!config.close) {
@@ -49,3 +49,4 @@ export default {
         }
     }
 };
+export default SystemComponentTouch;
