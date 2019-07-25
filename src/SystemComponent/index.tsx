@@ -1,20 +1,20 @@
 /**
  * 这个组件可以直接调用。
  */
-import {render} from "react-dom";
-import React from "react";
-import {createEvent, dispatchEvent} from "../utils/eventUtils";
-import PopAlert from '../PopAlert';
-import ConfirmDialog from '../ConfirmDialog';
+import React from 'react';
+import {render} from 'react-dom';
 import Animation from '../Animation';
-import ComponentWrapper from './ComponentWrapper'
+import ConfirmDialog from '../ConfirmDialog';
+import PopAlert from '../PopAlert';
+import {createEvent, dispatchEvent} from 'utils/eventUtils';
+import ComponentWrapper from './ComponentWrapper';
 
 // import的时候，判断__SYSTEM_COMPONENT是否存在，没有的话render组件到页面中。有的话不需要管了
-function insertDom() {
+function insertDom () {
     const com = document.getElementById('__SYSTEM_COMPONENT');
-    if(!com){
+    if (!com) {
         const doc = window.document;
-        let node = doc.createElement('div');
+        const node = doc.createElement('div');
         node.setAttribute('id', '__SYSTEM_COMPONENT');
         doc.body.appendChild(node);
         const PopAlertAnimate = Animation(PopAlert);
@@ -28,26 +28,26 @@ function insertDom() {
 insertDom();
 
 export default {
-    open: function(comp, config){
+    open(comp: string, config: any) {
         // 如果没有传入关闭方式的话，默认传入this.close
-        if(!config.close){
+        if (!config.close) {
             config.close = this.close.bind(this, comp);
         }
         this._action(comp, config, 'open');
     },
-    update: function(comp, config){
+    update(comp: string, config: any) {
         this._action(comp, config, 'update');
     },
-    close: function(comp){
+    close(comp: string) {
         this._action(comp, {}, 'close');
     },
-    _action: function(comp, config, action){
-        if(comp) {
+    _action(comp: string, config: any, action: 'open' | 'update' | 'close') {
+        if (comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            dispatchEvent(window, createEvent('systemcomponentchange', {
+            dispatchEvent((window as any), createEvent('systemcomponentchange', {
                 name: comp,
-                action: action,
-                config: config
+                action,
+                config
             }));
         }
     }
