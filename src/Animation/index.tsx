@@ -9,8 +9,10 @@ const STATUS_EMUN = {
     INIT: 'init',
     ANIMATING: 'animating'
 };
-const BeWrappedComponent = function BeWrappedComponent (props: any): (SimpleComponentReact.BeWrappedComponentType | any) {
-    class WrapperComponent extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
+function BeWrappedComponent (props: any):
+    (SimpleComponentReact.BeWrappedComponentType | any) {
+    class WrapperComponent
+        extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
         public myRef: React.RefObject<any>;
         public initClose: () => void;
         constructor(props: SimpleComponentReact.AnimationProps) {
@@ -80,6 +82,6 @@ const BeWrappedComponent = function BeWrappedComponent (props: any): (SimpleComp
         supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true
     };
     return WrapperComponent;
-};
+}
 
 export default BeWrappedComponent;

@@ -3,7 +3,8 @@
  */
 import React, {Component, createElement} from 'react';
 import {createPortal} from 'react-dom';
-export default class ComponentWrapper extends Component<SimpleComponentReact.ComponentWrapperProps, SimpleComponentReact.ComponentWrapperState> {
+export default class ComponentWrapper
+    extends Component<SimpleComponentReact.ComponentWrapperProps, SimpleComponentReact.ComponentWrapperState> {
     public renderCompRef: any;
     public node: HTMLElement | null;
     public state = {

@@ -4,7 +4,8 @@
 import React, { Component } from 'react';
 import Dialog from '../Dialog/index';
 import './index.scss';
-class ConfirmDialog extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
+class ConfirmDialog
+    extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
     public initClose: () => void;
     constructor(props: SimpleComponentReact.ConfirmDialogProps) {
         super(props);

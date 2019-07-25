@@ -114,6 +114,8 @@ ua.split(' ').forEach(item => {
 });
 
 // PC
-ySniff.pc = platform.indexOf('Mac') === 0 || platform.indexOf('Win') === 0 || (platform.indexOf('linux') === 0 && !ySniff.android);
+ySniff.pc = platform.indexOf('Mac') === 0 ||
+    platform.indexOf('Win') === 0 ||
+    (platform.indexOf('linux') === 0 && !ySniff.android);
 
 export default ySniff;

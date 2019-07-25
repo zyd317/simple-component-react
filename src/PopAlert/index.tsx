@@ -14,7 +14,8 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
         this.open = this.open.bind(this);
         const {delayTime, noHide, handleClose} = this.props;
         this.close = this.close.bind(this);
-        this.initClose = handleClose || this.close || fn; // 关闭弹窗的方式。因为本组件不能控制关闭，否则会丢失一些外部包裹的形式
+        // 关闭弹窗的方式。因为本组件不能控制关闭，否则会丢失一些外部包裹的形式
+        this.initClose = handleClose || this.close || fn;
         this.state = {
             content: '', // 文案
             status: 'success', // 提示类型,success/warning/error
@@ -41,11 +42,16 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
         }
     }
 
-    public shouldComponentUpdate(nextProps: SimpleComponentReact.PopAlertProps, nextState: SimpleComponentReact.PopAlertState) {
+    public shouldComponentUpdate(
+        nextProps: SimpleComponentReact.PopAlertProps,
+        nextState: SimpleComponentReact.PopAlertState
+    ) {
         const propsObj = (Object as any).entries(nextProps);
         const stateObj = (Object as any).entries(nextState);
-        return !!(propsObj.find((item: any) => ((nextProps as any)[item[0]] !== (this.props as any)[item[0]]))) ||
-            !!(stateObj.find((item: any) => ((nextState as any)[item[0]] !== (this.state as any)[item[0]])));
+        return !!(propsObj.find(
+            (item: any) => ((nextProps as any)[item[0]] !== (this.props as any)[item[0]]))) ||
+            !!(stateObj.find(
+                (item: any) => ((nextState as any)[item[0]] !== (this.state as any)[item[0]])));
     }
 
     public render() {

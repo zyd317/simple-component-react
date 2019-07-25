@@ -4,7 +4,8 @@
 import React, { Component } from 'react';
 import DialogTouch from '../DialogTouch/index';
 import './index.scss';
-class ConfirmDialog extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
+class ConfirmDialog
+    extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
     public initClose: any;
     constructor(props: SimpleComponentReact.ConfirmDialogProps) {
         super(props);
