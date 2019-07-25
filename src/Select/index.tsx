@@ -8,7 +8,7 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
         };
     }
 
-    public render() {
+    render() {
         const {showOption} = this.state;
         const {options = {}, value, position = 'top', placeholder, className = '', disabled} = this.props;
         const arr = Object.keys(options);
@@ -41,12 +41,12 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
         );
     }
 
-    public onChange = (value: string) => {
+    onChange = (value: string) => {
         this.props.onChange(value);
         this.showOptions();
     }
 
-    public showOptions = () => {
+    showOptions = () => {
         this.setState({
             showOption: !this.state.showOption,
         });

@@ -1,7 +1,12 @@
+interface Document {
+    createEventObject: ()=>any;
+}
 interface Window {
     ComponentManager: ComponentMane;
     SystemComponent: ComponentMane;
     SystemComponentTouch: ComponentMane;
+
+    fireEvent(s: string, event: any): void;
 }
 interface ComponentMane {
     open: (comp: string, config: any) => void;

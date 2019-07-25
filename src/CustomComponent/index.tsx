@@ -5,9 +5,9 @@ import React, {Component, createElement} from 'react';
 import {createPortal} from 'react-dom';
 class ComponentWrapper
     extends Component<SimpleComponentReact.ComponentWrapperProps, SimpleComponentReact.ComponentWrapperState> {
-    public renderCompRef: any;
-    public node: HTMLElement | null;
-    public state = {
+    renderCompRef: any;
+    node: HTMLElement | null;
+    state = {
         renderCompName: '',
     };
     constructor(props: SimpleComponentReact.ComponentWrapperProps) {
@@ -39,7 +39,7 @@ class ComponentWrapper
             }
         });
     }
-    public render() {
+    render() {
         const {state, props} = this;
         const {renderCompName} = state;
         const {classNa= ''} = props;

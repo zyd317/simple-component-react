@@ -13,8 +13,8 @@ function BeWrappedComponent (args: any):
     (SimpleComponentReact.BeWrappedComponentType | any) {
     class WrapperComponent
         extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
-        public myRef: React.RefObject<any>;
-        public initClose: () => void;
+        myRef: React.RefObject<any>;
+        initClose: () => void;
         constructor(props: SimpleComponentReact.AnimationProps) {
             super(props);
             this.close = this.close.bind(this);
@@ -25,7 +25,7 @@ function BeWrappedComponent (args: any):
             };
         }
 
-        public open(config: any) {
+        open(config: any) {
             this.myRef.current.open(config);
             const self = this;
             if (this.props.supportAnimate) {
@@ -37,7 +37,7 @@ function BeWrappedComponent (args: any):
             }
         }
 
-        public close() {
+        close() {
             if (!this.props.supportAnimate) {
                 this.myRef.current.close();
             } else {
@@ -49,18 +49,18 @@ function BeWrappedComponent (args: any):
             }
         }
 
-        public update() {
+        update() {
             this.myRef.current.update(args);
         }
 
         /**
          * 传入handleClose，可以关闭当前组件
          */
-        public _componentRender() {
+        _componentRender() {
             return <BeWrappedComponent {...this.props} ref={this.myRef} handleClose={this.initClose}/>;
         }
 
-        public render() {
+        render() {
             const {supportAnimate} = this.props;
             if (!supportAnimate) {
                 return this._componentRender();

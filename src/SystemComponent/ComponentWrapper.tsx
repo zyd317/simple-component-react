@@ -5,9 +5,9 @@ import React, {Component, createElement} from 'react';
 import {createPortal} from 'react-dom';
 export default class ComponentWrapper
     extends Component<SimpleComponentReact.ComponentWrapperProps, SimpleComponentReact.ComponentWrapperState> {
-    public renderCompRef: any;
-    public node: HTMLElement | null;
-    public state = {
+    renderCompRef: any;
+    node: HTMLElement | null;
+    state = {
         renderCompName: '',
     };
     constructor(props: SimpleComponentReact.ComponentWrapperProps) {
@@ -21,7 +21,7 @@ export default class ComponentWrapper
 
         window.addEventListener('systemcomponentchange', (e: any) => {
             const {action, config, name} = e.detail;
-            if (name && action && (props as any)[name]) {
+            if (name && action && self.props[name]) {
                 if (this.renderCompRef[name]) {
                     this.renderCompRef[name][action](config);
                 } else {
@@ -34,11 +34,11 @@ export default class ComponentWrapper
             }
         });
     }
-    public render() {
+    render() {
         const {state, props} = this;
         const {renderCompName} = state;
         const {classNa= ''} = props;
-        const comp = renderCompName && (props as any)[renderCompName];
+        const comp = renderCompName && props[renderCompName];
         if (!this.node || !comp) {
             return null;
         }

@@ -6,7 +6,7 @@ import Dialog from '../Dialog/index';
 import './index.scss';
 class ConfirmDialog
     extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
-    public initClose: () => void;
+    initClose: () => void;
     constructor(props: SimpleComponentReact.ConfirmDialogProps) {
         super(props);
         this.open = this.open.bind(this);
@@ -23,7 +23,7 @@ class ConfirmDialog
         };
     }
 
-  public render() {
+  render() {
       const { handleClose, contentType, handleSure, hide, title, content } = this.state;
       if (hide) {
           return null;
@@ -55,7 +55,7 @@ class ConfirmDialog
       );
   }
 
-    public open(config: SimpleComponentReact.ConfirmDialogState) {
+    open(config: SimpleComponentReact.ConfirmDialogState) {
         // 如果配置中传递了关闭的方法则需要先调用关闭方法，在调用元素关闭
         const {handleClose, handleSure} = config;
         if (handleClose) {
@@ -76,7 +76,7 @@ class ConfirmDialog
         });
     }
 
-    public close() {
+    close() {
         this.setState({
             hide: true,
         });
