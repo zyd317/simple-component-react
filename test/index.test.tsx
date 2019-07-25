@@ -57,7 +57,7 @@ render(
     , document.getElementById('hoverTipsRight'),
 );
 
-const {ComponentManager, Index} = CustomComponent;
+const {ComponentManager, ComponentWrapper} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
 render(

@@ -1,5 +1,5 @@
 interface Document {
-    createEventObject: ()=>any;
+    createEventObject: () => any;
 }
 interface Window {
     ComponentManager: ComponentMane;

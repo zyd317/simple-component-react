@@ -4,5 +4,5 @@
  * 当你只需要popAlert和confirmDialog两个组件的时候，可以直接调用SystemComponent
  */
 import React from 'react';
-import {SystemComponent} from '../src/index';
+import {SystemComponent} from '../src';
 window.SystemComponent = SystemComponent;
