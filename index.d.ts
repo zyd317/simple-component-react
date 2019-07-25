@@ -4,10 +4,10 @@ interface Window {
     SystemComponentTouch: ComponentMane;
 }
 interface ComponentMane {
-    open: (comp: string, config: any)=>void;
-    update: (comp: string, config: any)=>void;
-    close: (comp: string)=>void;
-    _action: (comp: string, config: any, action: 'open' | 'update' | 'close')=>void;
+    open: (comp: string, config: any) => void;
+    update: (comp: string, config: any) => void;
+    close: (comp: string) => void;
+    _action: (comp: string, config: any, action: 'open' | 'update' | 'close') => void;
 }
 
 declare namespace SimpleComponentReact {
@@ -29,34 +29,32 @@ declare namespace SimpleComponentReact {
         readonly name: string;
     }
 
-
-    interface DialogTouchProps{
+    interface DialogTouchProps {
         title?: string;
         customClassName?: string;
         children?: any;
         btnTextSure?: string;
         btnTextCancel?: string;
-        handleSure?: ()=>void;
-        handleClose?: ()=>void;
+        handleSure?: () => void;
+        handleClose?: () => void;
     }
-    interface ButtonItem{
-        fn?: ()=>void;
+    interface ButtonItem {
+        fn?: () => void;
         text?: string;
         className?: string;
         type?: string;
     }
-    interface DialogProps{
+    interface DialogProps {
         showCloseIcon?: boolean;
-        buttons?: Array<ButtonItem>;
-        close?: ()=>void;
+        buttons?: ButtonItem[];
+        close?: () => void;
         title?: string;
         customClassName?: string;
         children?: any;
     }
 
-
     interface ConfirmDialogProps {
-        handleClose: ()=>void;
+        handleClose: () => void;
     }
     interface ConfirmDialogState {
         contentType?: 'confirm' | 'alert';
@@ -65,10 +63,9 @@ declare namespace SimpleComponentReact {
         content: string;
         btnTextSure?: string;
         btnTextCancel?: string;
-        handleSure?: ()=>void;
-        handleClose?: ()=>void;
+        handleSure?: () => void;
+        handleClose?: () => void;
     }
-
 
     interface HoverContainerProps {
         tips?: string;
@@ -79,11 +76,10 @@ declare namespace SimpleComponentReact {
         [key: string]: any;
     }
 
-
     interface PopAlertProps {
         delayTime: number;
         noHide: boolean;
-        handleClose: ()=>void;
+        handleClose: () => void;
     }
     interface PopAlertState {
         content: string;
@@ -93,7 +89,6 @@ declare namespace SimpleComponentReact {
         noHide: boolean;
     }
 
-
     interface SelectProps {
         options: any;
         value: string;
@@ -101,15 +96,14 @@ declare namespace SimpleComponentReact {
         placeholder: string;
         className?: string;
         disabled: boolean;
-        onChange: (value: string)=>void;
+        onChange: (value: string) => void;
     }
     interface SelectState {
         showOption: boolean;
     }
 
-
     interface AnimationProps {
-        handleClose: ()=>void;
+        handleClose: () => void;
         supportAnimate: boolean;
     }
     interface AnimationState {
