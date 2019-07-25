@@ -1,6 +1,9 @@
 interface Document {
     createEventObject: () => any;
 }
+interface Object {
+    entries: (arg: any) => any;
+}
 interface Window {
     ComponentManager: ComponentMane;
     SystemComponent: ComponentMane;

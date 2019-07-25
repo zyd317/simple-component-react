@@ -3,7 +3,7 @@
  * modal component only for show
  */
 import React from 'react';
-import './index.scss';
+import './style.scss';
 const fn = () => {};
 
 export default function Dialog (props: SimpleComponentReact.DialogTouchProps) {

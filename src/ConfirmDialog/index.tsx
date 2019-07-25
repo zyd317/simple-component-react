@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import Dialog from '../Dialog/index';
-import './index.scss';
+import './style.scss';
 class ConfirmDialog
     extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {
     initClose: () => void;

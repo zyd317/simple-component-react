@@ -3,9 +3,9 @@
  */
 import React, {Component} from 'react';
 import Dialog from '../Dialog';
-import './index.scss';
+import './style.scss';
 const fn = () => {};
-class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleComponentReact.PopAlertState> {
+class Index extends Component<SimpleComponentReact.PopAlertProps & any, SimpleComponentReact.PopAlertState & any> {
     initClose: () => void;
     scrollTimer: number;
     constructor(props: SimpleComponentReact.PopAlertProps) {
@@ -43,15 +43,16 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
     }
 
     shouldComponentUpdate(
-        nextProps: SimpleComponentReact.PopAlertProps,
-        nextState: SimpleComponentReact.PopAlertState,
+        nextProps: SimpleComponentReact.PopAlertProps & any,
+        nextState: SimpleComponentReact.PopAlertState & any,
     ) {
-        const propsObj = (Object as any).entries(nextProps);
-        const stateObj = (Object as any).entries(nextState);
+        const propsObj = Object.entries(nextProps);
+        const stateObj = Object.entries(nextState);
+        const {props, state} = this;
         return !!(propsObj.find(
-            (item: any) => ((nextProps as any)[item[0]] !== (this.props as any)[item[0]]))) ||
+            (item: any) => (nextProps[item[0]] !== props[item[0]]))) ||
             !!(stateObj.find(
-                (item: any) => ((nextState as any)[item[0]] !== (this.state as any)[item[0]])));
+                (item: any) => (nextState[item[0]] !== state[item[0]])));
     }
 
     render() {
@@ -86,4 +87,4 @@ class PopAlert extends Component<SimpleComponentReact.PopAlertProps, SimpleCompo
     }
 }
 
-export default PopAlert;
+export default Index;

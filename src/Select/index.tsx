@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './index.scss';
+import './style.scss';
 export default class Select extends Component<SimpleComponentReact.SelectProps, SimpleComponentReact.SelectState> {
     constructor(props: SimpleComponentReact.SelectProps) {
         super(props);

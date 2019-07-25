@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir"       : "dist",
+    "outDir"       : "ts-build",
     "sourceMap"    : true,
     "noImplicitAny": true,
     "module"       : "commonjs",

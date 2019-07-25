@@ -3,7 +3,7 @@
  * modal component only for show
  */
 import React from 'react';
-import './index.scss';
+import './style.scss';
 const fn = () => {};
 
 export default function Dialog (props: SimpleComponentReact.DialogProps) {
@@ -24,7 +24,7 @@ export default function Dialog (props: SimpleComponentReact.DialogProps) {
                 text: '取消',
                 fn: newClose,
             },
-        ] as SimpleComponentReact.ButtonItem[] : buttons;
+        ] : buttons;
     const newCustomClassName = customClassName || '';
     const newChildren = children === undefined ? '确认删除此评论？删除后不可恢复' : children;
     return (

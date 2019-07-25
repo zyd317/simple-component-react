@@ -2,26 +2,29 @@
  * Created by yidi.zhao on 2018/11/11.
  */
 interface YSniffType {
-    browsers: any;
-    info: any;
-    ios: boolean;
-    android: boolean;
-    iphone: boolean;
-    ipad: boolean;
-    ipod: boolean;
-    imobile: boolean;
-    os: 'android' | 'ios';
-    osVersion: string | null;
-    pixelRatio: number;
-    osVersionN: number;
-    retina: boolean;
-    webApp: boolean;
-    pc: boolean;
+    browsers?: any;
+    info?: any;
+    ios?: boolean;
+    android?: boolean;
+    iphone?: boolean;
+    ipad?: boolean;
+    ipod?: boolean;
+    imobile?: boolean;
+    os?: 'android' | 'ios';
+    osVersion?: string | null;
+    pixelRatio?: number;
+    osVersionN?: number;
+    retina?: boolean;
+    webApp?: boolean;
+    pc?: boolean;
 }
-const ySniff = {
+
+// 结果
+let ySniff: YSniffType;
+ySniff = {
     browsers: {},
     info: {},
-} as YSniffType; // 结果
+};
 
 const {userAgent, platform} = navigator;
 const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/), // 匹配 android
@@ -80,7 +83,7 @@ if (ySniff.ios && ySniff.osVersion && userAgent.indexOf('Version/') >= 0) {
 
 if (ySniff.osVersion) {
     try {
-        ySniff.osVersionN = parseInt((ySniff.osVersion.match(/\d+\.?\d*/) as any)[0], 10);
+        ySniff.osVersionN = parseInt(ySniff.osVersion.match(/\d+\.?\d*/)[0], 10);
     } catch (e) {
         console.log(e);
     }
@@ -93,14 +96,16 @@ ySniff.pixelRatio = window.devicePixelRatio || 1;
 ySniff.retina = ySniff.pixelRatio >= 2;
 
 // 浏览器
-for (const key in browsers) {
-    if ((browsers as any)[key]) {
+Object.keys(browsers).forEach((key)=>{
+    // @ts-ignore
+    const value = browsers[key];
+    if (value) {
         webApp = false;
-        ySniff.browsers[key] = (browsers as any)[key][2];
+        ySniff.browsers[key] = value[2];
     } else {
         ySniff.browsers[key] = false;
     }
-}
+});
 
 ySniff.webApp = ySniff.os === 'ios' && webApp;
 

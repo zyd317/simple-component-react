@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+import './style.scss';
 export default function HoverContainer (props: SimpleComponentReact.HoverContainerProps) {
     const {tips, className= '', position= 'top', children, icon} = props;
     let clas = 'content';

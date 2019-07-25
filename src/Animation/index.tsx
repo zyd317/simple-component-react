@@ -3,18 +3,20 @@
  */
 import React, {Component} from 'react';
 import Browser from '../utils/browser';
-import './index.scss';
+import './style.scss';
 
 const STATUS_EMUN = {
     INIT: 'init',
     ANIMATING: 'animating',
 };
+const supportAnimate = Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true;
 function BeWrappedComponent (args: any):
     (SimpleComponentReact.BeWrappedComponentType | any) {
     class WrapperComponent
         extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
         myRef: React.RefObject<any>;
         initClose: () => void;
+        static defaultProps: { supportAnimate: boolean };
         constructor(props: SimpleComponentReact.AnimationProps) {
             super(props);
             this.close = this.close.bind(this);
@@ -79,8 +81,8 @@ function BeWrappedComponent (args: any):
         }
     }
 
-    (WrapperComponent as any).defaultProps = {
-        supportAnimate: Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true,
+    WrapperComponent.defaultProps = {
+        supportAnimate: supportAnimate
     };
     return WrapperComponent;
 }
