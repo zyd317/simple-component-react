@@ -16,16 +16,21 @@ export default class Select extends Component<SimpleComponentReact.SelectProps, 
         return (
             <div className={`m_select_container ${className} ${disabled ? 'disable' : 'able'}`}>
                 <div className="m_select_input" onClick={this.showOptions}>
-                    {value ? <div className="value">{options[value]}</div> : <div className="tips value">{placeholder}</div>}
+                    {value ?
+                        <div className="value">{options[value]}</div> :
+                        <div className="tips value">{placeholder}</div>
+                    }
                     <div className={`icon ${show ? 'rotate' : ''}`} />
                 </div>
                 {show ?
                     arr.length ?
                         <ul className={`m_select_option ${position}`}>
-                            {arr.map(key => <li
-                                key={key}
-                                onClick={() => {this.onChange(key); }}
-                                className="m_select_option_item">{options[key]}</li>)}
+                            {arr.map(key =>
+                                <li
+                                    key={key}
+                                    onClick={() => {this.onChange(key); }}
+                                    className="m_select_option_item">{options[key]}</li>,
+                            )}
                         </ul> : <div className={`m_select_option ${position} no_result`}>暂无选择...</div>
                      : null
                 }

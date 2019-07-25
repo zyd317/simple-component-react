@@ -17,9 +17,11 @@ function insertDom () {
         node.setAttribute('id', '__SYSTEM_COMPONENT_TOUCH');
         doc.body.appendChild(node);
         const ConfirmDialogTouchAnimate = Animation(ConfirmDialogTouch);
-        render(<ComponentWrapper
+        render(
+            <ComponentWrapper
             ConfirmDialogTouch={ConfirmDialogTouch}
-            ConfirmDialogTouchAnimate={ConfirmDialogTouchAnimate}/>, node);
+            ConfirmDialogTouchAnimate={ConfirmDialogTouchAnimate}/>
+            , node);
     }
 }
 insertDom();
@@ -41,7 +43,7 @@ const SystemComponentTouch = {
     _action(comp: string, config: any, action: 'open' | 'update' | 'close') {
         if (comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            dispatchEvent((window as any), createEvent('systemcomponentchangetouch', {
+            dispatchEvent(window, createEvent('systemcomponentchangetouch', {
                 name: comp,
                 action,
                 config,

@@ -36,8 +36,7 @@ class ConfirmDialog
                   buttons={[
                       {text: '确定', fn: handleSure},
                       {text: '取消', fn: handleClose},
-                  ]}
-              >{content}</Dialog>
+                  ]}>{content}</Dialog>
           );
       }
 
@@ -46,8 +45,7 @@ class ConfirmDialog
               title={title}
               showCloseIcon={false}
               close={handleClose}
-              buttons={[{text: '确定', fn: handleClose}]}
-          >{content}</Dialog>
+              buttons={[{text: '确定', fn: handleClose}]}>{content}</Dialog>
       );
   }
 

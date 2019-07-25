@@ -9,7 +9,7 @@ const STATUS_EMUN = {
     INIT: 'init',
     ANIMATING: 'animating',
 };
-function BeWrappedComponent (props: any):
+function BeWrappedComponent (args: any):
     (SimpleComponentReact.BeWrappedComponentType | any) {
     class WrapperComponent
         extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
@@ -29,7 +29,7 @@ function BeWrappedComponent (props: any):
             this.myRef.current.open(config);
             const self = this;
             if (this.props.supportAnimate) {
-                setTimeout(function () {
+                setTimeout(() => {
                     self.setState({
                         status: STATUS_EMUN.ANIMATING,
                     });
@@ -50,7 +50,7 @@ function BeWrappedComponent (props: any):
         }
 
         public update() {
-            this.myRef.current.update(props);
+            this.myRef.current.update(args);
         }
 
         /**
@@ -65,7 +65,8 @@ function BeWrappedComponent (props: any):
             if (!supportAnimate) {
                 return this._componentRender();
             } else {
-                const wrapperClass = ['animate-init'], {status} = this.state;
+                const wrapperClass = ['animate-init'];
+                const {status} = this.state;
                 if (STATUS_EMUN.ANIMATING === status) {
                     wrapperClass.push('animate-start');
                 }

@@ -19,10 +19,12 @@ function insertDom () {
         doc.body.appendChild(node);
         const PopAlertAnimate = Animation(PopAlert);
         const ConfirmDialogAnimate = Animation(ConfirmDialog);
-        render(<ComponentWrapper PopAlert={PopAlert}
+        render(
+            <ComponentWrapper PopAlert={PopAlert}
                             ConfirmDialog={ConfirmDialog}
                             ConfirmDialogAnimate={ConfirmDialogAnimate}
-                            PopAlertAnimate={PopAlertAnimate}/>, node);
+                            PopAlertAnimate={PopAlertAnimate}/>
+            , node);
     }
 }
 insertDom();
@@ -44,7 +46,7 @@ const SystemComponent = {
     _action(comp: string, config: any, action: 'open' | 'update' | 'close') {
         if (comp) {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
-            dispatchEvent((window as any), createEvent('systemcomponentchange', {
+            dispatchEvent(window, createEvent('systemcomponentchange', {
                 name: comp,
                 action,
                 config,

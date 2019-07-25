@@ -18,13 +18,15 @@ const ComponentManager = {
             // 页面中有节点才能进行展示隐藏，否则需要先插入再调用
             const component = document.getElementById('__CUSTOM_COMPONENT');
             if (component) {
-                dispatchEvent((window as any), createEvent('customcomponentchange', {
+                dispatchEvent(window, createEvent('customcomponentchange', {
                     name: comp,
                     action,
                     config,
                 }));
             } else {
-                throw new Error('需要先注册了ComponentWrapper才能使用ComponentManager。详情查看https://github.com/zyd317/simple-component-react#readme的ComponentWrapper使用方式');
+                throw new Error(
+                    '需要先注册了ComponentWrapper才能使用ComponentManager。' +
+                    '详情查看https://github.com/zyd317/simple-component-react#readme的ComponentWrapper使用方式');
             }
         }
     },

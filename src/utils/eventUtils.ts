@@ -19,12 +19,12 @@ export function createEvent (name: string, data: any) {
     return createEvent(name, data);
 }
 
-export function dispatchEvent (element: Element, event: any) {
+export function dispatchEvent (element: Window, event: any) {
     const triggerEvent = document.createEvent
-        ? (element: Element, event: any) => {
+        ? (element: Window, event: any) => {
             element.dispatchEvent(event);
         }
-        : (element: Element, event: any) => {
+        : (element: Window, event: any) => {
             (element as any).fireEvent('on' + event.eventType, event);
         };
     return triggerEvent(element, event);

@@ -6,6 +6,7 @@
     ],
     "jsRules": {},
     "rules": {
+        "indent": [true, "spaces", 4],
         "quotemark": [
             true,
             "single",
@@ -37,14 +38,22 @@
         "jsx-no-multiline-js": false,
         "import-sources-order": false,
         "no-namespace": false,
-        "jsx-wrap-multiline": false
+        "jsx-wrap-multiline": false,
+        "eofline": false,
+        "jsx-self-close": false,
+        "jsx-boolean-value": false,
+        "one-variable-per-declaration": false, // 不允许在同一声明语句中使用多个变量定义
+        "no-unused-expression": false,
+        "no-shadowed-variable": false, // 不允许隐藏变量声明
+        "no-empty": false
     },
     "rulesDirectory": [],
     "linterOptions": {
         "exclude": [
             "node_modules/**",
             "dist/*",
-            "lib/*"
+            "lib/*",
+            "*.json"
         ]
     }
 }

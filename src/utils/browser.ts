@@ -1,7 +1,7 @@
 /**
  * Created by yidi.zhao on 2018/11/11.
  */
-interface ySniffType {
+interface YSniffType {
     browsers: any;
     info: any;
     ios: boolean;
@@ -21,23 +21,22 @@ interface ySniffType {
 const ySniff = {
     browsers: {},
     info: {},
-} as ySniffType; // 结果
+} as YSniffType; // 结果
 
-const ua = navigator.userAgent,
-    platform = navigator.platform,
-    android = ua.match(/(Android);?[\s\/]+([\d.]+)?/), // 匹配 android
-    ipad = ua.match(/(iPad).*OS\s([\d_]+)/), // 匹配 ipad
-    ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/), // 匹配 ipod
-    iphone = ua.match(/(iPhone\sOS)\s([\d_]+)/); // 匹配 iphone
-let webApp = ua.indexOf('Safari') === -1; // 匹配 桌面 webApp
+const {userAgent, platform} = navigator;
+const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/), // 匹配 android
+    ipad = userAgent.match(/(iPad).*OS\s([\d_]+)/), // 匹配 ipad
+    ipod = userAgent.match(/(iPod)(.*OS\s([\d_]+))?/), // 匹配 ipod
+    iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/); // 匹配 iphone
+let webApp = userAgent.indexOf('Safari') === -1; // 匹配 桌面 webApp
 
 const browsers = {
-    wechat: ua.match(/(MicroMessenger)\/([\d\.]+)/), // 匹配 weChat
-    alipay: ua.match(/(AlipayClient)\/([\d\.]+)/), // 匹配 支付宝
-    qq: ua.match(/(MQQBrowser)\/([\d\.]+)/), // 匹配 QQ 浏览器
-    weibo: ua.match(/(weibo__)([\d\.]+)/), // 匹配 微博
-    uc: ua.match(/(UCBrower)\/([\d\.]+)/), // 匹配 uc
-    opera: ua.match(/(Opera)\/([\d\.]+)/), // 匹配 opera
+    wechat: userAgent.match(/(MicroMessenger)\/([\d\.]+)/), // 匹配 weChat
+    alipay: userAgent.match(/(AlipayClient)\/([\d\.]+)/), // 匹配 支付宝
+    qq: userAgent.match(/(MQQBrowser)\/([\d\.]+)/), // 匹配 QQ 浏览器
+    weibo: userAgent.match(/(weibo__)([\d\.]+)/), // 匹配 微博
+    uc: userAgent.match(/(UCBrower)\/([\d\.]+)/), // 匹配 uc
+    opera: userAgent.match(/(Opera)\/([\d\.]+)/), // 匹配 opera
 };
 
 // 系统
@@ -72,16 +71,16 @@ if (ipod) {
     ySniff.imobile = true;
 }
 
-// iOS 8+ changed UA
-if (ySniff.ios && ySniff.osVersion && ua.indexOf('Version/') >= 0) {
+// iOS 8+ changed userAgent
+if (ySniff.ios && ySniff.osVersion && userAgent.indexOf('Version/') >= 0) {
     if (ySniff.osVersion.split('.')[0] === '10') {
-        ySniff.osVersion = ua.toLowerCase().split('version/')[1].split(' ')[0];
+        ySniff.osVersion = userAgent.toLowerCase().split('version/')[1].split(' ')[0];
     }
 }
 
 if (ySniff.osVersion) {
     try {
-        ySniff.osVersionN = parseInt((ySniff.osVersion.match(/\d+\.?\d*/) as any)[0]);
+        ySniff.osVersionN = parseInt((ySniff.osVersion.match(/\d+\.?\d*/) as any)[0], 10);
     } catch (e) {
         console.log(e);
     }
@@ -106,7 +105,7 @@ for (const key in browsers) {
 ySniff.webApp = ySniff.os === 'ios' && webApp;
 
 // 其他信息
-ua.split(' ').forEach(item => {
+userAgent.split(' ').forEach(item => {
     const kv = item.split('/');
     if (kv.length === 2) {
         ySniff.info[kv[0]] = kv[1];
