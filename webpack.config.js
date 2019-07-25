@@ -8,9 +8,9 @@ module.exports = (env, argv) => {
     const commonConfig = {
         mode: argv.mode,
         entry: {
-            index: path.join(__dirname, './src/index.js'),
-            usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
-            usualComponentTouch: path.join(__dirname, './src/usualComponentTouch.js'),
+            index: path.join(__dirname, './src/index.ts'),
+            usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.ts'),
+            usualComponentTouch: path.join(__dirname, './src/usualComponentTouch.ts'),
         },
         output: {
             path: path.join(__dirname, 'lib'),
@@ -80,12 +80,12 @@ module.exports = (env, argv) => {
     if(isDevMode){
         commonConfig.externals = {};
         commonConfig.entry = {
-            index: path.join(__dirname, './src/index.js'),
-            usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.js'),
-            usualComponentTouch: path.join(__dirname, './src/usualComponentTouch.js'),
-            indexTest: path.join(__dirname, './test/index.test.js'),
-            indexTest2: path.join(__dirname, './test/index.test2.js'),
-            indexTestTouch: path.join(__dirname, './test/index.test.touch.js'),
+            index: path.join(__dirname, './src/index.ts'),
+            usualComponentWeb: path.join(__dirname, './src/usualComponentWeb.ts'),
+            usualComponentTouch: path.join(__dirname, './src/usualComponentTouch.ts'),
+            indexTest: path.join(__dirname, './test/index.test.tsx'),
+            indexTest2: path.join(__dirname, './test/index.test2.tsx'),
+            indexTestTouch: path.join(__dirname, './test/index.test.touch.tsx'),
         };
         commonConfig.output = {
             path: path.join(__dirname, 'dist'),
