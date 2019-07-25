@@ -4,14 +4,13 @@
 import React, {Component} from 'react';
 import Browser from '../utils/browser';
 import './style.scss';
-
 const STATUS_EMUN = {
     INIT: 'init',
     ANIMATING: 'animating',
 };
 const supportAnimate = Browser.ios || (Browser.android && Browser.osVersionN >= 6) || true;
-function BeWrappedComponent (args: any):
-    (SimpleComponentReact.BeWrappedComponentType | any) {
+
+function BeWrappedComponent (Args: any): (SimpleComponentReact.BeWrappedComponentType | any) {
     class WrapperComponent
         extends Component<SimpleComponentReact.AnimationProps, SimpleComponentReact.AnimationState> {
         myRef: React.RefObject<any>;
@@ -52,14 +51,18 @@ function BeWrappedComponent (args: any):
         }
 
         update() {
-            this.myRef.current.update(args);
+            this.myRef.current.update(Args);
         }
 
         /**
          * 传入handleClose，可以关闭当前组件
          */
         _componentRender() {
-            return <BeWrappedComponent {...this.props} ref={this.myRef} handleClose={this.initClose}/>;
+            return React.createElement(Args, {
+                ...this.props,
+                ref: this.myRef,
+                handleClose: this.initClose
+            });
         }
 
         render() {

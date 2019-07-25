@@ -2,7 +2,7 @@
  * 确认窗口
  */
 import React, { Component } from 'react';
-import Dialog from '../Dialog/index';
+import Dialog from '../Dialog';
 import './style.scss';
 class ConfirmDialog
     extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {

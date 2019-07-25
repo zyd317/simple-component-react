@@ -2,7 +2,7 @@
  * 确认窗口-移动端
  */
 import React, { Component } from 'react';
-import DialogTouch from '../DialogTouch/index';
+import DialogTouch from '../DialogTouch';
 import './style.scss';
 class ConfirmDialog
     extends Component<SimpleComponentReact.ConfirmDialogProps, SimpleComponentReact.ConfirmDialogState> {

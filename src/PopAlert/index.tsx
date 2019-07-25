@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import Dialog from '../Dialog';
 import './style.scss';
 const fn = () => {};
-class Index extends Component<SimpleComponentReact.PopAlertProps & any, SimpleComponentReact.PopAlertState & any> {
+class PopAlert extends Component<SimpleComponentReact.PopAlertProps & any, SimpleComponentReact.PopAlertState & any> {
     initClose: () => void;
     scrollTimer: number;
     constructor(props: SimpleComponentReact.PopAlertProps) {
@@ -87,4 +87,4 @@ class Index extends Component<SimpleComponentReact.PopAlertProps & any, SimpleCo
     }
 }
 
-export default Index;
+export default PopAlert;
