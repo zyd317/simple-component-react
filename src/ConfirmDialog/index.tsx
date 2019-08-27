@@ -18,13 +18,15 @@ class ConfirmDialog
             contentType: 'confirm', // alert
             title: '',
             content: '',
+            btnTextSure: '确定',
+            btnTextCancel: '确定',
             handleSure: this.initClose,
             handleClose: this.initClose,
         };
     }
 
   render() {
-      const { handleClose, contentType, handleSure, hide, title, content } = this.state;
+      const { handleClose, contentType, handleSure, hide, title, content, btnTextCancel, btnTextSure } = this.state;
       if (hide) {
           return null;
       }
@@ -34,8 +36,8 @@ class ConfirmDialog
                   title={title}
                   close={handleClose}
                   buttons={[
-                      {text: '确定', fn: handleSure},
-                      {text: '取消', fn: handleClose},
+                      {text: btnTextSure, fn: handleSure},
+                      {text: btnTextCancel, fn: handleClose},
                   ]}
               >
                   {content}
@@ -48,7 +50,7 @@ class ConfirmDialog
               title={title}
               showCloseIcon={false}
               close={handleClose}
-              buttons={[{text: '确定', fn: handleClose}]}
+              buttons={[{text: btnTextSure, fn: handleClose}]}
           >
               {content}
           </Dialog>
