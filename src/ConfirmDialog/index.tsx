@@ -19,7 +19,7 @@ class ConfirmDialog
             title: '',
             content: '',
             btnTextSure: '确定',
-            btnTextCancel: '确定',
+            btnTextCancel: '取消',
             handleSure: this.initClose,
             handleClose: this.initClose,
         };
