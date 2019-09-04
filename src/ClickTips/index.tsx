@@ -9,14 +9,17 @@ export default class ClickContainer extends Component<SimpleComponentReact.Hover
     }
 
     render(){
-        const {tips, className= '', position= 'top', children, icon} = this.props;
+        const {tips, className= '', position= 'top', children, icon, onToggleHide} = this.props;
         const {showContent} = this.state;
         return (
             <div {...this.props} className={`m_click_container_tips ${className} ${position} ${showContent ? 'hover': ''}`}>
                 <div onClick={()=>{
                     this.setState({
                         showContent: !showContent
-                    })
+                    });
+                    if(onToggleHide){
+                        onToggleHide(!showContent)
+                    }
                 }}>
                     {icon ? icon : <div className={`icon ${(tips || children) ? 'active' : ''} ${showContent ? 'hover': ''}`}/>}
                 </div>

@@ -57,7 +57,7 @@ render(
 );
 
 render(
-    <ClickTips position="right">
+    <ClickTips position="right" onToggleHide={(flag: string)=>{console.log(flag)}}>
         <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
     </ClickTips>
     , document.getElementById('clickTipsRight'),
