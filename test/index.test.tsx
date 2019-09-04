@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {Animation, ConfirmDialog, CustomComponent, HoverAlert, PopAlert, Select, SystemComponent} from '../src/index';
+import {Animation, ConfirmDialog, CustomComponent, HoverAlert, ClickTips, PopAlert, Select, SystemComponent} from '../src/index';
 
 render(
     <HoverAlert tips="使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right" position="top"/>,
@@ -54,6 +54,13 @@ render(
         <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
     </HoverAlert>
     , document.getElementById('hoverTipsRight'),
+);
+
+render(
+    <ClickTips position="right">
+        <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
+    </ClickTips>
+    , document.getElementById('clickTipsRight'),
 );
 
 const {ComponentManager, ComponentWrapper} = CustomComponent;

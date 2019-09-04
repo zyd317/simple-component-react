@@ -45,6 +45,18 @@ render(
     document.getElementById('hoverTipsLeft')
 );
 ```
+> ClickTips组件调用方式如下
+
+![ClickTips组件样式](/HoverTips.png)
+
+```
+import {ClickTips} from 'simple-component-react';
+
+render(
+    <ClickTips tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
+    document.getElementById('hoverTipsOne')
+);
+```
 
 > 只需要系统组件，不需要自定义的时候，可以直接调用如下方式
 

@@ -4,6 +4,7 @@ export {
     ConfirmDialog,
     PopAlert,
     HoverAlert,
+    ClickTips,
     Dialog,
     SystemComponent,
     Select,

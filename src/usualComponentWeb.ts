@@ -6,6 +6,7 @@ import Sys from './SystemComponent';
 const {SystemComponent, Animation, ConfirmDialog, PopAlert} = Sys;
 import Dialog from './Dialog';
 import HoverAlert from './HoverTips';
+import ClickTips from './ClickTips';
 import Select from './Select';
 export {
     Select,
@@ -14,6 +15,7 @@ export {
     ConfirmDialog,
     PopAlert,
     HoverAlert,
+    ClickTips,
     Dialog,
     SystemComponent,
 };
