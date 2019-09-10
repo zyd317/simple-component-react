@@ -2,10 +2,11 @@ import React, {useEffect, useRef, useState} from 'react';
 import './style.scss';
 export default function ClickContainer(props: SimpleComponentReact.HoverContainerProps) {
     const [showContent, setShowContent] = useState(false);
+    const ref = useRef(null);
     const _has_listen_component = useRef(false);
     const listenerHandle = useRef((e: Event)=>{
         // 处理收起点击
-        if(!e.target.closest('.m_click_container_tips')){
+        if(!ref.current.contains(e.target)){
             setShowContent(false)
         }
     });
@@ -29,7 +30,7 @@ export default function ClickContainer(props: SimpleComponentReact.HoverContaine
 
     const {tips, className= '', position= 'top', children, icon, onToggleHide} = props;
     return (
-        <div {...props} className={`m_click_container_tips ${className} ${position} ${showContent ? 'hover': ''}`}>
+        <div {...props} className={`m_click_container_tips ${className} ${position} ${showContent ? 'hover': ''}`} ref={ref}>
             <div className='inner_content' onClick={()=>{
                 setShowContent(!showContent);
             }}>
