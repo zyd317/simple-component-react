@@ -53,7 +53,7 @@ render(
 import {ClickTips} from 'simple-component-react';
 
 render(
-    <ClickTips tips='使用一行。文本居中显示，position为悬浮框的位置，支持top/bottom/left/right' position='top'/>,
+    <ClickTips tips='这个组件支持点击其他地方，关闭组件，并且给一个状态改变的回掉onToggleHide。一个页面支持控制多个，但展示只show一个，其他hide' position='top'/>,
     document.getElementById('hoverTipsOne')
 );
 ```
