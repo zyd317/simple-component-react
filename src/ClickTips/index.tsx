@@ -1,18 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './style.scss';
 export default function ClickContainer(props: SimpleComponentReact.HoverContainerProps) {
     const [showContent, setShowContent] = useState(false);
+    const _has_listen_component = useRef(false);
+    const listenerHandle = useRef((e: Event)=>{
+        // 处理收起点击
+        if(!e.target.closest('.m_click_container_tips')){
+            setShowContent(false)
+        }
+    });
 
     useEffect(()=>{
-        if(!window._has_listen_component){
-            window._has_listen_component = true;
-            document.addEventListener('click', (e)=>{
-                // 处理收起点击
-                const tar = e.target;
-                if(!tar.closest('.m_click_container_tips')){
-                    setShowContent(false)
-                }
-            }, false);
+        if(!_has_listen_component.current){
+            _has_listen_component.current = true;
+            document.addEventListener('click', listenerHandle.current, false);
+        }
+
+        return ()=>{
+            document.removeEventListener('click', listenerHandle.current, false);
         }
     }, []);
 

@@ -63,6 +63,13 @@ render(
     , document.getElementById('clickTipsRight'),
 );
 
+render(
+    <ClickTips position="right" onToggleHide={(flag: string)=>{console.log(flag)}}>
+        <div>asnbgjbhbfgjkbdfghbdfhsjbdg</div>
+    </ClickTips>
+    , document.getElementById('clickTipsRight2'),
+);
+
 const {ComponentManager, ComponentWrapper} = CustomComponent;
 const PopAlertAnimate = Animation(PopAlert);
 const ConfirmDialogAnimate = Animation(ConfirmDialog);
