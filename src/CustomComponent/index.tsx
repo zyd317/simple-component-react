@@ -42,7 +42,7 @@ class ComponentWrapper
     render() {
         const {state, props} = this;
         const {renderCompName} = state;
-        const {classNa= ''} = props;
+        const {classNa = ''} = props;
         const comp = renderCompName && props[renderCompName];
         if (!this.node || !comp) {
             return null;

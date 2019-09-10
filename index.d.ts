@@ -9,6 +9,8 @@ interface Window {
     SystemComponent: ComponentMane;
     SystemComponentTouch: ComponentMane;
 
+    _has_listen_component: boolean;
+
     fireEvent(s: string, event: any): void;
 }
 interface ComponentMane {

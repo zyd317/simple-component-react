@@ -1,6 +1,6 @@
 {
   "name": "simple-component-react",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "组件库",
   "keywords": [
     "react",
@@ -32,8 +32,8 @@
   "homepage": "https://github.com/zyd317/componentTools#readme",
   "dependencies": {},
   "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
@@ -54,8 +54,8 @@
     "file-loader": "^4.0.0",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "tslint": "^5.18.0",
