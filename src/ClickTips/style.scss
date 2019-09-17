@@ -3,7 +3,7 @@
   display: inline-block;
   font-size: 12px;
   line-height: 20px;
-  .icon{
+  .click_icon{
     width: 14px;
     height: 14px;
     background: url("//sf3-ttcdn-tos.pstatp.com/obj/ttfe/MP_SOURCE/icon_info.svg");
@@ -11,7 +11,7 @@
       background: url("//sf3-ttcdn-tos.pstatp.com/obj/ttfe/MP_SOURCE/icon_info_red.svg");
     }
   }
-  .content{
+  .click_content{
     z-index: 999;
     color: #666;
     position: absolute;
@@ -23,7 +23,7 @@
       text-align: center;
     }
 
-    .hover_content_main{
+    .click_content_main{
       background: #fff;
       padding: 12px 16px;
       position: relative;
@@ -33,7 +33,7 @@
       border-radius: 6px;
       z-index: 1;
     }
-    .hover_arrow_icon{
+    .click_arrow_icon{
       position: absolute;
       width: 8px;
       height: 8px;
@@ -45,14 +45,14 @@
   }
 
   &.left{
-    .content{
+    .click_content{
       top: 50%;
       right: 9px;
       margin-top: 3px;
       margin-right: 100%;
       transform: translateY(-50%);
     }
-    .hover_arrow_icon{
+    .click_arrow_icon{
       margin-top: -7px;
       top: 50%;
       right: -4px;
@@ -61,14 +61,14 @@
   }
 
   &.right{
-    .content{
+    .click_content{
       margin-top: 2px;
       top: 50%;
       left: 9px;
       margin-left: 100%;
       transform: translateY(-50%);
     }
-    .hover_arrow_icon{
+    .click_arrow_icon{
       margin-top: -7px;
       top: 50%;
       left: -4px;
@@ -77,14 +77,14 @@
   }
 
   &.bottom{
-    .content{
+    .click_content{
       left: 50%;
       margin-left: 8px;
       top: 100%;
       margin-top: 9px;
       transform: translateX(-50%);
     }
-    .hover_arrow_icon{
+    .click_arrow_icon{
       margin-left: -12px;
       left: 50%;
       top: -4px;
@@ -93,14 +93,14 @@
   }
 
   &.top{
-    .content{
+    .click_content{
       left: 50%;
       margin-left: 7px;
       bottom: 100%;
       margin-bottom: 9px;
       transform: translateX(-50%);
     }
-    .hover_arrow_icon{
+    .click_arrow_icon{
       margin-left: -12px;
       left: 50%;
       bottom: -4px;
@@ -109,7 +109,7 @@
   }
 
   &.hover{
-    >.content{
+    >.click_content{
       display: block;
     }
   }

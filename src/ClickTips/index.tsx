@@ -34,7 +34,7 @@ export default function ClickContainer(props: SimpleComponentReact.HoverContaine
             <div className='inner_content' onClick={()=>{
                 setShowContent(!showContent);
             }}>
-                {icon ? icon : <div className={`icon ${(tips || children) ? 'active' : ''} ${showContent ? 'hover': ''}`}/>}
+                {icon ? icon : <div className={`click_icon ${(tips || children) ? 'active' : ''} ${showContent ? 'hover': ''}`}/>}
             </div>
             {renderChildren()}
         </div>
@@ -42,7 +42,7 @@ export default function ClickContainer(props: SimpleComponentReact.HoverContaine
 
     function renderChildren(){
         const {tips, children} = props;
-        let clas = 'content';
+        let clas = 'click_content';
         // 如果是单行的话水平居中
         if (tips && typeof tips === 'string' && !(/<br \/>/.test(tips))) {
             clas += ' text_center';
@@ -51,10 +51,10 @@ export default function ClickContainer(props: SimpleComponentReact.HoverContaine
             if(tips || children){
                 return (
                     <div className={clas}>
-                        <div className="hover_content_main">
+                        <div className="click_content_main">
                             {tips || children}
                         </div>
-                        <div className="hover_arrow_icon" />
+                        <div className="click_arrow_icon" />
                     </div>
                 );
             }
