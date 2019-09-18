@@ -144,9 +144,9 @@ class DialogDemo extends Component {
               showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
               close={this.initClose} // 点击dialog的时候会调用。关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
               customClassName='my-class'
-              buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
+              buttons={[  // 默认展示"确认"按钮和"取消按钮"，都调用this.initClose
                   {
-                    text: '确定',
+                    text: '确认',
                     fn: this.confirmValidDialog
                   }, {
                      text: '取消',

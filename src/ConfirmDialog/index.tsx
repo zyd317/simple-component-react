@@ -18,7 +18,7 @@ class ConfirmDialog
             contentType: 'confirm', // alert
             title: '',
             content: '',
-            btnTextSure: '确定',
+            btnTextSure: '确认',
             btnTextCancel: '取消',
             handleSure: this.initClose,
             handleClose: this.initClose,

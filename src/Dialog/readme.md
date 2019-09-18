@@ -11,9 +11,9 @@
   showCloseIcon={false} // 表示是否展示右上角的关闭按钮，默认展示
   close={this.initClose} // 关闭父元素的方法，调用父元素的关闭，比如被Animate包裹的时候，会自动传入一个handleClose方法，关闭
   customClassName='my-class'
-  buttons={[  // 默认展示"确定"按钮和"取消按钮"，都调用this.initClose
+  buttons={[  // 默认展示"确认"按钮和"取消按钮"，都调用this.initClose
       {
-        text: '确定',
+        text: '确认',
         fn: (param)=>{
           handleSure(param); // 这种情况是先调用确定按钮的操作，再调用父元素的关闭方法
           this.initClose();
