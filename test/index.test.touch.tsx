@@ -17,8 +17,7 @@ render(
             });
         }}
     >
-        <HoverAlert/>
-        请输入正确的昵称ConfirmDialogTouch
+        <HoverAlert icon='请输入正确的昵称ConfirmDialogTouch'/>
     </div>,
     document.getElementById('hoverTipsOneTouch'),
 );

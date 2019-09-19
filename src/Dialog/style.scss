@@ -40,21 +40,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            &:before{
-                content: "!";
-                display: inline-block;
-                width: 24px;
-                height: 24px;
-                border: 2px solid;
-                border-radius: 22px;
-                line-height: 22px;
-                text-align: center;
-                color: #f00;
-                font-weight: bolder;
-                font-size: 20px;
-                box-sizing: border-box;
-                margin-right: 12px;
-            }
         }
         .close {
             width: 16px;
