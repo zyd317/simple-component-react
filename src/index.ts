@@ -8,6 +8,7 @@ export {
     Dialog,
     SystemComponent,
     Select,
+    BigDialog,
 } from './usualComponentWeb';
 
 export {

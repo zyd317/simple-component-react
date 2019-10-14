@@ -1,0 +1,73 @@
+.__simple_dialog_coo_big {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        z-index: 1000;
+    }
+    .dialog {
+        border-radius: 2px;
+        background-color: #fafbfc;
+        z-index: 1000;
+        width: 665px;
+        max-width: 90%;
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    }
+    .dialog-header {
+        height: 58px;
+        border-radius: 2px;
+        background-color: #f5f6f7;
+        font-size: 16px;
+        color: #282f38;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .close {
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+        }
+    }
+    .dialog-body{
+        text-align: left;
+        color: #333;
+        font-size: 14px;
+    }
+    .dialog-footer {
+        display: flex;
+        margin: 32px 44px;
+        justify-content: flex-end;
+        .button {
+            font-size: 12px;
+            cursor: pointer;
+            padding: 7px 20px;
+            margin: 0 6px;
+            border-radius: 2px;
+            color: #666;
+            border: 1px solid #ddd;
+            &:first-of-type {
+                padding: 8px 20px;
+                border: 0;
+                color: #fff;
+                background-color: #ef4040;
+            }
+        }
+    }
+}

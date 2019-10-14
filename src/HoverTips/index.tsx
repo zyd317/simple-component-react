@@ -1,4 +1,5 @@
 import React from 'react';
+import './tipsStyle.scss';
 import './style.scss';
 export default function HoverContainer (props: SimpleComponentReact.HoverContainerProps) {
     const {tips, className= '', position= 'top', children, icon} = props;
@@ -8,14 +9,14 @@ export default function HoverContainer (props: SimpleComponentReact.HoverContain
         clas += ' text_center';
     }
     return (
-        <div {...props} className={`m_hover_container_tips ${className} ${position}`}>
-            {icon ? icon : <div className={`icon ${(tips || children) ? 'active' : ''}`}/>}
+        <div {...props} className={`m_container_tips m_hover_container_tips ${className} ${position}`}>
+            {icon ? icon : <img src={require('../static/ask.svg')} className={`icon ${(tips || children) ? 'active' : ''}`} />}
             {(tips || children) ?
                 <div className={clas}>
-                    <div className="hover_content_main">
+                    <div className="content_main hover_content_main">
                         {tips || children}
                     </div>
-                    <div className="hover_arrow_icon" />
+                    <div className="arrow_icon hover_arrow_icon" />
                 </div>
                 : null
             }

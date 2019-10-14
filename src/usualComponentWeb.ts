@@ -5,6 +5,7 @@ import CustomComponent from './CustomComponent';
 import Sys from './SystemComponent';
 const {SystemComponent, Animation, ConfirmDialog, PopAlert} = Sys;
 import Dialog from './Dialog';
+import BigDialog from './BigDialog';
 import HoverAlert from './HoverTips';
 import ClickTips from './ClickTips';
 import Select from './Select';
@@ -18,4 +19,5 @@ export {
     ClickTips,
     Dialog,
     SystemComponent,
+    BigDialog,
 };
