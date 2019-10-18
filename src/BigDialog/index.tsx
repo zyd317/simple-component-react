@@ -33,7 +33,7 @@ function getTitle (title: string, showCloseIcon: boolean, close: () => void) {
             <div className="title">{title}</div>
             {
                 showCloseIcon ?
-                    <img className="close" onClick={close} src="//sf3-ttcdn-tos.pstatp.com/obj/ttfe/MP_SOURCE/x.svg"/>
+                    <img className="close" onClick={close} src={require('../static/x.svg')}/>
                     : null
             }
         </div>
