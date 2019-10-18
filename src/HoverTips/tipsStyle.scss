@@ -1,9 +1,9 @@
 .m_container_tips{
   position: relative;
   display: inline-block;
-  line-height: 20px;
   cursor: default;
   height: 12px;
+  line-height: 12px;
   font-size: 14px;
   color: #999;
   .content{
@@ -13,6 +13,7 @@
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     border-radius: 2px;
     display: none;
+    line-height: 1.4em;
     &.text_center{
       text-align: center;
     }
