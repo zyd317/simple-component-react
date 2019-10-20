@@ -22,20 +22,21 @@
         z-index: 1000;
     }
     .dialog {
-        border-radius: 2px;
         background-color: #fafbfc;
+        border-radius: 2px;
+        position: relative; // 修复在safari11上，这个不设置定位就不能覆盖.modal的位置
         z-index: 1000;
         width: 665px;
         max-width: 90%;
         box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
     }
     .dialog-header {
+        padding: 0 24px;
         height: 58px;
         border-radius: 2px;
         background-color: #f5f6f7;
         font-size: 16px;
         color: #282f38;
-        padding: 0 24px;
         display: flex;
         align-items: center;
         justify-content: space-between;
