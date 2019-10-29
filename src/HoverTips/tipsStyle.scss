@@ -10,7 +10,6 @@
     z-index: 999;
     color: #666;
     position: absolute;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     border-radius: 2px;
     display: none;
     line-height: 1.4em;
@@ -27,6 +26,7 @@
       white-space: nowrap;
       border-radius: 6px;
       z-index: 1;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     }
     .arrow_icon{
       position: absolute;
@@ -42,30 +42,28 @@
     .content{
       top: 50%;
       right: 9px;
-      margin-top: 3px;
-      margin-right: 100%;
+      padding-right: 100%;
       transform: translateY(-50%);
     }
     .arrow_icon{
-      margin-top: -7px;
+      margin-top: -4px;
       top: 50%;
-      right: -4px;
+      right: 8px;
       transform: rotate(-45deg);
     }
   }
 
   &.right{
     .content{
-      margin-top: 2px;
       top: 50%;
       left: 9px;
-      margin-left: 100%;
+      padding-left: 100%;
       transform: translateY(-50%);
     }
     .arrow_icon{
-      margin-top: -7px;
+      margin-top: -4px;
       top: 50%;
-      left: -4px;
+      left: 8px;
       transform: rotate(135deg);
     }
   }
@@ -75,13 +73,13 @@
       left: 50%;
       margin-left: 8px;
       top: 100%;
-      margin-top: 9px;
+      padding-top: 9px;
       transform: translateX(-50%);
     }
     .arrow_icon{
       margin-left: -12px;
       left: 50%;
-      top: -4px;
+      top: 5px;
       transform: rotate(-135deg);
     }
   }
@@ -91,13 +89,13 @@
       left: 50%;
       margin-left: 7px;
       bottom: 100%;
-      margin-bottom: 9px;
+      padding-bottom: 9px;
       transform: translateX(-50%);
     }
     .arrow_icon{
       margin-left: -12px;
       left: 50%;
-      bottom: -4px;
+      bottom: 5px;
       transform: rotate(45deg);
     }
   }
