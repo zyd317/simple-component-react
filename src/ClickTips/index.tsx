@@ -55,7 +55,7 @@ export default function ClickContainer(props: SimpleComponentReact.HoverContaine
                         <div className="click_content_main content_main">
                             {tips || children}
                         </div>
-                        <div className="click_arrow_icon arrow_icon" />
+                        <div className="arrow_icon click_arrow_icon" />
                     </div>
                 );
             }

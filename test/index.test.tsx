@@ -46,7 +46,7 @@ render(
 );
 
 render(
-    <HoverAlert position="left" icon={'啥都不写相当于一个普通div'} onClick={() => {alert('haha'); }} />
+    <HoverAlert position="left" icon={'啥都不写相当于一个普通div'}>snjkfbhrgrehjw</HoverAlert>
     , document.getElementById('hoverTipsLeft'),
 );
 render(
