@@ -205,6 +205,7 @@ import {Dialog} from 'simple-component-react/lib/usualComponentWeb';
 ![ConfirmDialogTouchNoTitle](/ConfirmDialogTouchNoTitle.png)
 ```
 import {SystemComponentTouch} from 'simple-component-react/lib/usualComponentTouch';
+SystemComponentTouch.open('Toast', {text: 'dsfa'})
 SystemComponentTouch.open('ConfirmDialogTouch', {
     title: '失败提示', // 可以不设置title
     content: '失败了哦，请检查一下数据～',
