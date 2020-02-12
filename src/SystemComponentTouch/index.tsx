@@ -6,6 +6,7 @@ import {render} from 'react-dom';
 import {createEvent, dispatchEvent} from 'utils/eventUtils';
 import Animation from '../Animation';
 import ConfirmDialogTouch from '../ConfirmDialogTouch';
+import Toast from '../Toast';
 import ComponentWrapper from './ComponentWrapper';
 
 // import的时候，判断__SYSTEM_COMPONENT_TOUCH是否存在，没有的话render组件到页面中。有的话不需要管了
@@ -17,8 +18,10 @@ function insertDom () {
         node.setAttribute('id', '__SYSTEM_COMPONENT_TOUCH');
         doc.body.appendChild(node);
         const ConfirmDialogTouchAnimate = Animation(ConfirmDialogTouch);
+        const ToastAnimate = Animation(Toast);
         render(
             <ComponentWrapper
+                Toast={ToastAnimate}
                 ConfirmDialogTouch={ConfirmDialogTouch}
                 ConfirmDialogTouchAnimate={ConfirmDialogTouchAnimate}
             />, node);
