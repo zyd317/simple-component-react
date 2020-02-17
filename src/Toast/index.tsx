@@ -25,7 +25,9 @@ class Toast
       }
       return (
           <div className='m-toast-touch'>
-              {text}
+              <div>
+                  {text}
+              </div>
           </div>
       );
   }
