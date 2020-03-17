@@ -2,8 +2,8 @@
  * 打包的每个分类常用组件，可以按需加载
  */
 import CustomComponent from './CustomComponent';
-import Sys from './SystemComponent';
-const {SystemComponent, Animation, ConfirmDialog, PopAlert} = Sys;
+import Sys from './HooksComponent';
+const {SystemComponent, Animation, ConfirmDialog, PopAlert, ComponentWrapper} = Sys;
 import Dialog from './Dialog';
 import BigDialog from './BigDialog';
 import HoverAlert from './HoverTips';
@@ -20,4 +20,5 @@ export {
     Dialog,
     SystemComponent,
     BigDialog,
+    ComponentWrapper
 };

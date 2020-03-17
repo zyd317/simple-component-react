@@ -9,6 +9,7 @@ export {
     SystemComponent,
     Select,
     BigDialog,
+    ComponentWrapper
 } from './usualComponentWeb';
 
 export {
