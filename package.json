@@ -52,7 +52,7 @@
     "babel-runtime": "^6.3.13",
     "css-loader": "^0.28.7",
     "file-loader": "^4.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
